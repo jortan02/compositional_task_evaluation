@@ -1,17 +1,14 @@
-import sys
-import pandas as pd
+import os
 import torch
 import warnings
 from tqdm import tqdm
 from transformers import DataCollatorWithPadding
 from transformers import T5Tokenizer
 from torch.utils.data import DataLoader
-from datasets import Dataset
+from datasets import load_dataset
 import re
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-def tokenize(batch, tokenizer):
-    return tokenizer(batch["question"], padding="max_length", truncation=True)
 
 def generate_encodings(tokenizer, dataset):
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -20,7 +17,7 @@ def generate_encodings(tokenizer, dataset):
 
 def generate_texts(model, tokenizer, encodings):
     with torch.no_grad():
-        generated_ids = model.generate(**encodings, max_new_tokens=1024)
+        generated_ids = model.generate(**encodings, max_new_tokens=20)
     generated_texts = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
     return generated_texts
 
@@ -31,7 +28,7 @@ def get_accuracy(expected, actual):
         if len(prediction) == 0: # No number was found in answer
             continue
         if len(prediction) > 1:
-            warnings.warn(f"WARNING: Prediction contained multiple integers (Expected: {expected[index]}, Actual: {actual['answer'][index]}). Resorting to the last number found.")
+            warnings.warn(f"Prediction contained multiple integers (Expected: {expected[index]}, Actual: {actual['answer'][index]}). Resorting to the last number found.")
         if prediction[-1] != int(prediction[-1]): # All examples' answers should be integers
             continue
         if int(prediction[-1]) == int(actual["answer"][index]):
@@ -48,24 +45,29 @@ def evaluate_model(model, tokenizer, dataset, batch_size):
         generated_texts = generate_texts(model, tokenizer, encodings)
         predictions.extend(generated_texts)
     accuracy = get_accuracy(predictions, dataset)
-    return accuracy
+    return accuracy, predictions
+
+def add_prediction(example, index, predictions):
+    return {"prediction": predictions[index]}    
+
+def run_experiment(model, tokenizer, batch_size, input_file, output_file):
+    dataset = load_dataset("csv", data_files=input_file)["train"]
+    accuracy, predictions = evaluate_model(model, tokenizer, dataset, batch_size)
+    dataset = dataset.map(add_prediction, with_indices=True, fn_kwargs={"predictions": predictions})
+    dataset.to_csv(output_file)
+    print(input_file, accuracy)
 
 if __name__=="__main__":
+    new_path = "./results"
+    if not os.path.exists(new_path):
+        os.makedirs(new_path)
+        
     model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-base", device_map="auto")
     tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-base")
-    batch_size = 10000
+    batch_size = 1000
     
-    dataset = Dataset.from_pandas(pd.read_csv("./data/multiply.csv"))
-    print("multiply.csv", evaluate_model(model, tokenizer, dataset, batch_size))
-    
-    dataset = Dataset.from_pandas(pd.read_csv("./data/multiply_1_digit.csv"))
-    print("multiply_1_digit.csv", evaluate_model(model, tokenizer, dataset, batch_size))
-    
-    dataset = Dataset.from_pandas(pd.read_csv("./data/carry.csv"))
-    print("carry.csv", evaluate_model(model, tokenizer, dataset, batch_size))
-    
-    dataset = Dataset.from_pandas(pd.read_csv("./data/summation.csv"))
-    print("summation.csv", evaluate_model(model, tokenizer, dataset, batch_size))
-    
-    dataset = Dataset.from_pandas(pd.read_csv("./data/concatenation.csv"))
-    print("concatenation.csv", evaluate_model(model, tokenizer, dataset, batch_size))
+    run_experiment(model, tokenizer, batch_size, input_file="./data/multiply.csv", output_file="./results/multiply_results.csv")
+    run_experiment(model, tokenizer, batch_size, input_file="./data/multiply_1_digit.csv", output_file="./results/multiply_1_digit_results.csv")
+    run_experiment(model, tokenizer, batch_size, input_file="./data/carry.csv", output_file="./results/carry_results.csv")
+    run_experiment(model, tokenizer, batch_size, input_file="./data/summation.csv", output_file="./results/summation_results.csv")
+    run_experiment(model, tokenizer, batch_size, input_file="./data/concatenation.csv", output_file="./results/concatenation_results.csv")
