@@ -1,0 +1,236 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 261, in hf_raise_for_status
+    response.raise_for_status()
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/meta-llama/Llama-2-70b-chat-hf/resolve/main/tokenizer_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1541, in get_hf_file_metadata
+    hf_raise_for_status(r)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 277, in hf_raise_for_status
+    raise GatedRepoError(message, response) from e
+huggingface_hub.utils._errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-64e8e2e5-79a1fa793cccd10b1ff3087b;8ecd937c-10f3-4591-a2bd-2299c362fccb)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-70b-chat-hf/resolve/main/tokenizer_config.json.
+Repo model meta-llama/Llama-2-70b-chat-hf is gated. You must be authenticated to access it.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 61, in <module>
+    tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-70b-chat-hf")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 677, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 510, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 443, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to request access at https://huggingface.co/meta-llama/Llama-2-70b-chat-hf and pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 261, in hf_raise_for_status
+    response.raise_for_status()
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/meta-llama/Llama-2-70b-chat-hf/resolve/main/tokenizer_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1541, in get_hf_file_metadata
+    hf_raise_for_status(r)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 277, in hf_raise_for_status
+    raise GatedRepoError(message, response) from e
+huggingface_hub.utils._errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-64e8e2e9-1e5fffd82e8981a65fd71b64;7b87656a-9e26-4604-bf07-6c8a56217390)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-70b-chat-hf/resolve/main/tokenizer_config.json.
+Repo model meta-llama/Llama-2-70b-chat-hf is gated. You must be authenticated to access it.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 61, in <module>
+    tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-70b-chat-hf")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 677, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 510, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 443, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to request access at https://huggingface.co/meta-llama/Llama-2-70b-chat-hf and pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 261, in hf_raise_for_status
+    response.raise_for_status()
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/meta-llama/Llama-2-70b-chat-hf/resolve/main/tokenizer_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1541, in get_hf_file_metadata
+    hf_raise_for_status(r)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 277, in hf_raise_for_status
+    raise GatedRepoError(message, response) from e
+huggingface_hub.utils._errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-64e8e2eb-4907e81051cd5de0222c836c;b9ae305b-7e0c-420a-817d-362857128663)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-70b-chat-hf/resolve/main/tokenizer_config.json.
+Repo model meta-llama/Llama-2-70b-chat-hf is gated. You must be authenticated to access it.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 61, in <module>
+    tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-70b-chat-hf")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 677, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 510, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 443, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to request access at https://huggingface.co/meta-llama/Llama-2-70b-chat-hf and pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 261, in hf_raise_for_status
+    response.raise_for_status()
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/meta-llama/Llama-2-70b-chat-hf/resolve/main/tokenizer_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1541, in get_hf_file_metadata
+    hf_raise_for_status(r)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 277, in hf_raise_for_status
+    raise GatedRepoError(message, response) from e
+huggingface_hub.utils._errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-64e8e2ee-56447d205f6da7d02597b411;8340b88c-8be5-459a-b470-038ba09dad79)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-70b-chat-hf/resolve/main/tokenizer_config.json.
+Repo model meta-llama/Llama-2-70b-chat-hf is gated. You must be authenticated to access it.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 61, in <module>
+    tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-70b-chat-hf")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 677, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 510, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 443, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to request access at https://huggingface.co/meta-llama/Llama-2-70b-chat-hf and pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 261, in hf_raise_for_status
+    response.raise_for_status()
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/meta-llama/Llama-2-70b-chat-hf/resolve/main/tokenizer_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1541, in get_hf_file_metadata
+    hf_raise_for_status(r)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 277, in hf_raise_for_status
+    raise GatedRepoError(message, response) from e
+huggingface_hub.utils._errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-64e8e2f1-7f0e976b3e19a9433b81da43;79cc06a6-5990-43da-a5d9-9052cb041c57)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-70b-chat-hf/resolve/main/tokenizer_config.json.
+Repo model meta-llama/Llama-2-70b-chat-hf is gated. You must be authenticated to access it.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 61, in <module>
+    tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-70b-chat-hf")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 677, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 510, in get_tokenizer_config
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 443, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to request access at https://huggingface.co/meta-llama/Llama-2-70b-chat-hf and pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`.

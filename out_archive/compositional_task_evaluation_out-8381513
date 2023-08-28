@@ -1,0 +1,211 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1838, in from_pretrained
+    raise EnvironmentError(
+OSError: Can't load tokenizer for 'meta-llama/Llama-2-7b'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'meta-llama/Llama-2-7b' is the correct path to a directory containing all relevant files for a T5Tokenizer tokenizer.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1838, in from_pretrained
+    raise EnvironmentError(
+OSError: Can't load tokenizer for 'meta-llama/Llama-2-7b'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'meta-llama/Llama-2-7b' is the correct path to a directory containing all relevant files for a T5Tokenizer tokenizer.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1838, in from_pretrained
+    raise EnvironmentError(
+OSError: Can't load tokenizer for 'meta-llama/Llama-2-7b'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'meta-llama/Llama-2-7b' is the correct path to a directory containing all relevant files for a T5Tokenizer tokenizer.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1838, in from_pretrained
+    raise EnvironmentError(
+OSError: Can't load tokenizer for 'meta-llama/Llama-2-7b'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'meta-llama/Llama-2-7b' is the correct path to a directory containing all relevant files for a T5Tokenizer tokenizer.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1838, in from_pretrained
+    raise EnvironmentError(
+OSError: Can't load tokenizer for 'meta-llama/Llama-2-7b'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'meta-llama/Llama-2-7b' is the correct path to a directory containing all relevant files for a T5Tokenizer tokenizer.
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'LlamaTokenizer'. 
+The class this function is called from is 'T5Tokenizer'.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1854, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2017, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5.py", line 194, in __init__
+    self.sp_model = self.get_spm_processor()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5.py", line 198, in get_spm_processor
+    with open(self.vocab_file, "rb") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'LlamaTokenizer'. 
+The class this function is called from is 'T5Tokenizer'.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1854, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2017, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5.py", line 194, in __init__
+    self.sp_model = self.get_spm_processor()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5.py", line 198, in get_spm_processor
+    with open(self.vocab_file, "rb") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'LlamaTokenizer'. 
+The class this function is called from is 'T5Tokenizer'.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1854, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2017, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5.py", line 194, in __init__
+    self.sp_model = self.get_spm_processor()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5.py", line 198, in get_spm_processor
+    with open(self.vocab_file, "rb") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'LlamaTokenizer'. 
+The class this function is called from is 'T5Tokenizer'.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1854, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2017, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5.py", line 194, in __init__
+    self.sp_model = self.get_spm_processor()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5.py", line 198, in get_spm_processor
+    with open(self.vocab_file, "rb") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'LlamaTokenizer'. 
+The class this function is called from is 'T5Tokenizer'.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1854, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2017, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5.py", line 194, in __init__
+    self.sp_model = self.get_spm_processor()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5.py", line 198, in get_spm_processor
+    with open(self.vocab_file, "rb") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1813, in from_pretrained
+    resolved_vocab_files[file_id] = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'meta-llama/meta-llama/Llama-2-70b-chat-hf'. Use `repo_type` argument if needed.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1813, in from_pretrained
+    resolved_vocab_files[file_id] = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'meta-llama/meta-llama/Llama-2-70b-chat-hf'. Use `repo_type` argument if needed.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1813, in from_pretrained
+    resolved_vocab_files[file_id] = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'meta-llama/meta-llama/Llama-2-70b-chat-hf'. Use `repo_type` argument if needed.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1813, in from_pretrained
+    resolved_vocab_files[file_id] = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'meta-llama/meta-llama/Llama-2-70b-chat-hf'. Use `repo_type` argument if needed.
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 11, in <module>
+    tokenizer = T5Tokenizer.from_pretrained(module)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1813, in from_pretrained
+    resolved_vocab_files[file_id] = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'meta-llama/meta-llama/Llama-2-70b-chat-hf'. Use `repo_type` argument if needed.
