@@ -1,0 +1,56 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
+    model = AutoModelForCausalLM.from_pretrained(module, model_max_length=2048, device_map="auto")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 516, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2876, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LlamaForCausalLM.__init__() got an unexpected keyword argument 'model_max_length'
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
+    model = AutoModelForCausalLM.from_pretrained(module, model_max_length=2048, device_map="auto")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 516, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2876, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LlamaForCausalLM.__init__() got an unexpected keyword argument 'model_max_length'
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
+    model = AutoModelForCausalLM.from_pretrained(module, model_max_length=2048, device_map="auto")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 516, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2876, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LlamaForCausalLM.__init__() got an unexpected keyword argument 'model_max_length'
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
+    model = AutoModelForCausalLM.from_pretrained(module, model_max_length=2048, device_map="auto")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 516, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2876, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LlamaForCausalLM.__init__() got an unexpected keyword argument 'model_max_length'
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
+    model = AutoModelForCausalLM.from_pretrained(module, model_max_length=2048, device_map="auto")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 516, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2876, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LlamaForCausalLM.__init__() got an unexpected keyword argument 'model_max_length'

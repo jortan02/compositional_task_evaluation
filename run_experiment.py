@@ -4,18 +4,18 @@ import warnings
 from tqdm import tqdm
 from datasets import load_dataset, Features, Value
 
-def generate_encodings(tokenizer, dataset):
+def _generate_encodings(tokenizer, dataset):
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     encodings = tokenizer(dataset["question"], padding=True, truncation=True, return_tensors="pt").to(device)
     return encodings
 
-def generate_texts(model, tokenizer, encodings):
+def _generate_texts(model, tokenizer, encodings):
     with torch.no_grad():
         generated_ids = model.generate(**encodings, max_new_tokens=20)
     generated_texts = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
     return generated_texts
 
-def get_accuracy(expected, actual):
+def _get_accuracy(expected, actual):
     correct = 0
     for index in range(len(expected)):
         prediction = re.findall(r"(?<!\d)([-]?\d*\.?\d+)", expected[index])
@@ -28,27 +28,28 @@ def get_accuracy(expected, actual):
             continue
         if int(prediction[-1]) == int(actual["answer"][index]):
             correct += 1
-    print("Correct:", correct, "out of", len(actual))
     return correct / len(actual)
 
-def evaluate_model(model, tokenizer, dataset, batch_size):
+def _evaluate_model(model, tokenizer, dataset, batch_size):
     shards = max(len(dataset) // batch_size, 1)
     predictions = []
     for shard_index in tqdm(range(shards)):
         dataset_shard = dataset.shard(shards, shard_index, contiguous=True)
-        encodings = generate_encodings(tokenizer, dataset_shard)
-        generated_texts = generate_texts(model, tokenizer, encodings)
+        encodings = _generate_encodings(tokenizer, dataset_shard)
+        generated_texts = _generate_texts(model, tokenizer, encodings)
         predictions.extend(generated_texts)
-    accuracy = get_accuracy(predictions, dataset)
-    return accuracy, predictions
+    # accuracy = get_accuracy(predictions, dataset)
+    # return accuracy, predictions
+    return predictions
 
-def add_prediction(example, index, predictions):
+def _add_prediction(example, index, predictions):
     example["prediction"] = predictions[index]
     return example
 
 def run_experiment(model, tokenizer, batch_size, input_file, output_file):
     dataset = load_dataset("csv", data_files=input_file, features=Features({"question": Value("string"), "answer": Value("string")}))["train"]
-    accuracy, predictions = evaluate_model(model, tokenizer, dataset, batch_size)
-    dataset = dataset.map(add_prediction, with_indices=True, fn_kwargs={"predictions": predictions})
+    # accuracy, predictions = evaluate_model(model, tokenizer, dataset, batch_size)
+    predictions = _evaluate_model(model, tokenizer, dataset, batch_size)
+    dataset = dataset.map(_add_prediction, with_indices=True, fn_kwargs={"predictions": predictions})
     dataset.to_csv(output_file)
-    print("File:", input_file, "Accuracy:", accuracy)
+    # print("File:", input_file, "Accuracy:", accuracy)
