@@ -10,7 +10,7 @@
 #SBATCH --mem=40GB
 #SBATCH --mail-user=jordan.tan@utah.edu
 #SBATCH --mail-type=FAIL,BEGIN,END
-#SBATCH -o compositional_task_evaluation_out-%j
+#SBATCH -o llama2_cte_out-%j
 
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate compositional

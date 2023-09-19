@@ -4,7 +4,7 @@ import os
 import glob
 import statistics
 
-MULTIPLICATION_PATH = "./results/multiplication"
+MULTIPLICATION_PATH = "./results/multiplication_ex_3"
 CARRY_PATH = os.path.join(MULTIPLICATION_PATH, "carry")
 CONCATENATE_PATH = os.path.join(MULTIPLICATION_PATH, "concatenate")
 MULTIPLY_PATH = os.path.join(MULTIPLICATION_PATH, "multiply")
@@ -18,7 +18,7 @@ model_param_count_dict["flan-t5-base"] = "248M params"
 model_param_count_dict["flan-t5-large"] = "780M params"
 model_param_count_dict["flan-t5-xl"] = "3B params"
 model_param_count_dict["flan-t5-xxl"] = "11B params"
-
+model_param_count_dict["toy-model"] = "0B params"
 
 class ModelResults:
     def _get_first_number(self, raw_predictions_list):
@@ -66,7 +66,7 @@ class ModelResults:
             aggregate_list = []
             for prediction in predictions_list[index]:
                 aggregate_list.extend(prediction)
-            if answers == statistics.mode(prediction):
+            if len(aggregate_list) > 0 and answers[index] == statistics.mode(aggregate_list): # TODO: aggregate_list is empty?
                 correct += 1
         return correct / total
     
@@ -102,7 +102,7 @@ class ModelResults:
             case _:
                 raise NotImplementedError()
 
-        prediction_col_names=[f"prediction-{index + 1}" for index in range(0, 10)]
+        prediction_col_names=[col for col in results_df if col.startswith("prediction")]
         raw_predictions_list = results_df[prediction_col_names].values
         predictions_list = extract_function(raw_predictions_list)
         accuracy = accuracy_function(results_df["answer"], predictions_list)
@@ -115,6 +115,13 @@ class ModelResults:
             aggregate_df[f"prediction-{index + 1}"] = results_df_list[index]["prediction"]
         return aggregate_df
     
+    def _df_equals(self, model, file_paths):
+        print(model)
+        results_df_list = [pd.read_csv(file, dtype={"question": "string", "answer": "string", "prediction": "string"}) for file in file_paths]
+        results_df_0 = results_df_list[0]
+        for results_df in results_df_list:
+            print(results_df_0.equals(results_df))
+    
     def __init__(self, model, prompt, file_paths, reason="", comments=""):
         self.model = model
         self.param_count = model_param_count_dict[model]
@@ -126,6 +133,14 @@ class ModelResults:
             results_df, compare_type="first", accuracy_type="any")
         self.any_any_accuracy = self._analyze_results(
             results_df, compare_type="any", accuracy_type="any")
+        self.first_mode_accuracy = self._analyze_results(
+            results_df, compare_type="first", accuracy_type="mode")
+        self.any_mode_accuracy = self._analyze_results(
+            results_df, compare_type="any", accuracy_type="mode")
+        self.first_majority_accuracy = self._analyze_results(
+            results_df, compare_type="first", accuracy_type="majority")
+        self.any_majority_accuracy = self._analyze_results(
+            results_df, compare_type="any", accuracy_type="majority")
         self.reason = reason
         self.comments = comments
 
@@ -171,6 +186,14 @@ def multplication_experiment(model_name, results_list):
         )
     )
 
+# toy_result = ModelResults(
+#         model="toy-model",
+#         prompt="Toy",
+#         file_paths=glob.glob(os.path.join("./results/toy/*.csv")),
+#         reason="Used to check compare and accuracy types"
+#     )
+# results_list = [toy_result]
+
 results_list = []
 multplication_experiment("flan-t5-small", results_list)
 multplication_experiment("flan-t5-base", results_list)
@@ -186,6 +209,10 @@ summary_dict = {
     "test_count": [],
     "first_any_accuracy": [],
     "any_any_accuracy": [],
+    "first_mode_accuracy": [],
+    "any_mode_accuracy": [],
+    "first_majority_accuracy": [],
+    "any_majority_accuracy": [],
     "reason": [],
     "comments": [],
 }
@@ -197,8 +224,14 @@ for result in results_list:
     summary_dict["test_count"].append(result.test_count)
     summary_dict["first_any_accuracy"].append(result.first_any_accuracy)
     summary_dict["any_any_accuracy"].append(result.any_any_accuracy)
+    summary_dict["first_mode_accuracy"].append(result.first_mode_accuracy)
+    summary_dict["any_mode_accuracy"].append(result.any_mode_accuracy)
+    summary_dict["first_majority_accuracy"].append(result.first_majority_accuracy)
+    summary_dict["any_majority_accuracy"].append(result.any_majority_accuracy)
     summary_dict["reason"].append(result.reason)
     summary_dict["comments"].append(result.comments)
     
 summary_df = pd.DataFrame(summary_dict)
-summary_df.to_csv("summaries_v2.csv", index=False)
+# summary_df.to_csv("summaries_v2.csv", index=False)
+summary_df.to_csv("summaries_v3.csv", index=False)
+# summary_df.to_csv("summaries_toy.csv", index=False)
