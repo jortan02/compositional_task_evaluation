@@ -4,3 +4,5 @@ Reorganize results folder
 Add more examples of subtasks to compositional task
 
 Make string operations
+
+Instead of mulitply.csv, we should seperate the mutliplication to digits

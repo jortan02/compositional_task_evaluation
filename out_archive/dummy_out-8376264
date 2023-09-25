@@ -1,8 +1,0 @@
-mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
-/scratch/general/vast/u1283221/huggingface_cache
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/dummy.py", line 3, in <module>
-    print(os.environ['TRANSFORMERS_CACHE'])
-          ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
-  File "<frozen os>", line 679, in __getitem__
-KeyError: 'TRANSFORMERS_CACHE'

@@ -13,12 +13,12 @@ SUM_PATH = os.path.join(MULTIPLICATION_PATH, "sum")
 
 model_param_count_dict = {}
 # https://heidloff.net/article/running-llm-flan-t5-locally/
-model_param_count_dict["flan-t5-small"] = "80M params"
-model_param_count_dict["flan-t5-base"] = "248M params"
-model_param_count_dict["flan-t5-large"] = "780M params"
-model_param_count_dict["flan-t5-xl"] = "3B params"
-model_param_count_dict["flan-t5-xxl"] = "11B params"
-model_param_count_dict["toy-model"] = "0B params"
+model_param_count_dict["flan-t5-small"] = "80000000"
+model_param_count_dict["flan-t5-base"] = "248000000"
+model_param_count_dict["flan-t5-large"] = "780000000"
+model_param_count_dict["flan-t5-xl"] = "3000000000"
+model_param_count_dict["flan-t5-xxl"] = "11000000000"
+model_param_count_dict["toy-model"] = "0"
 
 class ModelResults:
     def _get_first_number(self, raw_predictions_list):

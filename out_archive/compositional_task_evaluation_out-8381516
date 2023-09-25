@@ -1,501 +1,0 @@
-mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 261, in hf_raise_for_status
-    response.raise_for_status()
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/meta-llama/Llama-2-7b/resolve/main/config.json
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
-    resolved_file = hf_hub_download(
-                    ^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
-    metadata = get_hf_file_metadata(
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1541, in get_hf_file_metadata
-    hf_raise_for_status(r)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 271, in hf_raise_for_status
-    raise EntryNotFoundError(message, response) from e
-huggingface_hub.utils._errors.EntryNotFoundError: 404 Client Error. (Request ID: Root=1-64ea919e-73a9e54b439a6cdf3b3747af;7bf6ef05-a09a-4c24-808e-e68a6b415d61)
-
-Entry Not Found for url: https://huggingface.co/meta-llama/Llama-2-7b/resolve/main/config.json.
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
-    tokenizer = AutoTokenizer.from_pretrained(module)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 692, in from_pretrained
-    config = AutoConfig.from_pretrained(
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/configuration_auto.py", line 1007, in from_pretrained
-    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/configuration_utils.py", line 620, in get_config_dict
-    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/configuration_utils.py", line 675, in _get_config_dict
-    resolved_config_file = cached_file(
-                           ^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 479, in cached_file
-    raise EnvironmentError(
-OSError: meta-llama/Llama-2-7b does not appear to have a file named config.json. Checkout 'https://huggingface.co/meta-llama/Llama-2-7b/main' for available files.
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 261, in hf_raise_for_status
-    response.raise_for_status()
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/meta-llama/Llama-2-7b/resolve/main/config.json
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
-    resolved_file = hf_hub_download(
-                    ^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
-    metadata = get_hf_file_metadata(
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1541, in get_hf_file_metadata
-    hf_raise_for_status(r)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 271, in hf_raise_for_status
-    raise EntryNotFoundError(message, response) from e
-huggingface_hub.utils._errors.EntryNotFoundError: 404 Client Error. (Request ID: Root=1-64ea91a0-36ecf23327a3946d4c98067b;0297dad7-7d5e-4d23-8bac-8641bb4031ed)
-
-Entry Not Found for url: https://huggingface.co/meta-llama/Llama-2-7b/resolve/main/config.json.
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
-    tokenizer = AutoTokenizer.from_pretrained(module)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 692, in from_pretrained
-    config = AutoConfig.from_pretrained(
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/configuration_auto.py", line 1007, in from_pretrained
-    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/configuration_utils.py", line 620, in get_config_dict
-    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/configuration_utils.py", line 675, in _get_config_dict
-    resolved_config_file = cached_file(
-                           ^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 479, in cached_file
-    raise EnvironmentError(
-OSError: meta-llama/Llama-2-7b does not appear to have a file named config.json. Checkout 'https://huggingface.co/meta-llama/Llama-2-7b/main' for available files.
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 261, in hf_raise_for_status
-    response.raise_for_status()
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/meta-llama/Llama-2-7b/resolve/main/config.json
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
-    resolved_file = hf_hub_download(
-                    ^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
-    metadata = get_hf_file_metadata(
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1541, in get_hf_file_metadata
-    hf_raise_for_status(r)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 271, in hf_raise_for_status
-    raise EntryNotFoundError(message, response) from e
-huggingface_hub.utils._errors.EntryNotFoundError: 404 Client Error. (Request ID: Root=1-64ea91a3-33d6c9f061a323b74cdc434c;90fd8da2-89fe-47cf-a401-7311e3ad3e19)
-
-Entry Not Found for url: https://huggingface.co/meta-llama/Llama-2-7b/resolve/main/config.json.
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
-    tokenizer = AutoTokenizer.from_pretrained(module)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 692, in from_pretrained
-    config = AutoConfig.from_pretrained(
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/configuration_auto.py", line 1007, in from_pretrained
-    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/configuration_utils.py", line 620, in get_config_dict
-    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/configuration_utils.py", line 675, in _get_config_dict
-    resolved_config_file = cached_file(
-                           ^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 479, in cached_file
-    raise EnvironmentError(
-OSError: meta-llama/Llama-2-7b does not appear to have a file named config.json. Checkout 'https://huggingface.co/meta-llama/Llama-2-7b/main' for available files.
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 261, in hf_raise_for_status
-    response.raise_for_status()
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/meta-llama/Llama-2-7b/resolve/main/config.json
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
-    resolved_file = hf_hub_download(
-                    ^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
-    metadata = get_hf_file_metadata(
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1541, in get_hf_file_metadata
-    hf_raise_for_status(r)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 271, in hf_raise_for_status
-    raise EntryNotFoundError(message, response) from e
-huggingface_hub.utils._errors.EntryNotFoundError: 404 Client Error. (Request ID: Root=1-64ea91a6-5117a1d97f066b78144dc8cd;72c49593-f803-4986-976b-316812abebd5)
-
-Entry Not Found for url: https://huggingface.co/meta-llama/Llama-2-7b/resolve/main/config.json.
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
-    tokenizer = AutoTokenizer.from_pretrained(module)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 692, in from_pretrained
-    config = AutoConfig.from_pretrained(
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/configuration_auto.py", line 1007, in from_pretrained
-    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/configuration_utils.py", line 620, in get_config_dict
-    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/configuration_utils.py", line 675, in _get_config_dict
-    resolved_config_file = cached_file(
-                           ^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 479, in cached_file
-    raise EnvironmentError(
-OSError: meta-llama/Llama-2-7b does not appear to have a file named config.json. Checkout 'https://huggingface.co/meta-llama/Llama-2-7b/main' for available files.
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 261, in hf_raise_for_status
-    response.raise_for_status()
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/meta-llama/Llama-2-7b/resolve/main/config.json
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
-    resolved_file = hf_hub_download(
-                    ^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
-    metadata = get_hf_file_metadata(
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1541, in get_hf_file_metadata
-    hf_raise_for_status(r)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_errors.py", line 271, in hf_raise_for_status
-    raise EntryNotFoundError(message, response) from e
-huggingface_hub.utils._errors.EntryNotFoundError: 404 Client Error. (Request ID: Root=1-64ea91b2-0f5ba16a723f67970d87ee42;636a533d-ff8a-4bd3-9a74-f64d988d25a4)
-
-Entry Not Found for url: https://huggingface.co/meta-llama/Llama-2-7b/resolve/main/config.json.
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
-    tokenizer = AutoTokenizer.from_pretrained(module)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 692, in from_pretrained
-    config = AutoConfig.from_pretrained(
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/configuration_auto.py", line 1007, in from_pretrained
-    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/configuration_utils.py", line 620, in get_config_dict
-    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/configuration_utils.py", line 675, in _get_config_dict
-    resolved_config_file = cached_file(
-                           ^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 479, in cached_file
-    raise EnvironmentError(
-OSError: meta-llama/Llama-2-7b does not appear to have a file named config.json. Checkout 'https://huggingface.co/meta-llama/Llama-2-7b/main' for available files.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:19<00:19, 19.20s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:25<00:00, 11.81s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:25<00:00, 12.92s/it]
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 14926.35it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 249.59it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 100 examples [00:00, 1676.08 examples/s]
-  0%|          | 0/1 [00:00<?, ?it/s]Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
-Using pad_token, but it is not set yet.
-  0%|          | 0/1 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 16, in <module>
-    experiment.run_experiment(model, tokenizer, batch_size, input_file, output_file)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 51, in run_experiment
-    accuracy, predictions = evaluate_model(model, tokenizer, dataset, batch_size)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 39, in evaluate_model
-    encodings = generate_encodings(tokenizer, dataset_shard)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 9, in generate_encodings
-    encodings = tokenizer(dataset["question"], padding=True, truncation=True, return_tensors="pt").to(device)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2602, in __call__
-    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2688, in _call_one
-    return self.batch_encode_plus(
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2870, in batch_encode_plus
-    padding_strategy, truncation_strategy, max_length, kwargs = self._get_padding_truncation_strategies(
-                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2507, in _get_padding_truncation_strategies
-    raise ValueError(
-ValueError: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.41s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.76s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.01s/it]
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 17331.83it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 415.32it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 100 examples [00:00, 11226.42 examples/s]
-  0%|          | 0/1 [00:00<?, ?it/s]Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
-Using pad_token, but it is not set yet.
-  0%|          | 0/1 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 16, in <module>
-    experiment.run_experiment(model, tokenizer, batch_size, input_file, output_file)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 51, in run_experiment
-    accuracy, predictions = evaluate_model(model, tokenizer, dataset, batch_size)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 39, in evaluate_model
-    encodings = generate_encodings(tokenizer, dataset_shard)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 9, in generate_encodings
-    encodings = tokenizer(dataset["question"], padding=True, truncation=True, return_tensors="pt").to(device)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2602, in __call__
-    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2688, in _call_one
-    return self.batch_encode_plus(
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2870, in batch_encode_plus
-    padding_strategy, truncation_strategy, max_length, kwargs = self._get_padding_truncation_strategies(
-                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2507, in _get_padding_truncation_strategies
-    raise ValueError(
-ValueError: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.43s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.77s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.02s/it]
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 17189.77it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 248.24it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 10000 examples [00:00, 544969.60 examples/s]
-  0%|          | 0/10 [00:00<?, ?it/s]Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
-Using pad_token, but it is not set yet.
-  0%|          | 0/10 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 16, in <module>
-    experiment.run_experiment(model, tokenizer, batch_size, input_file, output_file)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 51, in run_experiment
-    accuracy, predictions = evaluate_model(model, tokenizer, dataset, batch_size)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 39, in evaluate_model
-    encodings = generate_encodings(tokenizer, dataset_shard)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 9, in generate_encodings
-    encodings = tokenizer(dataset["question"], padding=True, truncation=True, return_tensors="pt").to(device)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2602, in __call__
-    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2688, in _call_one
-    return self.batch_encode_plus(
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2870, in batch_encode_plus
-    padding_strategy, truncation_strategy, max_length, kwargs = self._get_padding_truncation_strategies(
-                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2507, in _get_padding_truncation_strategies
-    raise ValueError(
-ValueError: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.12s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.57s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.80s/it]
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 13189.64it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 172.00it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 10000 examples [00:00, 460568.37 examples/s]
-  0%|          | 0/10 [00:00<?, ?it/s]Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
-Using pad_token, but it is not set yet.
-  0%|          | 0/10 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 16, in <module>
-    experiment.run_experiment(model, tokenizer, batch_size, input_file, output_file)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 51, in run_experiment
-    accuracy, predictions = evaluate_model(model, tokenizer, dataset, batch_size)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 39, in evaluate_model
-    encodings = generate_encodings(tokenizer, dataset_shard)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 9, in generate_encodings
-    encodings = tokenizer(dataset["question"], padding=True, truncation=True, return_tensors="pt").to(device)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2602, in __call__
-    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2688, in _call_one
-    return self.batch_encode_plus(
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2870, in batch_encode_plus
-    padding_strategy, truncation_strategy, max_length, kwargs = self._get_padding_truncation_strategies(
-                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2507, in _get_padding_truncation_strategies
-    raise ValueError(
-ValueError: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.13s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.57s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.80s/it]
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 11781.75it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 374.42it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1000 examples [00:00, 104999.35 examples/s]
-  0%|          | 0/1 [00:00<?, ?it/s]Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
-Using pad_token, but it is not set yet.
-  0%|          | 0/1 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 16, in <module>
-    experiment.run_experiment(model, tokenizer, batch_size, input_file, output_file)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 51, in run_experiment
-    accuracy, predictions = evaluate_model(model, tokenizer, dataset, batch_size)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 39, in evaluate_model
-    encodings = generate_encodings(tokenizer, dataset_shard)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/experiment.py", line 9, in generate_encodings
-    encodings = tokenizer(dataset["question"], padding=True, truncation=True, return_tensors="pt").to(device)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2602, in __call__
-    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2688, in _call_one
-    return self.batch_encode_plus(
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2870, in batch_encode_plus
-    padding_strategy, truncation_strategy, max_length, kwargs = self._get_padding_truncation_strategies(
-                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2507, in _get_padding_truncation_strategies
-    raise ValueError(
-ValueError: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
-    tokenizer = AutoTokenizer.from_pretrained(module)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 677, in from_pretrained
-    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 510, in get_tokenizer_config
-    resolved_config_file = cached_file(
-                           ^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
-    resolved_file = hf_hub_download(
-                    ^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'meta-llama/meta-llama/Llama-2-70b-chat-hf'. Use `repo_type` argument if needed.
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
-    tokenizer = AutoTokenizer.from_pretrained(module)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 677, in from_pretrained
-    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 510, in get_tokenizer_config
-    resolved_config_file = cached_file(
-                           ^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
-    resolved_file = hf_hub_download(
-                    ^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'meta-llama/meta-llama/Llama-2-70b-chat-hf'. Use `repo_type` argument if needed.
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
-    tokenizer = AutoTokenizer.from_pretrained(module)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 677, in from_pretrained
-    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 510, in get_tokenizer_config
-    resolved_config_file = cached_file(
-                           ^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
-    resolved_file = hf_hub_download(
-                    ^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'meta-llama/meta-llama/Llama-2-70b-chat-hf'. Use `repo_type` argument if needed.
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
-    tokenizer = AutoTokenizer.from_pretrained(module)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 677, in from_pretrained
-    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 510, in get_tokenizer_config
-    resolved_config_file = cached_file(
-                           ^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
-    resolved_file = hf_hub_download(
-                    ^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'meta-llama/meta-llama/Llama-2-70b-chat-hf'. Use `repo_type` argument if needed.
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/llama2_cte.py", line 12, in <module>
-    tokenizer = AutoTokenizer.from_pretrained(module)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 677, in from_pretrained
-    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 510, in get_tokenizer_config
-    resolved_config_file = cached_file(
-                           ^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/utils/hub.py", line 428, in cached_file
-    resolved_file = hf_hub_download(
-                    ^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
-    validate_repo_id(arg_value)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
-    raise HFValidationError(
-huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'meta-llama/meta-llama/Llama-2-70b-chat-hf'. Use `repo_type` argument if needed.

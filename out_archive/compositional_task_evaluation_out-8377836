@@ -1,190 +1,0 @@
-mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
-Downloading spiece.model:   0%|          | 0.00/792k [00:00<?, ?B/s]Downloading spiece.model: 100%|██████████| 792k/792k [00:00<00:00, 9.08MB/s]
-Downloading (…)cial_tokens_map.json:   0%|          | 0.00/2.20k [00:00<?, ?B/s]Downloading (…)cial_tokens_map.json: 100%|██████████| 2.20k/2.20k [00:00<00:00, 14.7MB/s]
-Downloading (…)okenizer_config.json:   0%|          | 0.00/2.54k [00:00<?, ?B/s]Downloading (…)okenizer_config.json: 100%|██████████| 2.54k/2.54k [00:00<00:00, 16.0MB/s]
-You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
-Downloading (…)lve/main/config.json:   0%|          | 0.00/662 [00:00<?, ?B/s]Downloading (…)lve/main/config.json: 100%|██████████| 662/662 [00:00<00:00, 3.30MB/s]
-Downloading model.safetensors:   0%|          | 0.00/3.13G [00:00<?, ?B/s]Downloading model.safetensors:   1%|          | 21.0M/3.13G [00:00<00:17, 179MB/s]Downloading model.safetensors:   2%|▏         | 52.4M/3.13G [00:00<00:12, 253MB/s]Downloading model.safetensors:   3%|▎         | 94.4M/3.13G [00:00<00:09, 310MB/s]Downloading model.safetensors:   4%|▍         | 136M/3.13G [00:00<00:08, 335MB/s] Downloading model.safetensors:   6%|▌         | 178M/3.13G [00:00<00:08, 351MB/s]Downloading model.safetensors:   7%|▋         | 220M/3.13G [00:00<00:08, 359MB/s]Downloading model.safetensors:   8%|▊         | 262M/3.13G [00:00<00:07, 366MB/s]Downloading model.safetensors:  10%|▉         | 304M/3.13G [00:00<00:07, 370MB/s]Downloading model.safetensors:  11%|█         | 346M/3.13G [00:00<00:07, 373MB/s]Downloading model.safetensors:  12%|█▏        | 388M/3.13G [00:01<00:07, 376MB/s]Downloading model.safetensors:  14%|█▎        | 430M/3.13G [00:01<00:07, 377MB/s]Downloading model.safetensors:  15%|█▌        | 472M/3.13G [00:01<00:07, 378MB/s]Downloading model.safetensors:  16%|█▋        | 514M/3.13G [00:01<00:06, 379MB/s]Downloading model.safetensors:  18%|█▊        | 556M/3.13G [00:01<00:06, 379MB/s]Downloading model.safetensors:  19%|█▉        | 598M/3.13G [00:01<00:06, 380MB/s]Downloading model.safetensors:  20%|██        | 640M/3.13G [00:01<00:06, 380MB/s]Downloading model.safetensors:  22%|██▏       | 682M/3.13G [00:01<00:06, 380MB/s]Downloading model.safetensors:  23%|██▎       | 724M/3.13G [00:01<00:06, 380MB/s]Downloading model.safetensors:  24%|██▍       | 765M/3.13G [00:02<00:06, 380MB/s]Downloading model.safetensors:  26%|██▌       | 807M/3.13G [00:02<00:06, 380MB/s]Downloading model.safetensors:  27%|██▋       | 849M/3.13G [00:02<00:06, 380MB/s]Downloading model.safetensors:  28%|██▊       | 891M/3.13G [00:02<00:05, 380MB/s]Downloading model.safetensors:  30%|██▉       | 933M/3.13G [00:02<00:05, 379MB/s]Downloading model.safetensors:  31%|███       | 975M/3.13G [00:02<00:05, 380MB/s]Downloading model.safetensors:  32%|███▏      | 1.02G/3.13G [00:02<00:05, 380MB/s]Downloading model.safetensors:  34%|███▍      | 1.06G/3.13G [00:02<00:05, 380MB/s]Downloading model.safetensors:  35%|███▌      | 1.10G/3.13G [00:02<00:05, 381MB/s]Downloading model.safetensors:  36%|███▋      | 1.14G/3.13G [00:03<00:05, 380MB/s]Downloading model.safetensors:  38%|███▊      | 1.18G/3.13G [00:03<00:05, 380MB/s]Downloading model.safetensors:  39%|███▉      | 1.23G/3.13G [00:03<00:05, 372MB/s]Downloading model.safetensors:  41%|████      | 1.27G/3.13G [00:03<00:04, 374MB/s]Downloading model.safetensors:  42%|████▏     | 1.31G/3.13G [00:03<00:04, 376MB/s]Downloading model.safetensors:  43%|████▎     | 1.35G/3.13G [00:03<00:04, 377MB/s]Downloading model.safetensors:  45%|████▍     | 1.39G/3.13G [00:03<00:04, 378MB/s]Downloading model.safetensors:  46%|████▌     | 1.44G/3.13G [00:03<00:04, 379MB/s]Downloading model.safetensors:  47%|████▋     | 1.48G/3.13G [00:03<00:04, 380MB/s]Downloading model.safetensors:  49%|████▊     | 1.52G/3.13G [00:04<00:04, 379MB/s]Downloading model.safetensors:  50%|████▉     | 1.56G/3.13G [00:04<00:04, 380MB/s]Downloading model.safetensors:  51%|█████     | 1.60G/3.13G [00:04<00:04, 380MB/s]Downloading model.safetensors:  53%|█████▎    | 1.65G/3.13G [00:04<00:03, 380MB/s]Downloading model.safetensors:  54%|█████▍    | 1.69G/3.13G [00:04<00:03, 380MB/s]Downloading model.safetensors:  55%|█████▌    | 1.73G/3.13G [00:04<00:03, 380MB/s]Downloading model.safetensors:  57%|█████▋    | 1.77G/3.13G [00:04<00:03, 380MB/s]Downloading model.safetensors:  58%|█████▊    | 1.81G/3.13G [00:04<00:03, 380MB/s]Downloading model.safetensors:  59%|█████▉    | 1.86G/3.13G [00:04<00:03, 381MB/s]Downloading model.safetensors:  61%|██████    | 1.90G/3.13G [00:05<00:03, 381MB/s]Downloading model.safetensors:  62%|██████▏   | 1.94G/3.13G [00:05<00:03, 381MB/s]Downloading model.safetensors:  63%|██████▎   | 1.98G/3.13G [00:05<00:03, 381MB/s]Downloading model.safetensors:  65%|██████▍   | 2.02G/3.13G [00:05<00:02, 382MB/s]Downloading model.safetensors:  66%|██████▌   | 2.07G/3.13G [00:05<00:02, 381MB/s]Downloading model.safetensors:  67%|██████▋   | 2.11G/3.13G [00:05<00:02, 382MB/s]Downloading model.safetensors:  69%|██████▊   | 2.15G/3.13G [00:05<00:02, 381MB/s]Downloading model.safetensors:  70%|██████▉   | 2.19G/3.13G [00:05<00:02, 381MB/s]Downloading model.safetensors:  71%|███████▏  | 2.23G/3.13G [00:05<00:02, 381MB/s]Downloading model.safetensors:  73%|███████▎  | 2.28G/3.13G [00:06<00:02, 381MB/s]Downloading model.safetensors:  74%|███████▍  | 2.32G/3.13G [00:06<00:02, 380MB/s]Downloading model.safetensors:  75%|███████▌  | 2.36G/3.13G [00:06<00:02, 381MB/s]Downloading model.safetensors:  77%|███████▋  | 2.40G/3.13G [00:06<00:01, 381MB/s]Downloading model.safetensors:  78%|███████▊  | 2.44G/3.13G [00:06<00:01, 381MB/s]Downloading model.safetensors:  79%|███████▉  | 2.49G/3.13G [00:06<00:01, 381MB/s]Downloading model.safetensors:  81%|████████  | 2.53G/3.13G [00:06<00:01, 381MB/s]Downloading model.safetensors:  82%|████████▏ | 2.57G/3.13G [00:06<00:01, 381MB/s]Downloading model.safetensors:  83%|████████▎ | 2.61G/3.13G [00:06<00:01, 381MB/s]Downloading model.safetensors:  85%|████████▍ | 2.65G/3.13G [00:07<00:01, 381MB/s]Downloading model.safetensors:  86%|████████▌ | 2.69G/3.13G [00:07<00:01, 380MB/s]Downloading model.safetensors:  87%|████████▋ | 2.74G/3.13G [00:07<00:01, 380MB/s]Downloading model.safetensors:  89%|████████▊ | 2.78G/3.13G [00:07<00:00, 380MB/s]Downloading model.safetensors:  90%|█████████ | 2.82G/3.13G [00:07<00:00, 380MB/s]Downloading model.safetensors:  91%|█████████▏| 2.86G/3.13G [00:07<00:00, 381MB/s]Downloading model.safetensors:  93%|█████████▎| 2.90G/3.13G [00:07<00:00, 381MB/s]Downloading model.safetensors:  94%|█████████▍| 2.95G/3.13G [00:07<00:00, 380MB/s]Downloading model.safetensors:  95%|█████████▌| 2.99G/3.13G [00:07<00:00, 381MB/s]Downloading model.safetensors:  97%|█████████▋| 3.03G/3.13G [00:08<00:00, 381MB/s]Downloading model.safetensors:  98%|█████████▊| 3.07G/3.13G [00:08<00:00, 381MB/s]Downloading model.safetensors:  99%|█████████▉| 3.11G/3.13G [00:08<00:00, 381MB/s]Downloading model.safetensors: 100%|██████████| 3.13G/3.13G [00:08<00:00, 376MB/s]
-Downloading (…)neration_config.json:   0%|          | 0.00/147 [00:00<?, ?B/s]Downloading (…)neration_config.json: 100%|██████████| 147/147 [00:00<00:00, 859kB/s]
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 18001.30it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 649.17it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 100 examples [00:00, 1235.35 examples/s]
-  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:03<00:00,  3.35s/it]100%|██████████| 1/1 [00:03<00:00,  3.35s/it]
-Correct: 0 out of 100
-Map:   0%|          | 0/100 [00:00<?, ? examples/s]Map: 100%|██████████| 100/100 [00:00<00:00, 7682.02 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 40.87ba/s]
-File: ./data/multiply_1_digit.csv Accuracy: 0.0
-You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 16384.00it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 638.60it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 100 examples [00:00, 12614.83 examples/s]
-  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  1.55it/s]100%|██████████| 1/1 [00:00<00:00,  1.55it/s]
-Correct: 0 out of 100
-Map:   0%|          | 0/100 [00:00<?, ? examples/s]Map: 100%|██████████| 100/100 [00:00<00:00, 8861.46 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 287.50ba/s]
-File: ./data/carry.csv Accuracy: 0.0
-You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 16448.25it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 542.81it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 10000 examples [00:00, 504596.14 examples/s]
-  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:02<00:25,  2.85s/it] 20%|██        | 2/10 [00:05<00:20,  2.61s/it] 30%|███       | 3/10 [00:07<00:17,  2.53s/it] 40%|████      | 4/10 [00:10<00:14,  2.50s/it] 50%|█████     | 5/10 [00:12<00:12,  2.49s/it] 60%|██████    | 6/10 [00:15<00:10,  2.52s/it] 70%|███████   | 7/10 [00:17<00:07,  2.53s/it] 80%|████████  | 8/10 [00:20<00:05,  2.55s/it] 90%|█████████ | 9/10 [00:22<00:02,  2.56s/it]100%|██████████| 10/10 [00:25<00:00,  2.57s/it]100%|██████████| 10/10 [00:25<00:00,  2.55s/it]
-Correct: 0 out of 10000
-Map:   0%|          | 0/10000 [00:00<?, ? examples/s]Map:  62%|██████▏   | 6191/10000 [00:00<00:00, 60370.95 examples/s]Map: 100%|██████████| 10000/10000 [00:00<00:00, 55856.06 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/10 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 10/10 [00:00<00:00, 541.00ba/s]
-File: ./data/summation.csv Accuracy: 0.0
-You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 16448.25it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 557.83it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 10000 examples [00:00, 562956.04 examples/s]
-  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:02<00:26,  2.92s/it] 20%|██        | 2/10 [00:05<00:21,  2.70s/it] 30%|███       | 3/10 [00:08<00:18,  2.64s/it] 40%|████      | 4/10 [00:10<00:15,  2.62s/it] 50%|█████     | 5/10 [00:13<00:13,  2.61s/it] 60%|██████    | 6/10 [00:15<00:10,  2.63s/it] 70%|███████   | 7/10 [00:18<00:07,  2.63s/it] 80%|████████  | 8/10 [00:21<00:05,  2.63s/it] 90%|█████████ | 9/10 [00:23<00:02,  2.63s/it]100%|██████████| 10/10 [00:26<00:00,  2.63s/it]100%|██████████| 10/10 [00:26<00:00,  2.64s/it]
-Correct: 0 out of 10000
-Map:   0%|          | 0/10000 [00:00<?, ? examples/s]Map:  62%|██████▏   | 6158/10000 [00:00<00:00, 60482.54 examples/s]Map: 100%|██████████| 10000/10000 [00:00<00:00, 54982.32 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/10 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 10/10 [00:00<00:00, 500.38ba/s]
-File: ./data/multiply.csv Accuracy: 0.0
-You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 12409.18it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 583.03it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1000 examples [00:00, 109047.76 examples/s]
-  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:05<00:00,  5.29s/it]100%|██████████| 1/1 [00:05<00:00,  5.29s/it]
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 1 & 2, Actual: 12). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 1 & 3, Actual: 13). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 1 & 5, Actual: 15). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 1 & 7, Actual: 17). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 2 & 3, Actual: 23). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 2 & 4, Actual: 24). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 2 & 7, Actual: 27). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 2 & 9, Actual: 29). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 3 & 2, Actual: 32). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 3 & 4, Actual: 34). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 3 & 6, Actual: 36). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 3 & 7, Actual: 37). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 3 & 8, Actual: 38). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 3 & 9, Actual: 39). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 5 & 7, Actual: 57). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 5 & 9, Actual: 59). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 6 & 3, Actual: 63). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 6 & 9, Actual: 69). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 7 & 8, Actual: 78). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 7 & 9, Actual: 79). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 8 & 3, Actual: 83). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 8 & 4, Actual: 84). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 8 & 6, Actual: 86). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 8 & 7, Actual: 87). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 8 & 9, Actual: 89). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 0 & 9 & 3, Actual: 93). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: ### 1 & 0 & 0, Actual: 100). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: ### 1 & 0 & 1, Actual: 101). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 1, Actual: 121). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 4 & 1, Actual: 141). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 1&7&7, Actual: 177). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 1&8&8, Actual: 188). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 1&9&9, Actual: 199). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: ### 2 & 0 & 2, Actual: 202). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2&0&3, Actual: 203). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 0 & 4, Actual: 204). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2&0&6, Actual: 206). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 0 & 7, Actual: 207). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 0 & 8, Actual: 208). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 1 & 0, Actual: 210). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 1, Actual: 211). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 1 & 3, Actual: 213). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 1 & 4, Actual: 214). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 1 & 6, Actual: 216). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 1 & 7, Actual: 217). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 1 & 8, Actual: 218). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 1 & 9, Actual: 219). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 2 & 0, Actual: 220). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 2 & 1, Actual: 221). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 2 & 2, Actual: 222). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 2 & 3, Actual: 223). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 2 & 4, Actual: 224). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 2 & 6, Actual: 226). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 2 & 7, Actual: 227). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 2 & 8, Actual: 228). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 2 & 2 & 9, Actual: 229). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 3 & 3, Actual: 330). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 3 & 3 & 2, Actual: 332). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 3 & 3 & 3, Actual: 333). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 3 & 3 & 4, Actual: 334). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 3 & 3 & 6, Actual: 336). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 3 & 3 & 7, Actual: 337). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: ### 6 & 0 & 0, Actual: 600). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: ### 6 & 0 & 1, Actual: 601). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: ### 6 & 0 & 2, Actual: 602). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: ### 6 & 0 & 6, Actual: 606). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: ### 7 & 0 & 7, Actual: 707). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 77 & 77, Actual: 772). Resorting to the last number found.
-  warnings.warn(warning)
-/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py:30: UserWarning: Prediction contained multiple integers (Expected: 77 & 77 = 88, Actual: 778). Resorting to the last number found.
-  warnings.warn(warning)
-Correct: 0 out of 1000
-Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map: 100%|██████████| 1000/1000 [00:00<00:00, 37839.02 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 260.22ba/s]
-File: ./data/concatenation.csv Accuracy: 0.0

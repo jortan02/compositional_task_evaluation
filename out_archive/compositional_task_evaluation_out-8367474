@@ -1,5 +1,0 @@
-mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/compositional_task_evaluation.py", line 3, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'

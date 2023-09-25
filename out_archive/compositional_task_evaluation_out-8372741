@@ -1,5 +1,0 @@
-mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/compositional_task_evaluation.py", line 34
-    warnings.warn(f"WARNING: Prediction contained multiple integers (Expected: {expected[index]}, Actual: {actual["answer"][index]}). Resorting to the last number found.")
-                                                                                                                   ^^^^^^
-SyntaxError: f-string: unmatched '['
