@@ -9,7 +9,7 @@
 #SBATCH --mem=5GB
 #SBATCH --mail-user=jordan.tan@utah.edu
 #SBATCH --mail-type=FAIL,BEGIN,END
-#SBATCH -o run_flan-t5-small_carry_pt_1_ex_1_out-%j
+#SBATCH -o a9_out-%j
 
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate compositional

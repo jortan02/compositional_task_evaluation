@@ -5,11 +5,11 @@
 #SBATCH --ntasks-per-node=32
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
-#SBATCH --time=4:00:00
+#SBATCH --time=1:00:00
 #SBATCH --mem=30GB
 #SBATCH --mail-user=jordan.tan@utah.edu
 #SBATCH --mail-type=FAIL,BEGIN,END
-#SBATCH -o run_flan-t5-xl_carry_pt_1_ex_3_out-%j
+#SBATCH -o a33_out-%j
 
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate compositional

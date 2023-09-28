@@ -20,7 +20,7 @@ python generate_datasets.py
 
 # # google/flan-t5-small
 # # python t5_cte.py ./data/digit_ex_1/multiply_1_digit.csv ./results/digit_ex_1/multiply_1_digit/flan-t5-small/ 10 google/flan-t5-small 1000
-# # python t5_cte.py ./data/digit_ex_1/multiply_2_digits.csv ./results/digit_ex_1/multiply_2_digits/flan-t5-small/ 10 google/flan-t5-small 1000
+# python t5_cte.py ./data/digit_ex_1/multiply_2_digits.csv ./results/digit_ex_1/multiply_2_digits/flan-t5-small/ 10 google/flan-t5-small 1000
 # python t5_cte.py ./data/digit_ex_1/multiply_3_digits.csv ./results/digit_ex_1/multiply_3_digits/flan-t5-small/ 10 google/flan-t5-small 1000
 # python t5_cte.py ./data/digit_ex_1/multiply_4_digits.csv ./results/digit_ex_1/multiply_4_digits/flan-t5-small/ 10 google/flan-t5-small 1000
 # python t5_cte.py ./data/digit_ex_1/multiply_5_digits.csv ./results/digit_ex_1/multiply_5_digits/flan-t5-small/ 10 google/flan-t5-small 1000
@@ -74,6 +74,6 @@ python t5_cte.py ./data/digit_ex_1/multiply_4_digits.csv ./results/digit_ex_1/mu
 python t5_cte.py ./data/digit_ex_1/multiply_5_digits.csv ./results/digit_ex_1/multiply_5_digits/flan-t5-xxl/ 10 google/flan-t5-xxl 10
 # python t5_cte.py ./data/digit_ex_1/sum_1_digit.csv ./results/digit_ex_1/sum_1_digit/flan-t5-xxl/ 10 google/flan-t5-xxl 10
 # python t5_cte.py ./data/digit_ex_1/sum_2_digits.csv ./results/digit_ex_1/sum_2_digits/flan-t5-xxl/ 10 google/flan-t5-xxl 10
-python t5_cte.py ./data/digit_ex_1/sum_3_digits.csv ./results/digit_ex_1/sum_3_digits/flan-t5-xxl/ 10 google/flan-t5-xxl 10
-python t5_cte.py ./data/digit_ex_1/sum_4_digits.csv ./results/digit_ex_1/sum_4_digits/flan-t5-xxl/ 10 google/flan-t5-xxl 10
-python t5_cte.py ./data/digit_ex_1/sum_5_digits.csv ./results/digit_ex_1/sum_5_digits/flan-t5-xxl/ 10 google/flan-t5-xxl 10
+# python t5_cte.py ./data/digit_ex_1/sum_3_digits.csv ./results/digit_ex_1/sum_3_digits/flan-t5-xxl/ 10 google/flan-t5-xxl 10
+# python t5_cte.py ./data/digit_ex_1/sum_4_digits.csv ./results/digit_ex_1/sum_4_digits/flan-t5-xxl/ 10 google/flan-t5-xxl 10
+# python t5_cte.py ./data/digit_ex_1/sum_5_digits.csv ./results/digit_ex_1/sum_5_digits/flan-t5-xxl/ 10 google/flan-t5-xxl 10

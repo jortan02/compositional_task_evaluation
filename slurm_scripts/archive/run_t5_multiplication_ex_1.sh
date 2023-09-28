@@ -19,9 +19,9 @@ export TRANSFORMERS_CACHE="/scratch/general/vast/u1283221/huggingface_cache"
 python generate_datasets.py
 
 # google/flan-t5-small
-# python t5_cte.py ./data/multiplication_ex_1/multiply_1_digit.csv ./results/multiplication_ex_1/multiply_1_digit/flan-t5-small/ 10 google/flan-t5-small 1000
-# python t5_cte.py ./data/multiplication_ex_1/carry.csv ./results/multiplication_ex_1/carry/flan-t5-small/ 10 google/flan-t5-small 1000
-# python t5_cte.py ./data/multiplication_ex_1/sum.csv ./results/multiplication_ex_1/sum/flan-t5-small/ 10 google/flan-t5-small 1000
+python t5_cte.py ./data/multiplication_ex_1/multiply_1_digit.csv ./results/multiplication_ex_1/multiply_1_digit/flan-t5-small/ 10 google/flan-t5-small 1000
+python t5_cte.py ./data/multiplication_ex_1/carry.csv ./results/multiplication_ex_1/carry/flan-t5-small/ 10 google/flan-t5-small 1000
+python t5_cte.py ./data/multiplication_ex_1/sum.csv ./results/multiplication_ex_1/sum/flan-t5-small/ 10 google/flan-t5-small 1000
 python t5_cte.py ./data/multiplication_ex_1/multiply.csv ./results/multiplication_ex_1/multiply/flan-t5-small/ 10 google/flan-t5-small 1000
 python t5_cte.py ./data/multiplication_ex_1/concatenate.csv ./results/multiplication_ex_1/concatenate/flan-t5-small/ 10 google/flan-t5-small 1000
 
