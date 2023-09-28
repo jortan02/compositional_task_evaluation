@@ -1,0 +1,34 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+>> Input file: ./data/digit_ex_1/multiply_2_digits.csv, module: google/flan-t5-base
+  0%|          | 0/1 [00:00<?, ?it/s]  0%|          | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 18, in <module>
+    run_experiments.run_experiments(model, tokenizer, batch_size, input_file, output_folder, experiment_count)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiments.py", line 38, in run_experiments
+    predictions = _evaluate_model(model, tokenizer, dataset, batch_size)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiments.py", line 24, in _evaluate_model
+    encodings = _generate_encodings(tokenizer, dataset_shard)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiments.py", line 10, in _generate_encodings
+    encodings = tokenizer(dataset["question"], padding=True, truncation=True, return_tensors="pt").to(device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2602, in __call__
+    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2688, in _call_one
+    return self.batch_encode_plus(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2879, in batch_encode_plus
+    return self._batch_encode_plus(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils.py", line 744, in _batch_encode_plus
+    batch_outputs = self._batch_prepare_for_model(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils.py", line 816, in _batch_prepare_for_model
+    batch_outputs = self.pad(
+                    ^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 3018, in pad
+    raise ValueError(
+ValueError: You should supply an encoding or a list of encodings to this method that includes input_ids, but you provided []
