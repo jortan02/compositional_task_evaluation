@@ -9,7 +9,7 @@
 #SBATCH --mem=40GB
 #SBATCH --mail-user=jordan.tan@utah.edu
 #SBATCH --mail-type=FAIL,BEGIN,END
-#SBATCH -o run_t5_multiplication_ex_1_out-%j
+#SBATCH -o run_flan-t5-xxl_sum_pt_1_ex_1_out-%j
 
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate compositional
@@ -19,4 +19,4 @@ export TRANSFORMERS_CACHE="/scratch/general/vast/u1283221/huggingface_cache"
 python generate_datasets.py
 
 # google/flan-t5-xxl
-python t5_cte.py ./data/multiplication/prompt_type_1/example_count_1/sum.csv ./results/multiplication/prompt_type_1/example_count_1/sum/flan-t5-xxl/ 10 google/flan-t5-xxl 1000
+python t5_cte.py ./data/multiplication/prompt_type_1/example_count_1/sum.csv ./results/multiplication/prompt_type_1/example_count_1/sum/flan-t5-xxl/ 10 google/flan-t5-xxl 5
