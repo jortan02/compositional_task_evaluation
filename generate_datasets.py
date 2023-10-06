@@ -45,7 +45,6 @@ def generate_multiplication_dataset(folder_path, examples_count=1, aggregate=Fal
   sum_example = get_sum_example(examples_count, 0, 100, example_seed)
   concatenate_example = get_concatenate_example(examples_count, example_seed) 
   
-  # TODO: Logic for example aggregation
   if aggregate:
     aggregate_example = multiply_1_digit_example + carry_example + sum_example + concatenate_example
     multiply_1_digit_example = aggregate_example
@@ -53,6 +52,7 @@ def generate_multiplication_dataset(folder_path, examples_count=1, aggregate=Fal
     sum_example = aggregate_example
     concatenate_example = aggregate_example
   
+  # TODO: Use Python's CSV package
   with open(os.path.join(folder_path, "multiply_1_digit.csv"), "w") as file:
     file.write('question,answer\n')
     for x in range(0, 10):
@@ -161,22 +161,22 @@ def generate_digit_dataset(folder_path, examples_count=1, example_seed=0, questi
       y = random.randint(10000, 99999)
       file.write(f'"Sum two numbers.\n###\n{sum_5_digits_example}###\n{x} + {y} =",{x + y}\n')
       
-if __name__ == "main":
-  for prompt_type in [1]:
-    for example_count in [1, 3, 6]:
-      MULTIPLICATION_DATASET_DIR = f"./data/multiplication/prompt_type_{prompt_type}/example_count_{example_count}/"
-      os.makedirs(MULTIPLICATION_DATASET_DIR, exist_ok=True)
-      generate_multiplication_dataset(MULTIPLICATION_DATASET_DIR, example_count)
 
-      DIGIT_DATASET_DIR = f"./data/digit/prompt_type_{prompt_type}/example_count_{example_count}/"
-      os.makedirs(DIGIT_DATASET_DIR, exist_ok=True)
-      generate_digit_dataset(DIGIT_DATASET_DIR, example_count)
-      
-  # for prompt_type in [1]:
-  #   for example_count in [1]:
-  #     MULTIPLICATION_DATASET_DIR = f"./data/multiplication/prompt_type_{prompt_type}/aggregate_count_{example_count}/"
-  #     os.makedirs(MULTIPLICATION_DATASET_DIR, exist_ok=True)
-  #     generate_multiplication_dataset(MULTIPLICATION_DATASET_DIR, example_count, aggregate=True)
+for prompt_type in [1]:
+  for example_count in [1, 3, 6]:
+    MULTIPLICATION_DATASET_DIR = f"./data/multiplication/prompt_type_{prompt_type}/example_count_{example_count}/"
+    os.makedirs(MULTIPLICATION_DATASET_DIR, exist_ok=True)
+    generate_multiplication_dataset(MULTIPLICATION_DATASET_DIR, example_count)
+
+    DIGIT_DATASET_DIR = f"./data/digit/prompt_type_{prompt_type}/example_count_{example_count}/"
+    os.makedirs(DIGIT_DATASET_DIR, exist_ok=True)
+    generate_digit_dataset(DIGIT_DATASET_DIR, example_count)
+    
+for prompt_type in [1]:
+  for example_count in [1]:
+    MULTIPLICATION_DATASET_DIR = f"./data/multiplication/prompt_type_{prompt_type}/aggregate_count_{example_count}/"
+    os.makedirs(MULTIPLICATION_DATASET_DIR, exist_ok=True)
+    generate_multiplication_dataset(MULTIPLICATION_DATASET_DIR, example_count, aggregate=True)
           
 # Strings
 """

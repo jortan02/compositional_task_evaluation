@@ -4,22 +4,6 @@ import os
 import glob
 import statistics
 
-MULTIPLICATION_PATH = "./results/multiplication_ex_3"
-CARRY_PATH = os.path.join(MULTIPLICATION_PATH, "carry")
-CONCATENATE_PATH = os.path.join(MULTIPLICATION_PATH, "concatenate")
-MULTIPLY_PATH = os.path.join(MULTIPLICATION_PATH, "multiply")
-MULTIPLY_1_DIGIT_PATH = os.path.join(MULTIPLICATION_PATH, "multiply_1_digit")
-SUM_PATH = os.path.join(MULTIPLICATION_PATH, "sum")
-
-model_param_count_dict = {}
-# https://heidloff.net/article/running-llm-flan-t5-locally/
-model_param_count_dict["flan-t5-small"] = "80000000"
-model_param_count_dict["flan-t5-base"] = "248000000"
-model_param_count_dict["flan-t5-large"] = "780000000"
-model_param_count_dict["flan-t5-xl"] = "3000000000"
-model_param_count_dict["flan-t5-xxl"] = "11000000000"
-model_param_count_dict["toy-model"] = "0"
-
 class ModelResults:
     def _get_first_number(self, raw_predictions_list):
         outcomes = []
@@ -164,14 +148,6 @@ def multplication_experiment(model_name, results_list):
     results_list.append(
         ModelResults(
             model=model_name,
-            prompt="Multiply",
-            file_paths=glob.glob(os.path.join(MULTIPLY_PATH, model_name, "*.csv")),
-            reason="Multiplication is the compositional task."
-        )
-    )
-    results_list.append(
-        ModelResults(
-            model=model_name,
             prompt="Multiply 1-digit",
             file_paths=glob.glob(os.path.join(MULTIPLY_1_DIGIT_PATH, model_name, "*.csv")),
             reason="Multiplication requires multiplying two values at some digits place."
@@ -194,44 +170,62 @@ def multplication_experiment(model_name, results_list):
 #     )
 # results_list = [toy_result]
 
-results_list = []
-multplication_experiment("flan-t5-small", results_list)
-multplication_experiment("flan-t5-base", results_list)
-multplication_experiment("flan-t5-large", results_list)
-multplication_experiment("flan-t5-xl", results_list)
-multplication_experiment("flan-t5-xxl", results_list)
+if __name__ == "__main__":
+    PROMPT_TYPE = 1
+    EXAMPLE_COUNT = 1
+    save_path = f"summary_multiplication_pt_{PROMPT_TYPE}_ag_{EXAMPLE_COUNT}.csv"
+    MULTIPLICATION_PATH = f"./results/multiplication/prompt_type_{PROMPT_TYPE}/aggregate_count_{EXAMPLE_COUNT}/"
+    CARRY_PATH = os.path.join(MULTIPLICATION_PATH, "carry")
+    CONCATENATE_PATH = os.path.join(MULTIPLICATION_PATH, "concatenate")
+    MULTIPLY_PATH = os.path.join(MULTIPLICATION_PATH, "multiply")
+    MULTIPLY_1_DIGIT_PATH = os.path.join(MULTIPLICATION_PATH, "multiply_1_digit")
+    SUM_PATH = os.path.join(MULTIPLICATION_PATH, "sum")
 
-summary_dict = {
-    "model": [],
-    "param_count": [],
-    "prompt": [],
-    "prompt_example": [],
-    "test_count": [],
-    "first_any_accuracy": [],
-    "any_any_accuracy": [],
-    "first_mode_accuracy": [],
-    "any_mode_accuracy": [],
-    "first_majority_accuracy": [],
-    "any_majority_accuracy": [],
-    "reason": [],
-    "comments": [],
-}
-for result in results_list:
-    summary_dict["model"].append(result.model)
-    summary_dict["param_count"].append(result.param_count)
-    summary_dict["prompt"].append(result.prompt)
-    summary_dict["prompt_example"].append(result.prompt_example)
-    summary_dict["test_count"].append(result.test_count)
-    summary_dict["first_any_accuracy"].append(result.first_any_accuracy)
-    summary_dict["any_any_accuracy"].append(result.any_any_accuracy)
-    summary_dict["first_mode_accuracy"].append(result.first_mode_accuracy)
-    summary_dict["any_mode_accuracy"].append(result.any_mode_accuracy)
-    summary_dict["first_majority_accuracy"].append(result.first_majority_accuracy)
-    summary_dict["any_majority_accuracy"].append(result.any_majority_accuracy)
-    summary_dict["reason"].append(result.reason)
-    summary_dict["comments"].append(result.comments)
-    
-summary_df = pd.DataFrame(summary_dict)
-# summary_df.to_csv("summaries_v2.csv", index=False)
-summary_df.to_csv("summaries_v3.csv", index=False)
-# summary_df.to_csv("summaries_toy.csv", index=False)
+    model_param_count_dict = {}
+    # https://heidloff.net/article/running-llm-flan-t5-locally/
+    model_param_count_dict["flan-t5-small"] = "80000000"
+    model_param_count_dict["flan-t5-base"] = "248000000"
+    model_param_count_dict["flan-t5-large"] = "780000000"
+    model_param_count_dict["flan-t5-xl"] = "3000000000"
+    model_param_count_dict["flan-t5-xxl"] = "11000000000"
+    model_param_count_dict["toy-model"] = "0"
+
+    results_list = []
+    multplication_experiment("flan-t5-small", results_list)
+    multplication_experiment("flan-t5-base", results_list)
+    multplication_experiment("flan-t5-large", results_list)
+    multplication_experiment("flan-t5-xl", results_list)
+    multplication_experiment("flan-t5-xxl", results_list)
+
+    summary_dict = {
+        "model": [],
+        "param_count": [],
+        "prompt": [],
+        "prompt_example": [],
+        "test_count": [],
+        "first_any_accuracy": [],
+        "any_any_accuracy": [],
+        "first_mode_accuracy": [],
+        "any_mode_accuracy": [],
+        "first_majority_accuracy": [],
+        "any_majority_accuracy": [],
+        "reason": [],
+        "comments": [],
+    }
+    for result in results_list:
+        summary_dict["model"].append(result.model)
+        summary_dict["param_count"].append(result.param_count)
+        summary_dict["prompt"].append(result.prompt)
+        summary_dict["prompt_example"].append(result.prompt_example)
+        summary_dict["test_count"].append(result.test_count)
+        summary_dict["first_any_accuracy"].append(result.first_any_accuracy)
+        summary_dict["any_any_accuracy"].append(result.any_any_accuracy)
+        summary_dict["first_mode_accuracy"].append(result.first_mode_accuracy)
+        summary_dict["any_mode_accuracy"].append(result.any_mode_accuracy)
+        summary_dict["first_majority_accuracy"].append(result.first_majority_accuracy)
+        summary_dict["any_majority_accuracy"].append(result.any_majority_accuracy)
+        summary_dict["reason"].append(result.reason)
+        summary_dict["comments"].append(result.comments)
+        
+    summary_df = pd.DataFrame(summary_dict)
+    summary_df.to_csv(save_path, index=False)

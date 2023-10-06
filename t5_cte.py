@@ -14,7 +14,7 @@ tokenizer = T5Tokenizer.from_pretrained(module)
 model = T5ForConditionalGeneration.from_pretrained(module, device_map="auto")
 batch_size = int(sys.argv[5])
 
-print(f">> Input file: {input_file}, module: {module}")
+print(f">> Input file: {input_file}, Module: {module}, Experiment count: {experiment_count}, Batch size: {batch_size}")
 run_experiments.run_experiments(model, tokenizer, batch_size, input_file, output_folder, experiment_count)
 end = time.time()
 print(f">> Time: {end - start}")
