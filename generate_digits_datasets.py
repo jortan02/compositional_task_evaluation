@@ -32,7 +32,7 @@ def get_samples(min: int, max: int, question_seed: int):
 def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), question_seed: int=1234567890):
   write_csv(
     dataset_path=dataset_path,
-    save_name="multiply_2_digits.csv",
+    save_file="multiply_2_digits.csv",
     instruction="Multiply two numbers.",
     examples=[get_multiply_example(10, 99, example_seed) for example_seed in example_seeds],
     questions=[f"{x} * {y} =" for x in range(10, 100) for y in range(10, 100)],
@@ -42,7 +42,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   sample_x, sample_y = get_samples(100, 999, question_seed)
   write_csv(
     dataset_path=dataset_path,
-    save_name="multiply_3_digits.csv",
+    save_file="multiply_3_digits.csv",
     instruction="Multiply two numbers.",
     examples=[get_multiply_example(100, 999, example_seed) for example_seed in example_seeds],
     questions=[f"{sample_x[index]} * {sample_y[index]} =" for index in range(len(sample_x))],
@@ -52,7 +52,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   sample_x, sample_y = get_samples(1000, 9999, question_seed)
   write_csv(
     dataset_path=dataset_path,
-    save_name="multiply_4_digits.csv",
+    save_file="multiply_4_digits.csv",
     instruction="Multiply two numbers.",
     examples=[get_multiply_example(1000, 9999, example_seed) for example_seed in example_seeds],
     questions=[f"{sample_x[index]} * {sample_y[index]} =" for index in range(len(sample_x))],
@@ -62,7 +62,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   sample_x, sample_y = get_samples(10000, 99999, question_seed)
   write_csv(
     dataset_path=dataset_path,
-    save_name="multiply_5_digits.csv",
+    save_file="multiply_5_digits.csv",
     instruction="Multiply two numbers.",
     examples=[get_multiply_example(10000, 99999, example_seed) for example_seed in example_seeds],
     questions=[f"{sample_x[index]} * {sample_y[index]} =" for index in range(len(sample_x))],
@@ -71,7 +71,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   
   write_csv(
     dataset_path=dataset_path,
-    save_name="sum_1_digit.csv",
+    save_file="sum_1_digit.csv",
     instruction="Add two numbers.",
     examples=[get_sum_example(0, 10, example_seed) for example_seed in example_seeds],
     questions=[f"{x} + {y} =" for x in range(10) for y in range(10)],
@@ -80,7 +80,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   
   write_csv(
     dataset_path=dataset_path,
-    save_name="sum_2_digits.csv",
+    save_file="sum_2_digits.csv",
     instruction="Add two numbers.",
     examples=[get_sum_example(10, 100, example_seed) for example_seed in example_seeds],
     questions=[f"{x} + {y} =" for x in range(10, 100) for y in range(10, 100)],
@@ -90,7 +90,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   sample_x, sample_y = get_samples(100, 999, question_seed)
   write_csv(
     dataset_path=dataset_path,
-    save_name="sum_3_digits.csv",
+    save_file="sum_3_digits.csv",
     instruction="Add two numbers.",
     examples=[get_sum_example(100, 999, example_seed) for example_seed in example_seeds],
     questions=[f"{sample_x[index]} * {sample_y[index]} =" for index in range(len(sample_x))],
@@ -100,7 +100,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   sample_x, sample_y = get_samples(1000, 9999, question_seed)
   write_csv(
     dataset_path=dataset_path,
-    save_name="sum_4_digits.csv",
+    save_file="sum_4_digits.csv",
     instruction="Add two numbers.",
     examples=[get_sum_example(1000, 9999, example_seed) for example_seed in example_seeds],
     questions=[f"{sample_x[index]} * {sample_y[index]} =" for index in range(len(sample_x))],
@@ -110,7 +110,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   sample_x, sample_y = get_samples(10000, 99999, question_seed)
   write_csv(
     dataset_path=dataset_path,
-    save_name="sum_5_digits.csv",
+    save_file="sum_5_digits.csv",
     instruction="Add two numbers.",
     examples=[get_sum_example(10000, 99999, example_seed) for example_seed in example_seeds],
     questions=[f"{sample_x[index]} * {sample_y[index]} =" for index in range(len(sample_x))],

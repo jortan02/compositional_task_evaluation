@@ -1,0 +1,1 @@
+sbatch --mem=%1 --time=%2 --output=%3 carry.sh

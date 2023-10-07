@@ -1,8 +1,9 @@
 import pandas as pd
+import csv
 import re
 import os
 import glob
-import statistics
+# import statistics
 
 class ModelResults:
     def _get_first_number(self, raw_predictions_list):
@@ -33,58 +34,24 @@ class ModelResults:
             outcomes.append(extracted_predictions)
         return outcomes
     
-    def _correct_if_any(self, answers, predictions_list):
-        correct = 0
-        total = len(answers)
-        for index in range(total):
-            for prediction in predictions_list[index]:
-                if answers[index] in prediction:
-                    correct += 1
-                    break
-        return correct / total
     
-    def _correct_if_mode(self, answers, predictions_list):
-        correct = 0
-        total = len(answers)
-        for index in range(total):
-            aggregate_list = []
-            for prediction in predictions_list[index]:
-                aggregate_list.extend(prediction)
-            if len(aggregate_list) > 0 and answers[index] == statistics.mode(aggregate_list): # TODO: aggregate_list is empty?
-                correct += 1
-        return correct / total
-    
-    def _correct_if_majority(self, answers, predictions_list):
-        correct = 0
-        total = len(answers)
-        aggregate_total = len(predictions_list[0])
-        for index in range(total):
-            aggregate_correct = 0
-            for prediction in predictions_list[index]:
-                if answers[index] in prediction:
-                    aggregate_correct += 1
-            if aggregate_correct >= aggregate_total / 2:
-                correct += 1
-        return correct / total
-    
-    def _analyze_results(self, results_df, compare_type, accuracy_type):
+    def _analyze_results(self, results_df, compare_type, accuracy_type="micro_average"):
         match compare_type:
-            case "first":
+            case "first_number":
                 extract_function = self._get_first_number
-            case "any":
+            case "all_numbers":
                 extract_function = self._get_all_numbers
             case _:
                 raise NotImplementedError()
-            
+        
         match accuracy_type:
-            case "any":
-                accuracy_function = self._correct_if_any
-            case "mode":
-                accuracy_function = self._correct_if_mode
-            case "majority":
-                accuracy_function = self._correct_if_majority
+            case "macro_average":
+                accuracy_function = self._get_first_number
+            case "micro_average":
+                accuracy_function = self._get_all_numbers
             case _:
                 raise NotImplementedError()
+            
 
         prediction_col_names=[col for col in results_df if col.startswith("prediction")]
         raw_predictions_list = results_df[prediction_col_names].values

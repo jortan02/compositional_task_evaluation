@@ -1,0 +1,4 @@
+Arguments to bash scripts:
+%0 = Module name
+%1 = GPU RAM size
+%2 = Time

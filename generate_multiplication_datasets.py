@@ -65,7 +65,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
     max = int(str(max) + "9")
   write_csv(
     dataset_path=dataset_path,
-    save_name="multiply.csv",
+    save_file="multiply.csv",
     instruction="Multiply two numbers.",
     examples=examples,
     questions=[f"{x} * {y} =" for x in range(100) for y in range(100)]
@@ -76,7 +76,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   
   write_csv(
     dataset_path=dataset_path,
-    save_name="multiply_1_digit.csv",
+    save_file="multiply_1_digit.csv",
     instruction="Multiply two numbers.",
     examples=[get_multiply_example(0, 9, example_seed) for example_seed in example_seeds],
     questions=[f"{x} * {y} =" for x in range(10) for y in range(10)],
@@ -85,7 +85,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   
   write_csv(
     dataset_path=dataset_path,
-    save_name="carry.csv",
+    save_file="carry.csv",
     instruction="Carry the digit from the tens place.",
     examples=[get_carry_example(example_seed) for example_seed in example_seeds],
     questions=[f"{x} // 10 =" for x in range(10, 100)],
@@ -94,7 +94,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   
   write_csv(
     dataset_path=dataset_path,
-    save_name="sum.csv",
+    save_file="sum.csv",
     instruction="Add two numbers.",
     examples=[get_sum_example(0, 100, example_seed) for example_seed in example_seeds],
     questions=[f"{x} + {y} =" for x in range(100) for y in range(100)],
@@ -103,7 +103,7 @@ def create_dataset(dataset_path: str, example_seeds: list[int]=range(5), questio
   
   write_csv(
     dataset_path=dataset_path,
-    save_name="concatenate.csv",
+    save_file="concatenate.csv",
     instruction="Concatenate the numbers.",
     examples=[get_concatenate_example(example_seed) for example_seed in example_seeds],
     questions=[f"{x} & {y} =" for x in range(10) for y in range(10)]
