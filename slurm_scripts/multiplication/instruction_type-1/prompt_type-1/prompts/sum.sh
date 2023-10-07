@@ -5,8 +5,6 @@
 #SBATCH --ntasks-per-node=32
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
-#SBATCH --time=1:00:00
-#SBATCH --mem=10GB
 #SBATCH --mail-user=jordan.tan@utah.edu
 #SBATCH --mail-type=FAIL,BEGIN,END
 #SBATCH -o %j-sum-out
@@ -16,7 +14,15 @@ conda activate compositional
 
 mkdir /scratch/general/vast/u1283221/huggingface_cache
 export TRANSFORMERS_CACHE="/scratch/general/vast/u1283221/huggingface_cache"
-python generate_datasets.py
 
-# google/flan-t5-base
-python t5_cte.py ./data/multiplication/prompt_type_1/example_count_1/sum.csv ./results/multiplication/prompt_type_1/example_count_1/sum/flan-t5-base/ 10 google/flan-t5-base 1000
+task="sum"
+instruction_type=1
+prompt_type=1
+module = %1
+
+data_path="./data/multiplication/instruction_type-$instruction_type/prompt_type-$prompt_type/$task.csv"
+results_path="./results/multiplication/instruction_type-$instruction_type/prompt_type-$prompt_type/$task/$module/"
+experiment_count=10
+batch_size=%2
+
+python t5_cte.py $data_path $results_path $experiment_count $module $batch_size

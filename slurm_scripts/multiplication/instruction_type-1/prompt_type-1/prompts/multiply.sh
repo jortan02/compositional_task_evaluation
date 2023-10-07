@@ -7,7 +7,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mail-user=jordan.tan@utah.edu
 #SBATCH --mail-type=FAIL,BEGIN,END
-#SBATCH -o %j-carry-out
+#SBATCH -o %j-multiply-out
 
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate compositional
@@ -15,7 +15,7 @@ conda activate compositional
 mkdir /scratch/general/vast/u1283221/huggingface_cache
 export TRANSFORMERS_CACHE="/scratch/general/vast/u1283221/huggingface_cache"
 
-task="carry"
+task="multiply"
 instruction_type=1
 prompt_type=1
 module = %1
