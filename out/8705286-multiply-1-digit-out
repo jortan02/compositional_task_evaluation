@@ -1,0 +1,49 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:36<02:27, 36.84s/it]Loading checkpoint shards:  40%|████      | 2/5 [01:15<01:54, 38.01s/it]Loading checkpoint shards:  60%|██████    | 3/5 [01:57<01:19, 39.73s/it]Loading checkpoint shards:  80%|████████  | 4/5 [02:38<00:40, 40.36s/it]Loading checkpoint shards: 100%|██████████| 5/5 [03:02<00:00, 34.41s/it]Loading checkpoint shards: 100%|██████████| 5/5 [03:02<00:00, 36.52s/it]
+>> Input file: ./data/multiplication/instruction_type-1/prompt_type-1/multiply-1-digit.csv, Output file: ./results/multiplication/instruction_type-1/prompt_type-1/multiply-1-digit/google/flan-t5-xxl/experiment-5.csv, Module: google/flan-t5-xxl, Batch size: 25
+<class 'datasets.arrow_dataset.Dataset'>
+  0%|          | 0/20 [00:00<?, ?it/s]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 370.78 examples/s]
+  5%|▌         | 1/20 [00:03<01:13,  3.86s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 914.92 examples/s]
+ 10%|█         | 2/20 [00:04<00:40,  2.25s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1449.89 examples/s]
+ 15%|█▌        | 3/20 [00:06<00:29,  1.73s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1684.51 examples/s]
+ 20%|██        | 4/20 [00:07<00:23,  1.49s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1376.12 examples/s]
+ 25%|██▌       | 5/20 [00:08<00:20,  1.34s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1429.94 examples/s]
+ 30%|███       | 6/20 [00:09<00:17,  1.26s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1290.89 examples/s]
+ 35%|███▌      | 7/20 [00:10<00:15,  1.22s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1650.96 examples/s]
+ 40%|████      | 8/20 [00:11<00:14,  1.19s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1615.53 examples/s]
+ 45%|████▌     | 9/20 [00:12<00:12,  1.17s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1638.48 examples/s]
+ 50%|█████     | 10/20 [00:13<00:11,  1.15s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1620.65 examples/s]
+ 55%|█████▌    | 11/20 [00:14<00:10,  1.13s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1166.51 examples/s]
+ 60%|██████    | 12/20 [00:16<00:08,  1.12s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1606.15 examples/s]
+ 65%|██████▌   | 13/20 [00:17<00:07,  1.11s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1283.12 examples/s]
+ 70%|███████   | 14/20 [00:18<00:06,  1.11s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1939.76 examples/s]
+ 75%|███████▌  | 15/20 [00:19<00:05,  1.11s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1249.52 examples/s]
+ 80%|████████  | 16/20 [00:20<00:04,  1.12s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1259.35 examples/s]
+ 85%|████████▌ | 17/20 [00:21<00:03,  1.11s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1866.19 examples/s]
+ 90%|█████████ | 18/20 [00:23<00:02,  1.20s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1471.73 examples/s]
+ 95%|█████████▌| 19/20 [00:24<00:01,  1.18s/it]
+Map:   0%|          | 0/25 [00:00<?, ? examples/s][AMap: 100%|██████████| 25/25 [00:00<00:00, 1536.35 examples/s]
+100%|██████████| 20/20 [00:25<00:00,  1.16s/it]100%|██████████| 20/20 [00:25<00:00,  1.26s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 17483.41 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 11.32ba/s]
+>> Time: 215.4713966846466

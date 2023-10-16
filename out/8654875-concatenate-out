@@ -1,0 +1,23 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+>> Input file: ./data/multiplication/instruction_type-1/prompt_type-1/concatenate.csv, Module: google/flan-t5-small, Experiment count: 10, Batch size: 1000
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 9039.45it/s]
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 240.51it/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 5500 examples [00:00, 80230.77 examples/s]
+<class 'datasets.arrow_dataset.Dataset'>
+  0%|          | 0/5 [00:00<?, ?it/s]
+Map:   0%|          | 0/1100 [00:00<?, ? examples/s][AMap: 100%|██████████| 1100/1100 [00:00<00:00, 18600.47 examples/s]
+ 20%|██        | 1/5 [00:15<01:02, 15.51s/it]
+Map:   0%|          | 0/1100 [00:00<?, ? examples/s][AMap: 100%|██████████| 1100/1100 [00:00<00:00, 19750.24 examples/s]
+ 40%|████      | 2/5 [00:27<00:40, 13.54s/it]
+Map:   0%|          | 0/1100 [00:00<?, ? examples/s][AMap: 100%|██████████| 1100/1100 [00:00<00:00, 21351.48 examples/s]
+ 60%|██████    | 3/5 [00:38<00:24, 12.22s/it]
+Map:   0%|          | 0/1100 [00:00<?, ? examples/s][AMap: 100%|██████████| 1100/1100 [00:00<00:00, 21942.16 examples/s]
+ 80%|████████  | 4/5 [00:50<00:12, 12.36s/it]
+Map:   0%|          | 0/1100 [00:00<?, ? examples/s][AMap: 100%|██████████| 1100/1100 [00:00<00:00, 20498.56 examples/s]
+100%|██████████| 5/5 [01:03<00:00, 12.41s/it]100%|██████████| 5/5 [01:03<00:00, 12.68s/it]
+Map:   0%|          | 0/5500 [00:00<?, ? examples/s]Map:  73%|███████▎  | 4000/5500 [00:00<00:00, 37373.31 examples/s]Map: 100%|██████████| 5500/5500 [00:00<00:00, 34924.17 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/6 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 6/6 [00:00<00:00, 171.38ba/s]
+  0%|          | 0/5 [00:00<?, ?it/s]
+Map:   0%|          | 0/1100 [00:00<?, ? examples/s][AMap: 100%|██████████| 1100/1100 [00:00<00:00, 18367.80 examples/s]
+slurmstepd: error: *** JOB 8654875 ON notch372 CANCELLED AT 2023-10-10T22:39:31 ***

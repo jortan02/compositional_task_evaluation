@@ -46,12 +46,11 @@ def _add_prediction(example: dict[str, str], index: int, predictions: list[str])
     example["prediction"] = predictions[index]
     return example
 
-def run_experiments(model: PreTrainedModel, tokenizer: PreTrainedTokenizer, batch_size: int, input_file: str, output_path: str, experiment_count: int):
-    os.makedirs(output_path, exist_ok=True)
-    dataset = load_dataset("csv", data_files=input_file, features=Features({"instruction": Value("string"), "example": Value("string"), "question": Value("string"), "answer": Value("string")}))["train"]
-    print(type(dataset))
-    for experiment in range(experiment_count):
+def run_experiment(model: PreTrainedModel, tokenizer: PreTrainedTokenizer, batch_size: int, input_file: str, output_file_path: str):
+    if not os.path.isfile(output_file_path):
+        os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
+        dataset = load_dataset("csv", data_files=input_file, features=Features({"instruction": Value("string"), "example": Value("string"), "question": Value("string"), "answer": Value("string")}))["train"]
+        print(type(dataset))
         predictions = _evaluate_model(model, tokenizer, dataset, batch_size)
         dataset = dataset.map(_add_prediction, with_indices=True, fn_kwargs={"predictions": predictions})
-        output_path = os.path.join(output_path, f"experiment-{experiment + 1}.csv")
-        dataset.to_csv(output_path)
+        dataset.to_csv(output_file_path)

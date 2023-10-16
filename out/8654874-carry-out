@@ -1,0 +1,29 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Downloading model.safetensors:   0%|          | 0.00/308M [00:00<?, ?B/s]Downloading model.safetensors:   3%|▎         | 10.5M/308M [00:00<00:03, 92.7MB/s]Downloading model.safetensors:   7%|▋         | 21.0M/308M [00:00<00:03, 91.2MB/s]Downloading model.safetensors:  10%|█         | 31.5M/308M [00:00<00:02, 95.4MB/s]Downloading model.safetensors:  14%|█▎        | 41.9M/308M [00:00<00:03, 88.3MB/s]Downloading model.safetensors:  20%|██        | 62.9M/308M [00:00<00:02, 114MB/s] Downloading model.safetensors:  27%|██▋       | 83.9M/308M [00:00<00:01, 125MB/s]Downloading model.safetensors:  34%|███▍      | 105M/308M [00:00<00:01, 129MB/s] Downloading model.safetensors:  41%|████      | 126M/308M [00:01<00:01, 97.1MB/s]Downloading model.safetensors:  48%|████▊     | 147M/308M [00:01<00:01, 103MB/s] Downloading model.safetensors:  54%|█████▍    | 168M/308M [00:01<00:01, 115MB/s]Downloading model.safetensors:  61%|██████▏   | 189M/308M [00:01<00:00, 119MB/s]Downloading model.safetensors:  68%|██████▊   | 210M/308M [00:01<00:00, 127MB/s]Downloading model.safetensors:  75%|███████▍  | 231M/308M [00:02<00:00, 124MB/s]Downloading model.safetensors:  82%|████████▏ | 252M/308M [00:02<00:00, 128MB/s]Downloading model.safetensors:  89%|████████▊ | 273M/308M [00:02<00:00, 117MB/s]Downloading model.safetensors:  95%|█████████▌| 294M/308M [00:02<00:00, 88.5MB/s]Downloading model.safetensors: 100%|██████████| 308M/308M [00:02<00:00, 95.7MB/s]Downloading model.safetensors: 100%|██████████| 308M/308M [00:02<00:00, 108MB/s] 
+>> Input file: ./data/multiplication/instruction_type-1/prompt_type-1/carry.csv, Module: google/flan-t5-small, Experiment count: 10, Batch size: 1000
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 13934.56it/s]
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 330.68it/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 450 examples [00:00, 6850.73 examples/s]
+<class 'datasets.arrow_dataset.Dataset'>
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/450 [00:00<?, ? examples/s][AMap: 100%|██████████| 450/450 [00:00<00:00, 12612.34 examples/s]
+100%|██████████| 1/1 [00:06<00:00,  6.71s/it]100%|██████████| 1/1 [00:06<00:00,  6.71s/it]
+Map:   0%|          | 0/450 [00:00<?, ? examples/s]Map: 100%|██████████| 450/450 [00:00<00:00, 20058.84 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 42.55ba/s]
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/450 [00:00<?, ? examples/s][AMap: 100%|██████████| 450/450 [00:00<00:00, 14411.88 examples/s]
+100%|██████████| 1/1 [00:04<00:00,  4.10s/it]100%|██████████| 1/1 [00:04<00:00,  4.10s/it]
+Map:   0%|          | 0/450 [00:00<?, ? examples/s]Map: 100%|██████████| 450/450 [00:00<00:00, 18354.21 examples/s]
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 18, in <module>
+    run_experiments.run_experiments(model, tokenizer, batch_size, input_file, output_folder, experiment_count)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiments.py", line 57, in run_experiments
+    dataset.to_csv(output_path)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/datasets/arrow_dataset.py", line 4750, in to_csv
+    return CsvDatasetWriter(self, path_or_buf, batch_size=batch_size, num_proc=num_proc, **to_csv_kwargs).write()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/datasets/io/csv.py", line 93, in write
+    with open(self.path_or_buf, "wb+") as buffer:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NotADirectoryError: [Errno 20] Not a directory: './results/multiplication/instruction_type-1/prompt_type-1/carry/google/flan-t5-small/experiment-1.csv/experiment-2.csv'

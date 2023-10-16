@@ -1,0 +1,58 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+>> Input file: ./data/multiplication/instruction_type-1/prompt_type-1/multiply-1-digit.csv, Module: google/flan-t5-base, Experiment count: 10, Batch size: 1000
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 11366.68it/s]
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 368.83it/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 500 examples [00:00, 4511.75 examples/s]Generating train split: 500 examples [00:00, 4364.72 examples/s]
+<class 'datasets.arrow_dataset.Dataset'>
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s][AMap: 100%|██████████| 500/500 [00:00<00:00, 14691.70 examples/s]
+100%|██████████| 1/1 [00:06<00:00,  6.72s/it]100%|██████████| 1/1 [00:06<00:00,  6.72s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 9352.85 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 16.00ba/s]
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s][AMap: 100%|██████████| 500/500 [00:00<00:00, 7471.10 examples/s]
+100%|██████████| 1/1 [00:02<00:00,  2.41s/it]100%|██████████| 1/1 [00:02<00:00,  2.41s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 4823.63 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 542.53ba/s]
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s][AMap: 100%|██████████| 500/500 [00:00<00:00, 9880.67 examples/s]
+100%|██████████| 1/1 [00:02<00:00,  2.30s/it]100%|██████████| 1/1 [00:02<00:00,  2.30s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 14034.25 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 518.58ba/s]
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s][AMap: 100%|██████████| 500/500 [00:00<00:00, 5329.55 examples/s]
+100%|██████████| 1/1 [00:02<00:00,  2.34s/it]100%|██████████| 1/1 [00:02<00:00,  2.34s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 6795.45 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 520.45ba/s]
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s][AMap: 100%|██████████| 500/500 [00:00<00:00, 17326.68 examples/s]
+100%|██████████| 1/1 [00:02<00:00,  2.55s/it]100%|██████████| 1/1 [00:02<00:00,  2.55s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 6656.97 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 362.83ba/s]
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s][AMap: 100%|██████████| 500/500 [00:00<00:00, 11132.21 examples/s]
+100%|██████████| 1/1 [00:02<00:00,  2.46s/it]100%|██████████| 1/1 [00:02<00:00,  2.46s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 8420.40 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 558.42ba/s]
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s][AMap: 100%|██████████| 500/500 [00:00<00:00, 11222.10 examples/s]
+100%|██████████| 1/1 [00:02<00:00,  2.38s/it]100%|██████████| 1/1 [00:02<00:00,  2.38s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 8374.10 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 564.05ba/s]
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s][AMap: 100%|██████████| 500/500 [00:00<00:00, 7080.19 examples/s]
+100%|██████████| 1/1 [00:02<00:00,  2.30s/it]100%|██████████| 1/1 [00:02<00:00,  2.30s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 21776.60 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 536.49ba/s]
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s][AMap: 100%|██████████| 500/500 [00:00<00:00, 17484.57 examples/s]
+100%|██████████| 1/1 [00:02<00:00,  2.40s/it]100%|██████████| 1/1 [00:02<00:00,  2.40s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 10120.71 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 567.64ba/s]
+  0%|          | 0/1 [00:00<?, ?it/s]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s][AMap: 100%|██████████| 500/500 [00:00<00:00, 12831.40 examples/s]
+100%|██████████| 1/1 [00:02<00:00,  2.55s/it]100%|██████████| 1/1 [00:02<00:00,  2.55s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 11400.91 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 566.26ba/s]
+>> Time: 39.66848611831665

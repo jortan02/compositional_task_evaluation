@@ -1,20 +1,20 @@
 import sys
 from transformers import T5Tokenizer, T5ForConditionalGeneration
-import run_experiments
+import run_experiment
 import time
 
 start = time.time()
 
-input_file = sys.argv[1]
-output_folder = sys.argv[2]
-experiment_count = int(sys.argv[3])
-module = sys.argv[4]
+input_file_path = sys.argv[1]
+output_file_path = sys.argv[2]
+module = sys.argv[3]
 
 tokenizer = T5Tokenizer.from_pretrained(module)
 model = T5ForConditionalGeneration.from_pretrained(module, device_map="auto")
-batch_size = int(sys.argv[5])
+batch_size = int(sys.argv[4])
 
-print(f">> Input file: {input_file}, Module: {module}, Experiment count: {experiment_count}, Batch size: {batch_size}")
-run_experiments.run_experiments(model, tokenizer, batch_size, input_file, output_folder, experiment_count)
+print(f">> Input file: {input_file_path}, Output file: {output_file_path}, Module: {module}, Batch size: {batch_size}")
+
+run_experiment.run_experiment(model, tokenizer, batch_size, input_file_path, output_file_path)
 end = time.time()
 print(f">> Time: {end - start}")

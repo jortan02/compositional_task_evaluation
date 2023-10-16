@@ -1,0 +1,27 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:39<02:36, 39.20s/it]Loading checkpoint shards:  40%|████      | 2/5 [01:22<02:04, 41.48s/it]Loading checkpoint shards:  60%|██████    | 3/5 [02:05<01:24, 42.37s/it]Loading checkpoint shards:  80%|████████  | 4/5 [02:49<00:43, 43.10s/it]Loading checkpoint shards: 100%|██████████| 5/5 [03:17<00:00, 37.34s/it]Loading checkpoint shards: 100%|██████████| 5/5 [03:17<00:00, 39.41s/it]
+>> Input file: ./data/multiplication/instruction_type-1/prompt_type-1/multiply-1-digit.csv, Output file: ./results/multiplication/instruction_type-1/prompt_type-1/multiply-1-digit/google/flan-t5-xxl/experiment-6.csv, Module: google/flan-t5-xxl, Batch size: 50
+<class 'datasets.arrow_dataset.Dataset'>
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:05<00:52,  5.84s/it]
+Map:   0%|          | 0/50 [00:00<?, ? examples/s][AMap: 100%|██████████| 50/50 [00:00<00:00, 948.42 examples/s]
+ 20%|██        | 2/10 [00:07<00:28,  3.62s/it]
+Map:   0%|          | 0/50 [00:00<?, ? examples/s][AMap: 100%|██████████| 50/50 [00:00<00:00, 3439.19 examples/s]
+ 30%|███       | 3/10 [00:09<00:20,  2.91s/it]
+Map:   0%|          | 0/50 [00:00<?, ? examples/s][AMap: 100%|██████████| 50/50 [00:00<00:00, 3952.86 examples/s]
+ 40%|████      | 4/10 [00:11<00:15,  2.56s/it]
+Map:   0%|          | 0/50 [00:00<?, ? examples/s][AMap: 100%|██████████| 50/50 [00:00<00:00, 3578.64 examples/s]
+ 50%|█████     | 5/10 [00:14<00:12,  2.40s/it]
+Map:   0%|          | 0/50 [00:00<?, ? examples/s][AMap: 100%|██████████| 50/50 [00:00<00:00, 2952.40 examples/s]
+ 60%|██████    | 6/10 [00:16<00:09,  2.30s/it]
+Map:   0%|          | 0/50 [00:00<?, ? examples/s][AMap: 100%|██████████| 50/50 [00:00<00:00, 4050.04 examples/s]
+ 70%|███████   | 7/10 [00:18<00:06,  2.22s/it]
+Map:   0%|          | 0/50 [00:00<?, ? examples/s][AMap: 100%|██████████| 50/50 [00:00<00:00, 3618.52 examples/s]
+ 80%|████████  | 8/10 [00:20<00:04,  2.16s/it]
+Map:   0%|          | 0/50 [00:00<?, ? examples/s][AMap: 100%|██████████| 50/50 [00:00<00:00, 2929.31 examples/s]
+ 90%|█████████ | 9/10 [00:22<00:02,  2.31s/it]
+Map:   0%|          | 0/50 [00:00<?, ? examples/s][AMap: 100%|██████████| 50/50 [00:00<00:00, 4075.38 examples/s]
+100%|██████████| 10/10 [00:24<00:00,  2.22s/it]100%|██████████| 10/10 [00:24<00:00,  2.50s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 19794.72 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 13.45ba/s]
+>> Time: 227.026198387146

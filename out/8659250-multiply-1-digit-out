@@ -1,0 +1,18 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+>> Input file: ./data/multiplication/instruction_type-1/prompt_type-1/multiply-1-digit.csv, Output file: ./results/multiplication/instruction_type-1/prompt_type-1/multiply-1-digit/google/flan-t5-large/experiment-1.csv, Module: google/flan-t5-large, Batch size: 100
+<class 'datasets.arrow_dataset.Dataset'>
+  0%|          | 0/5 [00:00<?, ?it/s]
+Map:   0%|          | 0/100 [00:00<?, ? examples/s][AMap: 100%|██████████| 100/100 [00:00<00:00, 3140.15 examples/s]
+ 20%|██        | 1/5 [00:02<00:10,  2.58s/it]
+Map:   0%|          | 0/100 [00:00<?, ? examples/s][AMap: 100%|██████████| 100/100 [00:00<00:00, 7448.46 examples/s]
+ 40%|████      | 2/5 [00:03<00:04,  1.49s/it]
+Map:   0%|          | 0/100 [00:00<?, ? examples/s][AMap: 100%|██████████| 100/100 [00:00<00:00, 7136.57 examples/s]
+ 60%|██████    | 3/5 [00:04<00:02,  1.19s/it]
+Map:   0%|          | 0/100 [00:00<?, ? examples/s][AMap: 100%|██████████| 100/100 [00:00<00:00, 7880.62 examples/s]
+ 80%|████████  | 4/5 [00:04<00:01,  1.02s/it]
+Map:   0%|          | 0/100 [00:00<?, ? examples/s][AMap: 100%|██████████| 100/100 [00:00<00:00, 5763.62 examples/s]
+100%|██████████| 5/5 [00:05<00:00,  1.09it/s]100%|██████████| 5/5 [00:05<00:00,  1.13s/it]
+Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 20568.98 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 25.33ba/s]
+>> Time: 18.078560829162598
