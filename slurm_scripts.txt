@@ -1,4 +1,0 @@
-sbatch slurm_scripts/multiplication/prompt_type_1/example_count_1/flan-t5-base/carry.sh
-sbatch slurm_scripts/multiplication/prompt_type_1/example_count_1/flan-t5-base/concatenate.sh
-sbatch slurm_scripts/multiplication/prompt_type_1/example_count_1/flan-t5-base/multiply-1-digit.sh
-sbatch slurm_scripts/multiplication/prompt_type_1/example_count_1/flan-t5-base/sum.sh

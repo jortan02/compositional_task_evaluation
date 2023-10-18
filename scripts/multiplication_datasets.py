@@ -3,7 +3,7 @@ import sys
 import csv
 import random
 
-from generate_datasets_helper import write_csv
+from datasets_helper import write_csv
 
 def get_multiply_example(min: int, max: int, seed: int=None):
     random.seed(seed)
@@ -45,6 +45,7 @@ def get_samples(min: int, max: int, question_seed: int):
     return sample_x,sample_y
 
 def create_dataset(dataset_folder_path: str, example_seeds: list[int]=range(5), question_seed: int=1234567890):
+  # For multiply.csv, sample questions with 3+ digits because sample space is large
   sample_x = []
   sample_y = []
   sample = get_samples(0, 999, question_seed)
@@ -56,6 +57,7 @@ def create_dataset(dataset_folder_path: str, example_seeds: list[int]=range(5), 
   sample = get_samples(0, 99999, question_seed)
   sample_x.extend(sample[0])
   sample_y.extend(sample[1])
+  # For multiply.csv, try giving examples of varying size
   examples = []
   min = 0
   max = 9
@@ -114,5 +116,5 @@ def create_dataset(dataset_folder_path: str, example_seeds: list[int]=range(5), 
 if __name__ == "__main__":
   for instruction_type in [1]:
     for prompt_type in [1]:
-      dataset_path = f"./data/multiplication/instruction_type-{instruction_type}/prompt_type-{prompt_type}/"
+      dataset_path = f"../data/multiplication/instruction_type-{instruction_type}/prompt_type-{prompt_type}/"
       create_dataset(dataset_path)

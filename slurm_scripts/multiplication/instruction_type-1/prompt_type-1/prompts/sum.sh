@@ -25,4 +25,4 @@ batch_size=$3
 input_file_path="./data/multiplication/instruction_type-$instruction_type/prompt_type-$prompt_type/$task.csv"
 output_file_path="./results/multiplication/instruction_type-$instruction_type/prompt_type-$prompt_type/$task/$module/experiment-$experiment_number.csv"
 
-python t5_cte.py $input_file_path $output_file_path $module $batch_size
+python ./scripts/t5_cte.py $input_file_path $output_file_path $module $batch_size

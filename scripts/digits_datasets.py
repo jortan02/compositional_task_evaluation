@@ -2,7 +2,7 @@ import os
 import sys
 import random
 
-from generate_datasets_helper import write_csv
+from datasets_helper import write_csv
 
 def get_multiply_example(min: int, max: int, seed: int=None):
     random.seed(seed)
@@ -120,5 +120,5 @@ def create_dataset(dataset_folder_path: str, example_seeds: list[int]=range(5), 
 if __name__ == "__main__":
   for instruction_type in [1]:
     for prompt_type in [1]:
-      dataset_path = f"./data/digit/instruction_type-{instruction_type}/prompt_type-{prompt_type}/"
+      dataset_path = f"../data/digit/instruction_type-{instruction_type}/prompt_type-{prompt_type}/"
       create_dataset(dataset_path)

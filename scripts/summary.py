@@ -117,7 +117,7 @@ def _get_summary_dict(model: str, param_count: str, prompt, file_paths:list[str]
 def multplication_experiment(model_name: str, param_count: int) -> list[dict[str, any]]:
     INSTRUCTION_TYPE = 1
     PROMPT_TYPE = 1
-    MULTIPLICATION_PATH = f"./results/multiplication/instruction_type-{INSTRUCTION_TYPE}/prompt_type-{PROMPT_TYPE}/"
+    MULTIPLICATION_PATH = f"../results/multiplication/instruction_type-{INSTRUCTION_TYPE}/prompt_type-{PROMPT_TYPE}/"
     CARRY_PATH = os.path.join(MULTIPLICATION_PATH, "carry")
     CONCATENATE_PATH = os.path.join(MULTIPLICATION_PATH, "concatenate")
     MULTIPLY_PATH = os.path.join(MULTIPLICATION_PATH, "multiply")
