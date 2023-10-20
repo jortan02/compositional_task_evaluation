@@ -8,15 +8,15 @@ from datasets import load_dataset, Features, Value
 from datasets.arrow_dataset import Dataset
 from transformers.tokenization_utils_base import BatchEncoding
 
+from datasets_helper import prompt_format
+
 def _create_prompt(example: dict[str, str], index: int):
-    prompt = \
-    (
-    f"{example['instruction']}\n"
-    "###\n"
-    f"{example['example']}\n"
-    "###\n"
-    f"{example['question']}"
-    )
+    prompt = prompt_format(
+                priming=example['priming'] if "priming" in example else "",
+                instruction=example['instruction'],
+                example=example['example'],
+                question=example['question']
+            )
     example["prompt"] = prompt
     return example
 

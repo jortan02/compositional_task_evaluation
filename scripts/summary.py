@@ -4,94 +4,94 @@ import re
 import os
 import glob
 
-def _get_summary_dict(model: str, param_count: str, prompt, file_paths:list[str], reason="", comments="") -> dict[str, any]:
-    def _analyze_results(results_df: pd.DataFrame, compare_type: str, accuracy_type: str="micro_average") -> float:
-        def _get_first_number(raw_predictions_list: list[list[str]]) -> list[set[str]]:
-            outcomes = []
-            for raw_predictions in raw_predictions_list:
-                extracted_predictions = []
-                for raw_prediction in raw_predictions:
-                    numbers_in_prediction = re.findall(r"(?<!\d)([-]?\d*\.?\d+)", str(raw_prediction))
-                    if len(numbers_in_prediction) == 0:
-                        extracted_predictions.append("")
-                        continue
-                    first_number = {numbers_in_prediction[0]}
-                    extracted_predictions.append(first_number)
-                outcomes.append(extracted_predictions)
-            return outcomes
-        
-        def _get_all_numbers(raw_predictions_list: list[list[str]]) -> list[set[str]]:
-            outcomes = []
-            for raw_predictions in raw_predictions_list:
-                extracted_predictions = []
-                for raw_prediction in raw_predictions:
-                    numbers_in_prediction = re.findall(r"(?<!\d)([-]?\d*\.?\d+)", str(raw_prediction))
-                    if len(numbers_in_prediction) == 0:
-                        extracted_predictions.append("")
-                        continue
-                    any_numbers = set(numbers_in_prediction)
-                    extracted_predictions.append(any_numbers)
-                outcomes.append(extracted_predictions)
-            return outcomes
-        
-        def _get_macro_average(answers: list[str], predictions_list: list[list[set[str]]]) -> float:
-            assert len(answers) == len(predictions_list)
-            averages_sum = 0
-            total_prompts = len(answers)
-            for index in range(len(answers)):
-                correct_count = 0
-                predictions = predictions_list[index]
-                total_responses = len(predictions)
-                for prediction in predictions:
-                    if answers[index] in prediction:
-                        correct_count += 1
-                averages_sum += correct_count / total_responses
-            return averages_sum / total_prompts
-        
-        def _get_micro_average(answers: list[str], predictions_list: list[list[set[str]]]) -> float:
-            assert len(answers) == len(predictions_list)
-            count = 0
+def _analyze_results(results_df: pd.DataFrame, compare_type: str, accuracy_type: str="micro_average") -> float:
+    def _get_first_number(raw_predictions_list: list[list[str]]) -> list[set[str]]:
+        outcomes = []
+        for raw_predictions in raw_predictions_list:
+            extracted_predictions = []
+            for raw_prediction in raw_predictions:
+                numbers_in_prediction = re.findall(r"(?<!\d)([-]?\d*\.?\d+)", str(raw_prediction))
+                if len(numbers_in_prediction) == 0:
+                    extracted_predictions.append("")
+                    continue
+                first_number = {numbers_in_prediction[0]}
+                extracted_predictions.append(first_number)
+            outcomes.append(extracted_predictions)
+        return outcomes
+    
+    def _get_all_numbers(raw_predictions_list: list[list[str]]) -> list[set[str]]:
+        outcomes = []
+        for raw_predictions in raw_predictions_list:
+            extracted_predictions = []
+            for raw_prediction in raw_predictions:
+                numbers_in_prediction = re.findall(r"(?<!\d)([-]?\d*\.?\d+)", str(raw_prediction))
+                if len(numbers_in_prediction) == 0:
+                    extracted_predictions.append("")
+                    continue
+                any_numbers = set(numbers_in_prediction)
+                extracted_predictions.append(any_numbers)
+            outcomes.append(extracted_predictions)
+        return outcomes
+    
+    def _get_macro_average(answers: list[str], predictions_list: list[list[set[str]]]) -> float:
+        assert len(answers) == len(predictions_list)
+        averages_sum = 0
+        total_prompts = len(answers)
+        for index in range(len(answers)):
             correct_count = 0
-            total_responses = len(predictions_list) * len(predictions_list[0])
-            for index in range(len(answers)):
-                predictions = predictions_list[index]
-                for prediction in predictions:
-                    if answers[index] in prediction:
-                        correct_count += 1
-                    count += 1
-            return correct_count / total_responses
-            
-        match compare_type:
-            case "first_number":
-                extract_function = _get_first_number
-            case "all_numbers":
-                extract_function = _get_all_numbers
-            case _:
-                raise NotImplementedError()
+            predictions = predictions_list[index]
+            total_responses = len(predictions)
+            for prediction in predictions:
+                if answers[index] in prediction:
+                    correct_count += 1
+            averages_sum += correct_count / total_responses
+        return averages_sum / total_prompts
+    
+    def _get_micro_average(answers: list[str], predictions_list: list[list[set[str]]]) -> float:
+        assert len(answers) == len(predictions_list)
+        count = 0
+        correct_count = 0
+        total_responses = len(predictions_list) * len(predictions_list[0])
+        for index in range(len(answers)):
+            predictions = predictions_list[index]
+            for prediction in predictions:
+                if answers[index] in prediction:
+                    correct_count += 1
+                count += 1
+        return correct_count / total_responses
         
-        match accuracy_type:
-            case "macro_average":
-                accuracy_function = _get_macro_average
-            case "micro_average":
-                accuracy_function = _get_micro_average
-            case _:
-                raise NotImplementedError()
-            
-        prediction_col_names = [col for col in results_df if col.startswith("prediction")]
-        raw_predictions_list = results_df[prediction_col_names].values
-        predictions_list = extract_function(raw_predictions_list)
-        accuracy = accuracy_function(results_df["answer"], predictions_list)
-        return accuracy
+    match compare_type:
+        case "first_number":
+            extract_function = _get_first_number
+        case "all_numbers":
+            extract_function = _get_all_numbers
+        case _:
+            raise NotImplementedError()
+    
+    match accuracy_type:
+        case "macro_average":
+            accuracy_function = _get_macro_average
+        case "micro_average":
+            accuracy_function = _get_micro_average
+        case _:
+            raise NotImplementedError()
+        
+    prediction_col_names = [col for col in results_df if col.startswith("prediction")]
+    raw_predictions_list = results_df[prediction_col_names].values
+    predictions_list = extract_function(raw_predictions_list)
+    accuracy = accuracy_function(results_df["answer"], predictions_list)
+    return accuracy
 
-    def _get_aggregate_df(file_paths: list[str], experiment_count: int=10):
-        results_df_list = [pd.read_csv(file, dtype={"question": "string", "answer": "string", "prediction": "string"}) for file in file_paths]
-        if len(results_df_list) != experiment_count:
-            raise Exception(f"Found {len(results_df_list)} files when {experiment_count} was expected!")
-        aggregate_df = results_df_list[0].rename(columns={"prediction": f"prediction-{1}"})
-        for index in range(1, len(results_df_list)):
-            aggregate_df[f"prediction-{index + 1}"] = results_df_list[index]["prediction"]
-        return aggregate_df
+def _get_aggregate_df(file_paths: list[str], experiment_count: int=10):
+    results_df_list = [pd.read_csv(file, dtype={"question": "string", "answer": "string", "prediction": "string"}) for file in file_paths]
+    if len(results_df_list) != experiment_count:
+        raise Exception(f"Found {len(results_df_list)} files when {experiment_count} was expected!")
+    aggregate_df = results_df_list[0].rename(columns={"prediction": f"prediction-{1}"})
+    for index in range(1, len(results_df_list)):
+        aggregate_df[f"prediction-{index + 1}"] = results_df_list[index]["prediction"]
+    return aggregate_df
 
+def _get_summary_dict(model: str, param_count: str, prompt, file_paths:list[str], reason="", comments="") -> dict[str, any]:
     results_df = _get_aggregate_df(file_paths)
     prompt_example = results_df.sample(1, random_state=0)["question"].item()
     test_count = len(results_df)
