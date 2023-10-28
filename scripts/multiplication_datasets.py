@@ -152,15 +152,15 @@ def create_dataset(dataset_folder_path: str, example_seeds: list[int]=range(5), 
   )
   
   # 1: carry, 2: concatenate, 3: multiply-1-digit, 4: sum
-  write_csv(
-    dataset_folder_path=dataset_folder_path,
-    save_file="multiply-primed-1234.csv",
-    instruction=multiply_dataset["instruction"],
-    examples=multiply_dataset["examples"],
-    questions=multiply_dataset["questions"],
-    answers=multiply_dataset["answers"],
-    primings=[create_priming([carry_dataset, concatenate_dataset, multiply_1_digit_dataset, sum_dataset], seed=example_seed) for example_seed in example_seeds]
-  )
+  # write_csv(
+  #   dataset_folder_path=dataset_folder_path,
+  #   save_file="multiply-primed-1234.csv",
+  #   instruction=multiply_dataset["instruction"],
+  #   examples=multiply_dataset["examples"],
+  #   questions=multiply_dataset["questions"],
+  #   answers=multiply_dataset["answers"],
+  #   primings=[create_priming([carry_dataset, concatenate_dataset, multiply_1_digit_dataset, sum_dataset], seed=example_seed) for example_seed in example_seeds]
+  # )
   write_csv(
     dataset_folder_path=dataset_folder_path,
     save_file="multiply-primed-1.csv",

@@ -2,12 +2,9 @@
 #SBATCH --requeue
 #SBATCH --account soc-gpu-np
 #SBATCH --partition soc-gpu-np
-#SBATCH --ntasks-per-node=32
-#SBATCH --nodes=1
-#SBATCH --gres=gpu:1
 #SBATCH --mail-user=jordan.tan@utah.edu
 #SBATCH --mail-type=FAIL,BEGIN,END
-#SBATCH -o ./out/%j-multiply-out
+#SBATCH -o ./out/%j-multiply-primed-1-out
 
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate compositional

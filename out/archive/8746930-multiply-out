@@ -1,0 +1,48 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:34<02:18, 34.53s/it]Loading checkpoint shards:  40%|████      | 2/5 [01:05<01:36, 32.29s/it]Loading checkpoint shards:  60%|██████    | 3/5 [01:39<01:06, 33.19s/it]Loading checkpoint shards:  80%|████████  | 4/5 [02:12<00:33, 33.03s/it]Loading checkpoint shards: 100%|██████████| 5/5 [02:20<00:00, 24.15s/it]Loading checkpoint shards: 100%|██████████| 5/5 [02:20<00:00, 28.14s/it]
+>> Input file: ./data/multiplication/instruction_type-1/prompt_type-1/multiply-primed-1.csv, Output file: ./results/multiplication/instruction_type-1/prompt_type-1/multiply-primed-1/google/flan-t5-xxl/experiment-6.csv, Module: google/flan-t5-xxl, Batch size: 10
+<class 'datasets.arrow_dataset.Dataset'>
+  0%|          | 0/6500 [00:00<?, ?it/s]  0%|          | 1/6500 [00:14<26:43:15, 14.80s/it]  0%|          | 2/6500 [00:17<13:53:47,  7.70s/it]  0%|          | 3/6500 [00:20<9:48:44,  5.44s/it]   0%|          | 4/6500 [00:22<7:47:55,  4.32s/it]  0%|          | 5/6500 [00:25<6:44:41,  3.74s/it]  0%|          | 6/6500 [00:28<6:09:22,  3.41s/it]  0%|          | 7/6500 [00:31<5:44:29,  3.18s/it]  0%|          | 8/6500 [00:33<5:28:22,  3.03s/it]  0%|          | 9/6500 [00:36<5:15:07,  2.91s/it]  0%|          | 10/6500 [00:39<5:07:12,  2.84s/it]  0%|          | 11/6500 [00:43<5:57:15,  3.30s/it]  0%|          | 12/6500 [00:46<5:32:44,  3.08s/it]  0%|          | 13/6500 [00:48<5:04:57,  2.82s/it]  0%|          | 14/6500 [00:50<4:59:30,  2.77s/it]  0%|          | 15/6500 [00:53<4:40:19,  2.59s/it]  0%|          | 16/6500 [00:55<4:43:51,  2.63s/it]  0%|          | 17/6500 [00:58<4:49:41,  2.68s/it]  0%|          | 18/6500 [01:01<4:48:24,  2.67s/it]  0%|          | 19/6500 [01:03<4:49:33,  2.68s/it]  0%|          | 20/6500 [01:06<4:50:33,  2.69s/it]  0%|          | 21/6500 [01:09<4:53:22,  2.72s/it]  0%|          | 22/6500 [01:11<4:36:31,  2.56s/it]  0%|          | 23/6500 [01:14<4:37:40,  2.57s/it]  0%|          | 24/6500 [01:16<4:41:24,  2.61s/it]  0%|          | 25/6500 [01:19<4:43:18,  2.63s/it]  0%|          | 26/6500 [01:22<4:46:02,  2.65s/it]  0%|          | 27/6500 [01:25<4:47:02,  2.66s/it]  0%|          | 28/6500 [01:27<4:49:09,  2.68s/it]  0%|          | 29/6500 [01:30<4:49:55,  2.69s/it]  0%|          | 30/6500 [01:33<4:50:13,  2.69s/it]  0%|          | 31/6500 [01:35<4:50:06,  2.69s/it]  0%|          | 32/6500 [01:38<4:54:18,  2.73s/it]  1%|          | 33/6500 [01:41<4:51:43,  2.71s/it]  1%|          | 34/6500 [01:43<4:50:06,  2.69s/it]  1%|          | 35/6500 [01:46<4:52:48,  2.72s/it]  1%|          | 36/6500 [01:49<4:52:39,  2.72s/it]  1%|          | 37/6500 [01:52<4:52:30,  2.72s/it]  1%|          | 38/6500 [01:54<4:54:22,  2.73s/it]  1%|          | 39/6500 [01:57<4:53:40,  2.73s/it]  1%|          | 40/6500 [02:00<4:54:06,  2.73s/it]  1%|          | 41/6500 [02:03<4:56:21,  2.75s/it]  1%|          | 42/6500 [02:06<5:00:20,  2.79s/it]  1%|          | 43/6500 [02:08<5:02:16,  2.81s/it]  1%|          | 44/6500 [02:11<4:58:52,  2.78s/it]  1%|          | 45/6500 [02:14<4:57:51,  2.77s/it]  1%|          | 46/6500 [02:17<4:57:36,  2.77s/it]  1%|          | 47/6500 [02:19<4:55:56,  2.75s/it]  1%|          | 48/6500 [02:22<4:58:06,  2.77s/it]  1%|          | 49/6500 [02:25<4:57:01,  2.76s/it]  1%|          | 50/6500 [02:28<4:56:13,  2.76s/it]  1%|          | 51/6500 [02:30<4:58:07,  2.77s/it]  1%|          | 52/6500 [02:33<4:56:24,  2.76s/it]  1%|          | 53/6500 [02:36<4:58:29,  2.78s/it]  1%|          | 54/6500 [02:39<4:56:13,  2.76s/it]  1%|          | 55/6500 [02:41<4:54:58,  2.75s/it]  1%|          | 56/6500 [02:44<4:54:18,  2.74s/it]  1%|          | 57/6500 [02:47<4:53:46,  2.74s/it]  1%|          | 58/6500 [02:50<4:56:21,  2.76s/it]  1%|          | 59/6500 [02:52<4:52:59,  2.73s/it]  1%|          | 60/6500 [02:55<4:52:49,  2.73s/it]  1%|          | 61/6500 [02:58<4:55:29,  2.75s/it]  1%|          | 62/6500 [03:01<4:50:30,  2.71s/it]  1%|          | 63/6500 [03:03<4:52:12,  2.72s/it]  1%|          | 64/6500 [03:06<4:52:09,  2.72s/it]  1%|          | 65/6500 [03:09<4:52:31,  2.73s/it]  1%|          | 66/6500 [03:11<4:53:31,  2.74s/it]  1%|          | 67/6500 [03:14<4:52:34,  2.73s/it]  1%|          | 68/6500 [03:17<4:49:28,  2.70s/it]  1%|          | 69/6500 [03:20<4:49:51,  2.70s/it]  1%|          | 70/6500 [03:23<5:10:43,  2.90s/it]  1%|          | 71/6500 [03:26<5:01:03,  2.81s/it]  1%|          | 72/6500 [03:28<4:54:10,  2.75s/it]  1%|          | 73/6500 [03:31<4:51:39,  2.72s/it]  1%|          | 74/6500 [03:33<4:51:45,  2.72s/it]  1%|          | 75/6500 [03:36<4:54:06,  2.75s/it]  1%|          | 76/6500 [03:39<4:54:52,  2.75s/it]  1%|          | 77/6500 [03:42<4:49:53,  2.71s/it]  1%|          | 78/6500 [03:44<4:49:38,  2.71s/it]  1%|          | 79/6500 [03:48<5:07:03,  2.87s/it]  1%|          | 80/6500 [03:51<5:22:13,  3.01s/it]  1%|          | 81/6500 [03:54<5:13:20,  2.93s/it]  1%|▏         | 82/6500 [03:56<5:08:22,  2.88s/it]  1%|▏         | 82/6500 [04:07<5:22:21,  3.01s/it]
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/./scripts/t5_cte.py", line 18, in <module>
+    experiment.run_experiment(model, tokenizer, batch_size, input_file_path, output_file_path)
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/scripts/experiment.py", line 54, in run_experiment
+    predictions = _evaluate_model(model, tokenizer, dataset, batch_size)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/scripts/experiment.py", line 41, in _evaluate_model
+    generated_texts = _generate_texts(model, tokenizer, encodings)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/scripts/experiment.py", line 31, in _generate_texts
+    generated_ids = model.generate(**encodings, max_new_tokens=20, num_beams=5, do_sample=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/generation/utils.py", line 1712, in generate
+    return self.beam_sample(
+           ^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/generation/utils.py", line 3338, in beam_sample
+    outputs = self(
+              ^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/modeling_t5.py", line 1774, in forward
+    lm_logits = self.lm_head(sequence_output)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/accelerate/hooks.py", line 160, in new_forward
+    args, kwargs = module._hf_hook.pre_forward(module, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/accelerate/hooks.py", line 286, in pre_forward
+    set_module_tensor_to_device(
+  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/accelerate/utils/modeling.py", line 313, in set_module_tensor_to_device
+    new_value = value.to(device)
+                ^^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 502.00 MiB (GPU 0; 44.55 GiB total capacity; 43.13 GiB already allocated; 498.25 MiB free; 43.75 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

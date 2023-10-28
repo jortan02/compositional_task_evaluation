@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/scripts/./summary.py", line 243, in <module>
+    results_list.extend(multplication_experiment("google/flan-t5-large", 780000000))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/scripts/./summary.py", line 190, in multplication_experiment
+    _get_summary_dict(
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/scripts/./summary.py", line 105, in _get_summary_dict
+    results_df = _get_aggregate_df(file_paths)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/scripts/./summary.py", line 98, in _get_aggregate_df
+    raise Exception(f"Found {len(results_df_list)} files when {experiment_count} was expected!")
+Exception: Found 0 files when 10 was expected!

@@ -1,10 +1,14 @@
+import numpy as np
 import pandas as pd
 import csv
 import re
 import os
 import glob
+import statistics
 
-def _analyze_results(results_df: pd.DataFrame, compare_type: str, accuracy_type: str="micro_average") -> float:
+from datasets_helper import prompt_format
+
+def _analyze_results(results_df: pd.DataFrame, compare_type: str, accuracy_type: str, example_count: int) -> tuple[float, float]:
     def _get_first_number(raw_predictions_list: list[list[str]]) -> list[set[str]]:
         outcomes = []
         for raw_predictions in raw_predictions_list:
@@ -33,7 +37,7 @@ def _analyze_results(results_df: pd.DataFrame, compare_type: str, accuracy_type:
             outcomes.append(extracted_predictions)
         return outcomes
     
-    def _get_macro_average(answers: list[str], predictions_list: list[list[set[str]]]) -> float:
+    def _get_macro_average(answers: pd.DataFrame, predictions_list: list[list[set[str]]]) -> float:
         assert len(answers) == len(predictions_list)
         averages_sum = 0
         total_prompts = len(answers)
@@ -47,7 +51,7 @@ def _analyze_results(results_df: pd.DataFrame, compare_type: str, accuracy_type:
             averages_sum += correct_count / total_responses
         return averages_sum / total_prompts
     
-    def _get_micro_average(answers: list[str], predictions_list: list[list[set[str]]]) -> float:
+    def _get_micro_average(answers: pd.DataFrame, predictions_list: list[list[set[str]]]) -> float:
         assert len(answers) == len(predictions_list)
         count = 0
         correct_count = 0
@@ -75,15 +79,21 @@ def _analyze_results(results_df: pd.DataFrame, compare_type: str, accuracy_type:
             accuracy_function = _get_micro_average
         case _:
             raise NotImplementedError()
-        
-    prediction_col_names = [col for col in results_df if col.startswith("prediction")]
-    raw_predictions_list = results_df[prediction_col_names].values
-    predictions_list = extract_function(raw_predictions_list)
-    accuracy = accuracy_function(results_df["answer"], predictions_list)
-    return accuracy
+    experiment_df_list = np.split(results_df, example_count)
+    accuracies = []
+    for experiment_df in experiment_df_list:
+        experiment_df = experiment_df.reset_index()
+        prediction_col_names = [col for col in experiment_df if col.startswith("prediction")]
+        raw_predictions_list = experiment_df[prediction_col_names].values
+        predictions_list = extract_function(raw_predictions_list)
+        accuracy = accuracy_function(experiment_df["answer"], predictions_list)
+        accuracies.append(accuracy)
+    accuracy_avg = statistics.mean(accuracies)
+    accuracy_std = statistics.stdev(accuracies)
+    return accuracy_avg, accuracy_std
 
 def _get_aggregate_df(file_paths: list[str], experiment_count: int=10):
-    results_df_list = [pd.read_csv(file, dtype={"question": "string", "answer": "string", "prediction": "string"}) for file in file_paths]
+    results_df_list = [pd.read_csv(file, dtype={"answer": "string", "prediction": "string"}) for file in file_paths]
     if len(results_df_list) != experiment_count:
         raise Exception(f"Found {len(results_df_list)} files when {experiment_count} was expected!")
     aggregate_df = results_df_list[0].rename(columns={"prediction": f"prediction-{1}"})
@@ -91,14 +101,20 @@ def _get_aggregate_df(file_paths: list[str], experiment_count: int=10):
         aggregate_df[f"prediction-{index + 1}"] = results_df_list[index]["prediction"]
     return aggregate_df
 
-def _get_summary_dict(model: str, param_count: str, prompt, file_paths:list[str], reason="", comments="") -> dict[str, any]:
+def _get_summary_dict(model: str, param_count: str, prompt, file_paths:list[str], reason="", comments="", example_count: int=5) -> dict[str, any]:
     results_df = _get_aggregate_df(file_paths)
-    prompt_example = results_df.sample(1, random_state=0)["question"].item()
-    test_count = len(results_df)
-    first_micro = _analyze_results(results_df, compare_type="first_number", accuracy_type="micro_average")
-    any_micro = _analyze_results(results_df, compare_type="all_numbers", accuracy_type="micro_average")
-    first_macro = _analyze_results(results_df, compare_type="first_number", accuracy_type="macro_average")
-    any_macro = _analyze_results(results_df, compare_type="all_numbers", accuracy_type="macro_average")
+    sample = results_df.sample(1, random_state=0)
+    prompt_example = prompt_format(
+        priming="" if "priming" not in sample else sample["priming"].item(),
+        instruction=sample["instruction"].item(),
+        example=sample["example"].item(),
+        question=sample["question"].item(),
+    )
+    test_count = len(results_df) / example_count
+    first_micro_avg, first_micro_std = _analyze_results(results_df, compare_type="first_number", accuracy_type="micro_average", example_count=example_count)
+    any_micro_avg, any_micro_std = _analyze_results(results_df, compare_type="all_numbers", accuracy_type="micro_average", example_count=example_count)
+    first_macro_avg, first_macro_std = _analyze_results(results_df, compare_type="first_number", accuracy_type="macro_average", example_count=example_count)
+    any_macro_avg, any_macro_std = _analyze_results(results_df, compare_type="all_numbers", accuracy_type="macro_average", example_count=example_count)
     
     summary = {}
     summary["model"] = model
@@ -106,10 +122,14 @@ def _get_summary_dict(model: str, param_count: str, prompt, file_paths:list[str]
     summary["prompt"] = prompt
     summary["prompt_example"] = prompt_example
     summary["test_count"] = test_count
-    summary["first_micro"] = first_micro
-    summary["all_micro"] = any_micro
-    summary["first_macro"] = first_macro
-    summary["all_macro"] = any_macro
+    summary["first_micro_avg"] = first_micro_avg
+    summary["first_micro_std"] = first_micro_std
+    summary["all_micro_avg"] = any_micro_avg
+    summary["any_micro_std"] = any_micro_std
+    summary["first_macro_avg"] = first_macro_avg
+    summary["first_macro_std"] = first_macro_std
+    summary["all_macro_avg"] = any_macro_avg
+    summary["any_macro_std"] = any_macro_std
     summary["reason"] = reason
     summary["comments"] = comments
     return summary
@@ -121,6 +141,10 @@ def multplication_experiment(model_name: str, param_count: int) -> list[dict[str
     CARRY_PATH = os.path.join(MULTIPLICATION_PATH, "carry")
     CONCATENATE_PATH = os.path.join(MULTIPLICATION_PATH, "concatenate")
     MULTIPLY_PATH = os.path.join(MULTIPLICATION_PATH, "multiply")
+    MULTIPLY_PRIMED_1_PATH = os.path.join(MULTIPLICATION_PATH, "multiply-primed-1")
+    MULTIPLY_PRIMED_2_PATH = os.path.join(MULTIPLICATION_PATH, "multiply-primed-2")
+    MULTIPLY_PRIMED_3_PATH = os.path.join(MULTIPLICATION_PATH, "multiply-primed-3")
+    MULTIPLY_PRIMED_4_PATH = os.path.join(MULTIPLICATION_PATH, "multiply-primed-4")
     MULTIPLY_1_DIGIT_PATH = os.path.join(MULTIPLICATION_PATH, "multiply-1-digit")
     SUM_PATH = os.path.join(MULTIPLICATION_PATH, "sum")
     
@@ -149,6 +173,42 @@ def multplication_experiment(model_name: str, param_count: int) -> list[dict[str
             param_count=param_count,
             prompt="Multiply",
             file_paths=glob.glob(os.path.join(MULTIPLY_PATH, model_name, "*.csv")),
+            reason="Multiplication is the compositional task."
+        )
+    )
+    results_list.append(
+        _get_summary_dict(
+            model=model_name,
+            param_count=param_count,
+            prompt="Multiply, primed with carry",
+            file_paths=glob.glob(os.path.join(MULTIPLY_PRIMED_1_PATH, model_name, "*.csv")),
+            reason="Multiplication is the compositional task."
+        )
+    )
+    results_list.append(
+        _get_summary_dict(
+            model=model_name,
+            param_count=param_count,
+            prompt="Multiply, primed with concatenate",
+            file_paths=glob.glob(os.path.join(MULTIPLY_PRIMED_2_PATH, model_name, "*.csv")),
+            reason="Multiplication is the compositional task."
+        )
+    )
+    results_list.append(
+        _get_summary_dict(
+            model=model_name,
+            param_count=param_count,
+            prompt="Multiply, primed with multiply with 1 digit",
+            file_paths=glob.glob(os.path.join(MULTIPLY_PRIMED_3_PATH, model_name, "*.csv")),
+            reason="Multiplication is the compositional task."
+        )
+    )
+    results_list.append(
+        _get_summary_dict(
+            model=model_name,
+            param_count=param_count,
+            prompt="Multiply, primed with sum",
+            file_paths=glob.glob(os.path.join(MULTIPLY_PRIMED_4_PATH, model_name, "*.csv")),
             reason="Multiplication is the compositional task."
         )
     )

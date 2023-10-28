@@ -1,0 +1,5 @@
+mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:49<00:49, 49.37s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:56<00:00, 24.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:56<00:00, 28.02s/it]
+>> Input file: ./data/multiplication/instruction_type-1/prompt_type-1/multiply-1-digit.csv, Output file: ./results/multiplication/instruction_type-1/prompt_type-1/multiply-1-digit/google/flan-t5-xl/experiment-1.csv, Module: google/flan-t5-xl, Batch size: 10
+>> Time: 59.98812747001648
