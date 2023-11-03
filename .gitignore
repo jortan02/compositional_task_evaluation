@@ -1,3 +1,5 @@
-*.csv
+*data
+*results
+*out
 .vscode/settings.json
 __pycache__

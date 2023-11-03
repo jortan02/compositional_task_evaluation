@@ -1,0 +1,176 @@
+model,param_count,prompt,prompt_example,test_count,first_any_accuracy,any_any_accuracy,first_mode_accuracy,any_mode_accuracy,first_majority_accuracy,any_majority_accuracy,reason,comments
+flan-t5-small,80M params,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+63 // 10 = 6
+15 // 10 = 1
+###
+12 // 10 =",90,0.15555555555555556,0.2777777777777778,0.044444444444444446,0.06666666666666667,0.05555555555555555,0.2,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-small,80M params,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+4 & 8 & 7 = 487
+6 & 4 & 7 = 647
+###
+9 & 9 & 3 =",1000,0.001,0.002,0.001,0.0,0.001,0.002,The digits needs to be concatenated to the final answer.,
+flan-t5-small,80M params,Multiply,"Multiply two numbers.
+###
+50494 * 99346 = 5016376924
+55125 * 5306 = 292493250
+33936 * 67013 = 2274153168
+###
+964 * 494 =",20000,0.0165,0.02,0.0136,0.01365,0.01185,0.0137,Multiplication is the compositional task.,
+flan-t5-small,80M params,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+0 * 4 = 0
+8 * 7 = 56
+###
+2 * 6 =",100,0.27,0.45,0.19,0.19,0.18,0.21,Multiplication requires multiplying two values at some digits place.,
+flan-t5-small,80M params,Sum,"Add two numbers.
+###
+49 + 97 = 146
+53 + 5 = 58
+33 + 65 = 98
+###
+93 + 94 =",10000,0.0124,0.0178,0.0011,0.0012,0.0005,0.0007,Summation is done after carrying occurs.,
+flan-t5-base,248M params,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+63 // 10 = 6
+15 // 10 = 1
+###
+12 // 10 =",90,0.05555555555555555,0.08888888888888889,0.011111111111111112,0.011111111111111112,0.011111111111111112,0.011111111111111112,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-base,248M params,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+4 & 8 & 7 = 487
+6 & 4 & 7 = 647
+###
+9 & 9 & 3 =",1000,0.0,0.0,0.0,0.0,0.0,0.0,The digits needs to be concatenated to the final answer.,
+flan-t5-base,248M params,Multiply,"Multiply two numbers.
+###
+50494 * 99346 = 5016376924
+55125 * 5306 = 292493250
+33936 * 67013 = 2274153168
+###
+964 * 494 =",20000,0.0001,0.00085,0.0,0.0,0.0,0.0,Multiplication is the compositional task.,
+flan-t5-base,248M params,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+0 * 4 = 0
+8 * 7 = 56
+###
+2 * 6 =",100,0.11,0.23,0.08,0.09,0.05,0.07,Multiplication requires multiplying two values at some digits place.,
+flan-t5-base,248M params,Sum,"Add two numbers.
+###
+49 + 97 = 146
+53 + 5 = 58
+33 + 65 = 98
+###
+93 + 94 =",10000,0.0,0.0001,0.0,0.0,0.0,0.0,Summation is done after carrying occurs.,
+flan-t5-large,780M params,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+63 // 10 = 6
+15 // 10 = 1
+###
+12 // 10 =",90,0.6888888888888889,0.6888888888888889,0.3888888888888889,0.3888888888888889,0.32222222222222224,0.32222222222222224,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-large,780M params,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+4 & 8 & 7 = 487
+6 & 4 & 7 = 647
+###
+9 & 9 & 3 =",1000,0.037,0.038,0.015,0.016,0.016,0.018,The digits needs to be concatenated to the final answer.,
+flan-t5-large,780M params,Multiply,"Multiply two numbers.
+###
+50494 * 99346 = 5016376924
+55125 * 5306 = 292493250
+33936 * 67013 = 2274153168
+###
+964 * 494 =",20000,0.00835,0.00855,0.00495,0.0049,0.00375,0.00375,Multiplication is the compositional task.,
+flan-t5-large,780M params,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+0 * 4 = 0
+8 * 7 = 56
+###
+2 * 6 =",100,0.31,0.31,0.29,0.29,0.29,0.29,Multiplication requires multiplying two values at some digits place.,
+flan-t5-large,780M params,Sum,"Add two numbers.
+###
+49 + 97 = 146
+53 + 5 = 58
+33 + 65 = 98
+###
+93 + 94 =",10000,0.0095,0.0095,0.0025,0.0025,0.0016,0.0016,Summation is done after carrying occurs.,
+flan-t5-xl,3B params,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+63 // 10 = 6
+15 // 10 = 1
+###
+12 // 10 =",90,0.9111111111111111,0.9111111111111111,0.9,0.9,0.9,0.9,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-xl,3B params,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+4 & 8 & 7 = 487
+6 & 4 & 7 = 647
+###
+9 & 9 & 3 =",1000,0.921,0.921,0.902,0.902,0.903,0.903,The digits needs to be concatenated to the final answer.,
+flan-t5-xl,3B params,Multiply,"Multiply two numbers.
+###
+50494 * 99346 = 5016376924
+55125 * 5306 = 292493250
+33936 * 67013 = 2274153168
+###
+964 * 494 =",20000,0.0275,0.0285,0.0233,0.02375,0.0232,0.02395,Multiplication is the compositional task.,
+flan-t5-xl,3B params,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+0 * 4 = 0
+8 * 7 = 56
+###
+2 * 6 =",100,0.63,0.63,0.56,0.56,0.55,0.55,Multiplication requires multiplying two values at some digits place.,
+flan-t5-xl,3B params,Sum,"Add two numbers.
+###
+49 + 97 = 146
+53 + 5 = 58
+33 + 65 = 98
+###
+93 + 94 =",10000,0.2116,0.2116,0.1041,0.1041,0.0952,0.0952,Summation is done after carrying occurs.,
+flan-t5-xxl,11B params,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+63 // 10 = 6
+15 // 10 = 1
+###
+12 // 10 =",90,0.9555555555555556,0.9555555555555556,0.9555555555555556,0.9555555555555556,0.9555555555555556,0.9555555555555556,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-xxl,11B params,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+4 & 8 & 7 = 487
+6 & 4 & 7 = 647
+###
+9 & 9 & 3 =",1000,0.582,0.582,0.545,0.545,0.547,0.547,The digits needs to be concatenated to the final answer.,
+flan-t5-xxl,11B params,Multiply,"Multiply two numbers.
+###
+50494 * 99346 = 5016376924
+55125 * 5306 = 292493250
+33936 * 67013 = 2274153168
+###
+964 * 494 =",20000,0.03165,0.03215,0.0295,0.0295,0.02955,0.0299,Multiplication is the compositional task.,
+flan-t5-xxl,11B params,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+0 * 4 = 0
+8 * 7 = 56
+###
+2 * 6 =",100,0.93,0.93,0.93,0.93,0.93,0.93,Multiplication requires multiplying two values at some digits place.,
+flan-t5-xxl,11B params,Sum,"Add two numbers.
+###
+49 + 97 = 146
+53 + 5 = 58
+33 + 65 = 98
+###
+93 + 94 =",10000,0.6373,0.6373,0.6205,0.6205,0.6211,0.6211,Summation is done after carrying occurs.,

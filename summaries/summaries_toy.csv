@@ -1,0 +1,2 @@
+model,param_count,prompt,prompt_example,test_count,first_any_accuracy,any_any_accuracy,first_mode_accuracy,any_mode_accuracy,first_majority_accuracy,any_majority_accuracy,reason,comments
+toy-model,0B params,Toy,question 0,1,0.0,1.0,0.0,0.0,0.0,0.0,Used to check compare and accuracy types,

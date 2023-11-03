@@ -1,0 +1,161 @@
+model,param_count,prompt,prompt_example,test_count,first_any_accuracy,any_any_accuracy,first_mode_accuracy,any_mode_accuracy,first_majority_accuracy,any_majority_accuracy,reason,comments
+flan-t5-small,80000000,Carry,"Carry the digit from the tens place.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+12 // 10 =",90,0.2,0.23333333333333334,0.044444444444444446,0.03333333333333333,0.044444444444444446,0.044444444444444446,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-small,80000000,Concatenate,"Concatenate the numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+9 & 9 & 3 =",1000,0.001,0.002,0.001,0.001,0.001,0.001,The digits needs to be concatenated to the final answer.,
+flan-t5-small,80000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+2 * 6 =",100,0.24,0.45,0.12,0.13,0.08,0.18,Multiplication requires multiplying two values at some digits place.,
+flan-t5-small,80000000,Sum,"Add two numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+93 + 94 =",10000,0.016,0.0466,0.0038,0.0047,0.0013,0.0029,Summation is done after carrying occurs.,
+flan-t5-base,248000000,Carry,"Carry the digit from the tens place.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+12 // 10 =",90,0.1,0.1,0.044444444444444446,0.044444444444444446,0.03333333333333333,0.03333333333333333,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-base,248000000,Concatenate,"Concatenate the numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+9 & 9 & 3 =",1000,0.0,0.001,0.0,0.0,0.0,0.001,The digits needs to be concatenated to the final answer.,
+flan-t5-base,248000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+2 * 6 =",100,0.01,0.09,0.0,0.03,0.0,0.02,Multiplication requires multiplying two values at some digits place.,
+flan-t5-base,248000000,Sum,"Add two numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+93 + 94 =",10000,0.0005,0.0069,0.0001,0.0002,0.0,0.0002,Summation is done after carrying occurs.,
+flan-t5-large,780000000,Carry,"Carry the digit from the tens place.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+12 // 10 =",90,0.3,0.3,0.07777777777777778,0.07777777777777778,0.07777777777777778,0.07777777777777778,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-large,780000000,Concatenate,"Concatenate the numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+9 & 9 & 3 =",1000,0.002,0.003,0.0,0.0,0.0,0.001,The digits needs to be concatenated to the final answer.,
+flan-t5-large,780000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+2 * 6 =",100,0.36,0.36,0.3,0.3,0.29,0.29,Multiplication requires multiplying two values at some digits place.,
+flan-t5-large,780000000,Sum,"Add two numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+93 + 94 =",10000,0.0284,0.0284,0.0069,0.0069,0.0033,0.0033,Summation is done after carrying occurs.,
+flan-t5-xl,3000000000,Carry,"Carry the digit from the tens place.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+12 // 10 =",90,0.4666666666666667,0.4666666666666667,0.3888888888888889,0.3888888888888889,0.4,0.4,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-xl,3000000000,Concatenate,"Concatenate the numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+9 & 9 & 3 =",1000,0.875,0.875,0.859,0.859,0.861,0.861,The digits needs to be concatenated to the final answer.,
+flan-t5-xl,3000000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+2 * 6 =",100,0.54,0.54,0.47,0.47,0.47,0.47,Multiplication requires multiplying two values at some digits place.,
+flan-t5-xl,3000000000,Sum,"Add two numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+93 + 94 =",10000,0.151,0.151,0.083,0.083,0.0778,0.0778,Summation is done after carrying occurs.,
+flan-t5-xxl,11000000000,Carry,"Carry the digit from the tens place.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+12 // 10 =",90,0.9,0.9,0.9,0.9,0.9,0.9,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-xxl,11000000000,Concatenate,"Concatenate the numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+9 & 9 & 3 =",1000,0.582,0.582,0.519,0.519,0.525,0.525,The digits needs to be concatenated to the final answer.,
+flan-t5-xxl,11000000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+2 * 6 =",100,0.93,0.93,0.93,0.93,0.93,0.93,Multiplication requires multiplying two values at some digits place.,
+flan-t5-xxl,11000000000,Sum,"Add two numbers.
+###
+6 * 6 = 36
+59 // 10 = 5
+49 + 97 = 146
+6 & 6 & 0 = 660
+###
+93 + 94 =",10000,0.6455,0.6455,0.6291,0.6291,0.6294,0.6294,Summation is done after carrying occurs.,

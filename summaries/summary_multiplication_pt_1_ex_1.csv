@@ -1,0 +1,101 @@
+model,param_count,prompt,prompt_example,test_count,first_any_accuracy,any_any_accuracy,first_mode_accuracy,any_mode_accuracy,first_majority_accuracy,any_majority_accuracy,reason,comments
+flan-t5-small,80000000,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+###
+12 // 10 =",90,0.1111111111111111,0.1111111111111111,0.1,0.1,0.1,0.1,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-small,80000000,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+###
+9 & 9 & 3 =",1000,0.001,0.001,0.001,0.001,0.001,0.001,The digits needs to be concatenated to the final answer.,
+flan-t5-small,80000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+###
+2 * 6 =",100,0.23,0.37,0.19,0.2,0.19,0.21,Multiplication requires multiplying two values at some digits place.,
+flan-t5-small,80000000,Sum,"Add two numbers.
+###
+49 + 97 = 146
+###
+93 + 94 =",10000,0.008,0.0129,0.0006,0.0006,0.0003,0.0003,Summation is done after carrying occurs.,
+flan-t5-base,248000000,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+###
+12 // 10 =",90,0.2,0.2,0.1111111111111111,0.1111111111111111,0.1111111111111111,0.1111111111111111,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-base,248000000,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+###
+9 & 9 & 3 =",1000,0.001,0.001,0.001,0.001,0.001,0.001,The digits needs to be concatenated to the final answer.,
+flan-t5-base,248000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+###
+2 * 6 =",100,0.07,0.07,0.03,0.03,0.01,0.01,Multiplication requires multiplying two values at some digits place.,
+flan-t5-base,248000000,Sum,"Add two numbers.
+###
+49 + 97 = 146
+###
+93 + 94 =",10000,0.0002,0.0003,0.0001,0.0001,0.0,0.0,Summation is done after carrying occurs.,
+flan-t5-large,780000000,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+###
+12 // 10 =",90,0.4,0.4,0.23333333333333334,0.23333333333333334,0.23333333333333334,0.23333333333333334,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-large,780000000,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+###
+9 & 9 & 3 =",1000,0.185,0.185,0.063,0.063,0.068,0.068,The digits needs to be concatenated to the final answer.,
+flan-t5-large,780000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+###
+2 * 6 =",100,0.12,0.12,0.04,0.04,0.04,0.04,Multiplication requires multiplying two values at some digits place.,
+flan-t5-large,780000000,Sum,"Add two numbers.
+###
+49 + 97 = 146
+###
+93 + 94 =",10000,0.0187,0.0187,0.0032,0.0032,0.0012,0.0012,Summation is done after carrying occurs.,
+flan-t5-xl,3000000000,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+###
+12 // 10 =",90,0.9444444444444444,0.9444444444444444,0.9444444444444444,0.9444444444444444,0.9444444444444444,0.9444444444444444,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-xl,3000000000,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+###
+9 & 9 & 3 =",1000,0.891,0.891,0.858,0.858,0.859,0.859,The digits needs to be concatenated to the final answer.,
+flan-t5-xl,3000000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+###
+2 * 6 =",100,0.54,0.54,0.48,0.48,0.48,0.48,Multiplication requires multiplying two values at some digits place.,
+flan-t5-xl,3000000000,Sum,"Add two numbers.
+###
+49 + 97 = 146
+###
+93 + 94 =",10000,0.2122,0.2122,0.103,0.103,0.0934,0.0934,Summation is done after carrying occurs.,
+flan-t5-xxl,11000000000,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+###
+12 // 10 =",90,0.9777777777777777,0.9777777777777777,0.9777777777777777,0.9777777777777777,0.9777777777777777,0.9777777777777777,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-xxl,11000000000,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+###
+9 & 9 & 3 =",1000,0.606,0.606,0.576,0.576,0.58,0.58,The digits needs to be concatenated to the final answer.,
+flan-t5-xxl,11000000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+###
+2 * 6 =",100,0.92,0.92,0.92,0.92,0.92,0.92,Multiplication requires multiplying two values at some digits place.,
+flan-t5-xxl,11000000000,Sum,"Add two numbers.
+###
+49 + 97 = 146
+###
+93 + 94 =",10000,0.6313,0.6313,0.6153,0.6153,0.6156,0.6156,Summation is done after carrying occurs.,

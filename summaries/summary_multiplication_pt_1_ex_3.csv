@@ -1,0 +1,141 @@
+model,param_count,prompt,prompt_example,test_count,first_any_accuracy,any_any_accuracy,first_mode_accuracy,any_mode_accuracy,first_majority_accuracy,any_majority_accuracy,reason,comments
+flan-t5-small,80000000,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+63 // 10 = 6
+15 // 10 = 1
+###
+12 // 10 =",90,0.15555555555555556,0.2777777777777778,0.05555555555555555,0.05555555555555555,0.05555555555555555,0.16666666666666666,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-small,80000000,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+4 & 8 & 7 = 487
+6 & 4 & 7 = 647
+###
+9 & 9 & 3 =",1000,0.001,0.003,0.001,0.0,0.001,0.002,The digits needs to be concatenated to the final answer.,
+flan-t5-small,80000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+0 * 4 = 0
+8 * 7 = 56
+###
+2 * 6 =",100,0.27,0.47,0.2,0.18,0.19,0.2,Multiplication requires multiplying two values at some digits place.,
+flan-t5-small,80000000,Sum,"Add two numbers.
+###
+49 + 97 = 146
+53 + 5 = 58
+33 + 65 = 98
+###
+93 + 94 =",10000,0.0146,0.0198,0.0015,0.0018,0.0007,0.0007,Summation is done after carrying occurs.,
+flan-t5-base,248000000,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+63 // 10 = 6
+15 // 10 = 1
+###
+12 // 10 =",90,0.05555555555555555,0.06666666666666667,0.011111111111111112,0.011111111111111112,0.011111111111111112,0.011111111111111112,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-base,248000000,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+4 & 8 & 7 = 487
+6 & 4 & 7 = 647
+###
+9 & 9 & 3 =",1000,0.0,0.0,0.0,0.0,0.0,0.0,The digits needs to be concatenated to the final answer.,
+flan-t5-base,248000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+0 * 4 = 0
+8 * 7 = 56
+###
+2 * 6 =",100,0.13,0.23,0.07,0.07,0.07,0.07,Multiplication requires multiplying two values at some digits place.,
+flan-t5-base,248000000,Sum,"Add two numbers.
+###
+49 + 97 = 146
+53 + 5 = 58
+33 + 65 = 98
+###
+93 + 94 =",10000,0.0001,0.0001,0.0,0.0,0.0,0.0,Summation is done after carrying occurs.,
+flan-t5-large,780000000,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+63 // 10 = 6
+15 // 10 = 1
+###
+12 // 10 =",90,0.5888888888888889,0.5888888888888889,0.4111111111111111,0.4111111111111111,0.3888888888888889,0.3888888888888889,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-large,780000000,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+4 & 8 & 7 = 487
+6 & 4 & 7 = 647
+###
+9 & 9 & 3 =",1000,0.042,0.043,0.014,0.014,0.016,0.018,The digits needs to be concatenated to the final answer.,
+flan-t5-large,780000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+0 * 4 = 0
+8 * 7 = 56
+###
+2 * 6 =",100,0.33,0.33,0.28,0.28,0.28,0.28,Multiplication requires multiplying two values at some digits place.,
+flan-t5-large,780000000,Sum,"Add two numbers.
+###
+49 + 97 = 146
+53 + 5 = 58
+33 + 65 = 98
+###
+93 + 94 =",10000,0.0085,0.0085,0.0029,0.0029,0.0016,0.0016,Summation is done after carrying occurs.,
+flan-t5-xl,3000000000,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+63 // 10 = 6
+15 // 10 = 1
+###
+12 // 10 =",90,0.9111111111111111,0.9111111111111111,0.9,0.9,0.9,0.9,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-xl,3000000000,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+4 & 8 & 7 = 487
+6 & 4 & 7 = 647
+###
+9 & 9 & 3 =",1000,0.92,0.92,0.908,0.908,0.91,0.91,The digits needs to be concatenated to the final answer.,
+flan-t5-xl,3000000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+0 * 4 = 0
+8 * 7 = 56
+###
+2 * 6 =",100,0.65,0.65,0.55,0.55,0.55,0.55,Multiplication requires multiplying two values at some digits place.,
+flan-t5-xl,3000000000,Sum,"Add two numbers.
+###
+49 + 97 = 146
+53 + 5 = 58
+33 + 65 = 98
+###
+93 + 94 =",10000,0.2063,0.2063,0.104,0.104,0.0947,0.0947,Summation is done after carrying occurs.,
+flan-t5-xxl,11000000000,Carry,"Carry the digit from the tens place.
+###
+59 // 10 = 5
+63 // 10 = 6
+15 // 10 = 1
+###
+12 // 10 =",90,0.9555555555555556,0.9555555555555556,0.9555555555555556,0.9555555555555556,0.9555555555555556,0.9555555555555556,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-xxl,11000000000,Concatenate,"Concatenate the numbers.
+###
+6 & 6 & 0 = 660
+4 & 8 & 7 = 487
+6 & 4 & 7 = 647
+###
+9 & 9 & 3 =",1000,0.582,0.582,0.545,0.545,0.547,0.547,The digits needs to be concatenated to the final answer.,
+flan-t5-xxl,11000000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+0 * 4 = 0
+8 * 7 = 56
+###
+2 * 6 =",100,0.93,0.93,0.93,0.93,0.93,0.93,Multiplication requires multiplying two values at some digits place.,
+flan-t5-xxl,11000000000,Sum,"Add two numbers.
+###
+49 + 97 = 146
+53 + 5 = 58
+33 + 65 = 98
+###
+93 + 94 =",10000,0.6353,0.6353,0.6203,0.6203,0.6209,0.6209,Summation is done after carrying occurs.,

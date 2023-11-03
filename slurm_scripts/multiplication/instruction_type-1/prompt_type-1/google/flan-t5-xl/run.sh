@@ -89,6 +89,28 @@ sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/ins
 sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-4.sh google/flan-t5-xl 9  30
 sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-4.sh google/flan-t5-xl 10 30
 
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-5.sh google/flan-t5-xl 1  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-5.sh google/flan-t5-xl 2  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-5.sh google/flan-t5-xl 3  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-5.sh google/flan-t5-xl 4  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-5.sh google/flan-t5-xl 5  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-5.sh google/flan-t5-xl 6  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-5.sh google/flan-t5-xl 7  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-5.sh google/flan-t5-xl 8  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-5.sh google/flan-t5-xl 9  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-5.sh google/flan-t5-xl 10 30
+
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-6.sh google/flan-t5-xl 1  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-6.sh google/flan-t5-xl 2  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-6.sh google/flan-t5-xl 3  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-6.sh google/flan-t5-xl 4  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-6.sh google/flan-t5-xl 5  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-6.sh google/flan-t5-xl 6  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-6.sh google/flan-t5-xl 7  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-6.sh google/flan-t5-xl 8  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-6.sh google/flan-t5-xl 9  30
+sbatch --gres=gpu:2 --mem=20GB --time=3:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-6.sh google/flan-t5-xl 10 30
+
 sbatch --gres=gpu:2 --mem=20GB --time=1:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/sum.sh google/flan-t5-xl 1  10
 sbatch --gres=gpu:2 --mem=20GB --time=1:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/sum.sh google/flan-t5-xl 2  10
 sbatch --gres=gpu:2 --mem=20GB --time=1:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/sum.sh google/flan-t5-xl 3  10

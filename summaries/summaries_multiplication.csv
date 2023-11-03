@@ -1,0 +1,126 @@
+model,param_count,prompt,prompt_example,test_count,first_any_accuracy,any_any_accuracy,first_mode_accuracy,any_mode_accuracy,first_majority_accuracy,any_majority_accuracy,reason,comments
+flan-t5-small,80M params,Carry,"Carry the digit from the tens place.
+###
+15 // 10 = 1
+###
+12 // 10 =",90,0.12222222222222222,0.12222222222222222,0.1,0.1,0.1,0.1,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-small,80M params,Concatenate,"Concatenate the numbers.
+###
+1 & 5 & 3 = 153
+###
+9 & 9 & 3 =",1000,0.001,0.001,0.001,0.001,0.001,0.001,The digits needs to be concatenated to the final answer.,
+flan-t5-small,80M params,Multiply,"Multiply two numbers.
+###
+5 * 3 = 15
+###
+93 * 94 =",10000,0.021,0.0278,0.0187,0.0187,0.0182,0.0195,Multiplication is the compositional task.,
+flan-t5-small,80M params,Multiply 1-digit,"Multiply two numbers.
+###
+5 * 3 = 15
+###
+2 * 6 =",100,0.21,0.29,0.2,0.22,0.21,0.25,Multiplication requires multiplying two values at some digits place.,
+flan-t5-small,80M params,Sum,"Add two numbers.
+###
+5 + 3 = 8
+###
+93 + 94 =",10000,0.0007,0.0017,0.0003,0.0003,0.0004,0.0007,Summation is done after carrying occurs.,
+flan-t5-base,248M params,Carry,"Carry the digit from the tens place.
+###
+15 // 10 = 1
+###
+12 // 10 =",90,0.12222222222222222,0.12222222222222222,0.08888888888888889,0.08888888888888889,0.08888888888888889,0.08888888888888889,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-base,248M params,Concatenate,"Concatenate the numbers.
+###
+1 & 5 & 3 = 153
+###
+9 & 9 & 3 =",1000,0.0,0.001,0.0,0.0,0.0,0.001,The digits needs to be concatenated to the final answer.,
+flan-t5-base,248M params,Multiply,"Multiply two numbers.
+###
+5 * 3 = 15
+###
+93 * 94 =",10000,0.0002,0.0002,0.0001,0.0001,0.0001,0.0001,Multiplication is the compositional task.,
+flan-t5-base,248M params,Multiply 1-digit,"Multiply two numbers.
+###
+5 * 3 = 15
+###
+2 * 6 =",100,0.01,0.01,0.01,0.01,0.01,0.01,Multiplication requires multiplying two values at some digits place.,
+flan-t5-base,248M params,Sum,"Add two numbers.
+###
+5 + 3 = 8
+###
+93 + 94 =",10000,0.0008,0.0009,0.0004,0.0004,0.0004,0.0004,Summation is done after carrying occurs.,
+flan-t5-large,780M params,Carry,"Carry the digit from the tens place.
+###
+15 // 10 = 1
+###
+12 // 10 =",90,0.6555555555555556,0.6555555555555556,0.5333333333333333,0.5333333333333333,0.5333333333333333,0.5333333333333333,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-large,780M params,Concatenate,"Concatenate the numbers.
+###
+1 & 5 & 3 = 153
+###
+9 & 9 & 3 =",1000,0.238,0.238,0.148,0.147,0.137,0.137,The digits needs to be concatenated to the final answer.,
+flan-t5-large,780M params,Multiply,"Multiply two numbers.
+###
+5 * 3 = 15
+###
+93 * 94 =",10000,0.0007,0.0007,0.0004,0.0004,0.0004,0.0004,Multiplication is the compositional task.,
+flan-t5-large,780M params,Multiply 1-digit,"Multiply two numbers.
+###
+5 * 3 = 15
+###
+2 * 6 =",100,0.03,0.03,0.03,0.03,0.03,0.03,Multiplication requires multiplying two values at some digits place.,
+flan-t5-large,780M params,Sum,"Add two numbers.
+###
+5 + 3 = 8
+###
+93 + 94 =",10000,0.0017,0.0017,0.0007,0.0007,0.0005,0.0005,Summation is done after carrying occurs.,
+flan-t5-xl,3B params,Carry,"Carry the digit from the tens place.
+###
+15 // 10 = 1
+###
+12 // 10 =",90,0.9333333333333333,0.9333333333333333,0.9333333333333333,0.9333333333333333,0.9333333333333333,0.9333333333333333,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-xl,3B params,Concatenate,"Concatenate the numbers.
+###
+1 & 5 & 3 = 153
+###
+9 & 9 & 3 =",1000,0.808,0.808,0.709,0.709,0.716,0.716,The digits needs to be concatenated to the final answer.,
+flan-t5-xl,3B params,Multiply,"Multiply two numbers.
+###
+5 * 3 = 15
+###
+93 * 94 =",10000,0.0744,0.0748,0.0581,0.0579,0.0566,0.0567,Multiplication is the compositional task.,
+flan-t5-xl,3B params,Multiply 1-digit,"Multiply two numbers.
+###
+5 * 3 = 15
+###
+2 * 6 =",100,0.58,0.58,0.45,0.45,0.45,0.45,Multiplication requires multiplying two values at some digits place.,
+flan-t5-xl,3B params,Sum,"Add two numbers.
+###
+5 + 3 = 8
+###
+93 + 94 =",10000,0.1375,0.1375,0.0738,0.0738,0.0694,0.0694,Summation is done after carrying occurs.,
+flan-t5-xxl,11B params,Carry,"Carry the digit from the tens place.
+###
+15 // 10 = 1
+###
+12 // 10 =",90,0.9777777777777777,0.9777777777777777,0.9777777777777777,0.9777777777777777,0.9777777777777777,0.9777777777777777,Carry occurs in multiplication at some digits place is greater than 9.,
+flan-t5-xxl,11B params,Concatenate,"Concatenate the numbers.
+###
+1 & 5 & 3 = 153
+###
+9 & 9 & 3 =",1000,0.505,0.505,0.469,0.469,0.47,0.47,The digits needs to be concatenated to the final answer.,
+flan-t5-xxl,11B params,Multiply,"Multiply two numbers.
+###
+5 * 3 = 15
+###
+93 * 94 =",10000,0.1339,0.1339,0.1228,0.1228,0.1231,0.1231,Multiplication is the compositional task.,
+flan-t5-xxl,11B params,Multiply 1-digit,"Multiply two numbers.
+###
+5 * 3 = 15
+###
+2 * 6 =",100,0.89,0.89,0.89,0.89,0.89,0.89,Multiplication requires multiplying two values at some digits place.,
+flan-t5-xxl,11B params,Sum,"Add two numbers.
+###
+5 + 3 = 8
+###
+93 + 94 =",10000,0.6497,0.6497,0.6323,0.6323,0.6333,0.6333,Summation is done after carrying occurs.,
