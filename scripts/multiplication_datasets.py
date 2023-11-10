@@ -1,6 +1,7 @@
 import os
 import sys
 import csv
+import string
 import random
 
 from datasets_helper import *
@@ -38,17 +39,24 @@ def get_concatenate_example(seed: int | None):
     return example
 
 
-def get_samples(min: int, max: int, question_seed: int | None):
-    sample_x = []
-    sample_y = []
-    for i in range(1000):
+def get_int_samples(min: int, max: int, question_seed: int | None, sample_count: int = 1000):
+    samples_x = []
+    samples_y = []
+    for i in range(sample_count):
         random.seed(question_seed + i)
         x = random.randint(min, max)
         y = random.randint(min, max)
-        sample_x.append(x)
-        sample_y.append(y)
-    return sample_x, sample_y
+        samples_x.append(x)
+        samples_y.append(y)
+    return samples_x, samples_y
 
+def get_str_samples(question_seed: int | None, length: int = 6, sample_count: int = 1000):
+    samples = []
+    for i in range(sample_count):
+        random.seed(question_seed + i)
+        random_str = "".join(random.choices(string.ascii_lowercase, k=length))
+        samples.append(random_str)
+    return samples
 
 def create_dataset(
     dataset_folder_path: str,
@@ -129,17 +137,17 @@ def create_dataset(
     )
 
     # For multiply.csv, sample questions with 3+ digits because sample space is large
-    sample_x = []
-    sample_y = []
-    sample = get_samples(0, 999, question_seed)
-    sample_x.extend(sample[0])
-    sample_y.extend(sample[1])
-    sample = get_samples(0, 9999, question_seed)
-    sample_x.extend(sample[0])
-    sample_y.extend(sample[1])
-    sample = get_samples(0, 99999, question_seed)
-    sample_x.extend(sample[0])
-    sample_y.extend(sample[1])
+    samples_x = []
+    samples_y = []
+    sample = get_int_samples(0, 999, question_seed)
+    samples_x.extend(sample[0])
+    samples_y.extend(sample[1])
+    sample = get_int_samples(0, 9999, question_seed)
+    samples_x.extend(sample[0])
+    samples_y.extend(sample[1])
+    sample = get_int_samples(0, 99999, question_seed)
+    samples_x.extend(sample[0])
+    samples_y.extend(sample[1])
     # For multiply.csv, try giving examples of varying size
     examples = []
     min = 0
@@ -153,10 +161,10 @@ def create_dataset(
         "examples": examples,
         "questions": [f"{x} * {y} =" for x in range(100) for y in range(100)]
         + [
-            f"{sample_x[index]} * {sample_y[index]} =" for index in range(len(sample_x))
+            f"{samples_x[index]} * {samples_y[index]} =" for index in range(len(samples_x))
         ],
         "answers": [f"{x * y}" for x in range(100) for y in range(100)]
-        + [f"{sample_x[index] * sample_y[index]}" for index in range(len(sample_x))],
+        + [f"{samples_x[index] * samples_y[index]}" for index in range(len(samples_x))],
     }
 
     write_csv(
@@ -169,16 +177,6 @@ def create_dataset(
     )
 
     # 1: carry, 2: concatenate, 3: multiply-1-digit, 4: sum, 5: exp, 6: sub, 7: rev()
-    # write_csv(
-    #   dataset_folder_path=dataset_folder_path,
-    #   save_file="multiply-primed-1234.csv",
-    #   instruction=multiply_dataset["instruction"],
-    #   examples=multiply_dataset["examples"],
-    #   questions=multiply_dataset["questions"],
-    #   answers=multiply_dataset["answers"],
-    #   primings=[create_priming([carry_dataset, concatenate_dataset, multiply_1_digit_dataset, sum_dataset], seed=example_seed) for example_seed in example_seeds]
-    # )
-    
     power_dataset = {
         "instruction": "Exponentiate the number.",
         "questions": [f"{x}**{y} =" for x in range(10) for y in range(10)],
@@ -189,6 +187,13 @@ def create_dataset(
         "instruction": "Subtract two numbers.",
         "questions": [f"{x} - {y} =" for x in range(100) for y in range(100)],
         "answers": [f"{x - y}" for x in range(100) for y in range(100)],
+    }
+    
+    samples = get_str_samples(question_seed)
+    reverse_dataset = {
+        "instruction": "Reverse the string.",
+        "questions": [f"The reverse of {sample} is" for sample in samples],
+        "answers": [f"{sample[::-1]}" for sample in samples],
     }
     
     write_csv(
@@ -212,6 +217,18 @@ def create_dataset(
         answers=multiply_dataset["answers"],
         primings=[
             create_priming([subtract_dataset], seed=example_seed) for example_seed in example_seeds
+        ],
+    )
+    
+    write_csv(
+        dataset_folder_path=dataset_folder_path,
+        save_file="multiply-primed-7.csv",
+        instruction=multiply_dataset["instruction"],
+        examples=multiply_dataset["examples"],
+        questions=multiply_dataset["questions"],
+        answers=multiply_dataset["answers"],
+        primings=[
+            create_priming([reverse_dataset], seed=example_seed) for example_seed in example_seeds
         ],
     )
 
