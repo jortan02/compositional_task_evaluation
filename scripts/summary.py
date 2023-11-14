@@ -228,6 +228,7 @@ def multplication_experiment(model_name: str, param_count: int) -> list[dict[str
     MULTIPLY_PRIMED_4_PATH = os.path.join(MULTIPLICATION_PATH, "multiply-primed-4")
     MULTIPLY_PRIMED_5_PATH = os.path.join(MULTIPLICATION_PATH, "multiply-primed-5")
     MULTIPLY_PRIMED_6_PATH = os.path.join(MULTIPLICATION_PATH, "multiply-primed-6")
+    MULTIPLY_PRIMED_7_PATH = os.path.join(MULTIPLICATION_PATH, "multiply-primed-7")
     MULTIPLY_1_DIGIT_PATH = os.path.join(MULTIPLICATION_PATH, "multiply-1-digit")
     SUM_PATH = os.path.join(MULTIPLICATION_PATH, "sum")
 
@@ -316,7 +317,7 @@ def multplication_experiment(model_name: str, param_count: int) -> list[dict[str
             file_paths=glob.glob(
                 os.path.join(MULTIPLY_PRIMED_5_PATH, model_name, "*.csv")
             ),
-            reason="Multiplication is the compositional task. We are priming multiplicationi with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.",
+            reason="Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.",
             baseline_accs=multiply_accs,
         )[0]
     )
@@ -328,7 +329,19 @@ def multplication_experiment(model_name: str, param_count: int) -> list[dict[str
             file_paths=glob.glob(
                 os.path.join(MULTIPLY_PRIMED_6_PATH, model_name, "*.csv")
             ),
-            reason="Multiplication is the compositional task. We are priming multiplicationi with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.",
+            reason="Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.",
+            baseline_accs=multiply_accs,
+        )[0]
+    )
+    results_list.append(
+        _get_summary_dict(
+            model=model_name,
+            param_count=param_count,
+            prompt="Multiply, primed with reverse",
+            file_paths=glob.glob(
+                os.path.join(MULTIPLY_PRIMED_7_PATH, model_name, "*.csv")
+            ),
+            reason="Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.",
             baseline_accs=multiply_accs,
         )[0]
     )

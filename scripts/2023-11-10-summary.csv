@@ -63,7 +63,7 @@ Multiply two numbers.
 ###
 3898 * 9709 = 37845682
 ###
-15480 * 75948 =",13000.0,0.014869230769230768,0.002018769910778026,0.04521142406041203,0.019563076923076923,0.0026122306774911813,0.12197398784567264,0.014869230769230773,0.0020187699107780395,0.04521142406041242,0.019563076923076926,0.0026122306774911696,0.12197398784567141,Multiplication is the compositional task. We are priming multiplicationi with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
+15480 * 75948 =",13000.0,0.014869230769230768,0.002018769910778026,0.04521142406041203,0.019563076923076923,0.0026122306774911813,0.12197398784567264,0.014869230769230773,0.0020187699107780395,0.04521142406041242,0.019563076923076926,0.0026122306774911696,0.12197398784567141,Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
 google/flan-t5-small,80000000,"Multiply, primed with subtract","Subtract two numbers.
 ###
 38 - 98 = -60
@@ -73,7 +73,17 @@ Multiply two numbers.
 ###
 3898 * 9709 = 37845682
 ###
-15480 * 75948 =",13000.0,0.01086923076923077,0.0037908516474557206,0.8754363510354544,0.015412307692307692,0.0051908034288235564,0.8239822991950294,0.010869230769230772,0.003790851647455722,0.8754363510354539,0.015412307692307687,0.005190803428823556,0.823982299195029,Multiplication is the compositional task. We are priming multiplicationi with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+15480 * 75948 =",13000.0,0.01086923076923077,0.0037908516474557206,0.8754363510354544,0.015412307692307692,0.0051908034288235564,0.8239822991950294,0.010869230769230772,0.003790851647455722,0.8754363510354539,0.015412307692307687,0.005190803428823556,0.823982299195029,Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-small,80000000,"Multiply, primed with reverse","Reverse the string.
+###
+The reverse of gtpdvl is lvdptg
+###
+
+Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,0.017859999999999997,0.002296477364143542,0.005089394752588146,0.024324615384615382,0.0028049381644715226,0.004051406286008232,0.017860000000000004,0.0022964773641435438,0.0050893947525881686,0.024324615384615382,0.002804938164471525,0.004051406286008236,Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.,
 google/flan-t5-small,80000000,Multiply 1-digit,"Multiply two numbers.
 ###
 6 * 6 = 36
@@ -148,7 +158,7 @@ Multiply two numbers.
 ###
 3898 * 9709 = 37845682
 ###
-15480 * 75948 =",13000.0,0.00035846153846153846,0.0006754108983846831,0.5212189072027383,0.00038153846153846153,0.0007178139067569865,0.5089894712392855,0.0003584615384615385,0.0006754108983846831,0.5212189072027382,0.0003815384615384615,0.0007178139067569864,0.5089894712392855,Multiplication is the compositional task. We are priming multiplicationi with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
+15480 * 75948 =",13000.0,0.00035846153846153846,0.0006754108983846831,0.5212189072027383,0.00038153846153846153,0.0007178139067569865,0.5089894712392855,0.0003584615384615385,0.0006754108983846831,0.5212189072027382,0.0003815384615384615,0.0007178139067569864,0.5089894712392855,Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
 google/flan-t5-base,248000000,"Multiply, primed with subtract","Subtract two numbers.
 ###
 38 - 98 = -60
@@ -158,7 +168,17 @@ Multiply two numbers.
 ###
 3898 * 9709 = 37845682
 ###
-15480 * 75948 =",13000.0,3.538461538461538e-05,6.335772394453539e-05,0.44859103120337607,3.538461538461538e-05,6.335772394453539e-05,0.4467028555061827,3.538461538461539e-05,6.335772394453539e-05,0.4485910312033762,3.538461538461539e-05,6.335772394453539e-05,0.4467028555061827,Multiplication is the compositional task. We are priming multiplicationi with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+15480 * 75948 =",13000.0,3.538461538461538e-05,6.335772394453539e-05,0.44859103120337607,3.538461538461538e-05,6.335772394453539e-05,0.4467028555061827,3.538461538461539e-05,6.335772394453539e-05,0.4485910312033762,3.538461538461539e-05,6.335772394453539e-05,0.4467028555061827,Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-base,248000000,"Multiply, primed with reverse","Reverse the string.
+###
+The reverse of gtpdvl is lvdptg
+###
+
+Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,0.007361538461538461,0.0028346461745535796,0.0009359756781851698,0.007363076923076924,0.0028376021213018165,0.0009425681340302167,0.007361538461538461,0.002834646174553579,0.0009359756781851698,0.007363076923076924,0.0028376021213018165,0.0009425681340302148,Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.,
 google/flan-t5-base,248000000,Multiply 1-digit,"Multiply two numbers.
 ###
 6 * 6 = 36
@@ -233,7 +253,7 @@ Multiply two numbers.
 ###
 3898 * 9709 = 37845682
 ###
-15480 * 75948 =",13000.0,0.014307692307692308,0.00576679127910875,0.06882729459879368,0.014323076923076921,0.005780688110388399,0.06899121798919065,0.014307692307692303,0.0057667912791087485,0.06882729459879368,0.014323076923076916,0.005780688110388396,0.06899121798919061,Multiplication is the compositional task. We are priming multiplicationi with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
+15480 * 75948 =",13000.0,0.014307692307692308,0.00576679127910875,0.06882729459879368,0.014323076923076921,0.005780688110388399,0.06899121798919065,0.014307692307692303,0.0057667912791087485,0.06882729459879368,0.014323076923076916,0.005780688110388396,0.06899121798919061,Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
 google/flan-t5-large,780000000,"Multiply, primed with subtract","Subtract two numbers.
 ###
 38 - 98 = -60
@@ -243,7 +263,17 @@ Multiply two numbers.
 ###
 3898 * 9709 = 37845682
 ###
-15480 * 75948 =",13000.0,0.00795846153846154,0.0006266582734760441,0.5813835475189539,0.00795846153846154,0.0006266582734760441,0.5838225502837324,0.00795846153846154,0.0006266582734760462,0.5813835475189528,0.00795846153846154,0.0006266582734760462,0.5838225502837315,Multiplication is the compositional task. We are priming multiplicationi with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+15480 * 75948 =",13000.0,0.00795846153846154,0.0006266582734760441,0.5813835475189539,0.00795846153846154,0.0006266582734760441,0.5838225502837324,0.00795846153846154,0.0006266582734760462,0.5813835475189528,0.00795846153846154,0.0006266582734760462,0.5838225502837315,Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-large,780000000,"Multiply, primed with reverse","Reverse the string.
+###
+The reverse of gtpdvl is lvdptg
+###
+
+Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,0.019573846153846153,0.001985125754292415,0.0007052947366487984,0.021801538461538462,0.000603743744378142,0.00014091001445963524,0.01957384615384616,0.0019851257542924175,0.0007052947366487938,0.021801538461538462,0.0006037437443781405,0.00014091001445963458,Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.,
 google/flan-t5-large,780000000,Multiply 1-digit,"Multiply two numbers.
 ###
 6 * 6 = 36
@@ -318,7 +348,7 @@ Multiply two numbers.
 ###
 3898 * 9709 = 37845682
 ###
-15480 * 75948 =",13000.0,0.04507846153846154,0.0020779906088368646,0.18041566908315965,0.04559846153846154,0.0022083135014553668,0.12451380261050671,0.04507846153846157,0.002077990608836866,0.18041566908315784,0.045598461538461574,0.002208313501455369,0.12451380261050396,Multiplication is the compositional task. We are priming multiplicationi with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
+15480 * 75948 =",13000.0,0.04507846153846154,0.0020779906088368646,0.18041566908315965,0.04559846153846154,0.0022083135014553668,0.12451380261050671,0.04507846153846157,0.002077990608836866,0.18041566908315784,0.045598461538461574,0.002208313501455369,0.12451380261050396,Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
 google/flan-t5-xl,3000000000,"Multiply, primed with subtract","Subtract two numbers.
 ###
 38 - 98 = -60
@@ -328,7 +358,17 @@ Multiply two numbers.
 ###
 3898 * 9709 = 37845682
 ###
-15480 * 75948 =",13000.0,0.036647692307692305,0.004334721246403701,0.02258298826295139,0.03672307692307692,0.004303349459205856,0.021365251268532736,0.03664769230769232,0.004334721246403723,0.022582988262951662,0.036723076923076935,0.004303349459205881,0.02136525126853323,Multiplication is the compositional task. We are priming multiplicationi with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+15480 * 75948 =",13000.0,0.036647692307692305,0.004334721246403701,0.02258298826295139,0.03672307692307692,0.004303349459205856,0.021365251268532736,0.03664769230769232,0.004334721246403723,0.022582988262951662,0.036723076923076935,0.004303349459205881,0.02136525126853323,Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-xl,3000000000,"Multiply, primed with reverse","Reverse the string.
+###
+The reverse of gtpdvl is lvdptg
+###
+
+Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,0.014001538461538463,0.00106038287157023,1.4827844284207807e-09,0.014015384615384615,0.0010655553875907478,1.4032377381516747e-09,0.01400153846153846,0.0010603828715702278,1.4827844284207385e-09,0.014015384615384614,0.0010655553875907459,1.4032377381516499e-09,Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.,
 google/flan-t5-xl,3000000000,Multiply 1-digit,"Multiply two numbers.
 ###
 6 * 6 = 36
@@ -403,7 +443,7 @@ Multiply two numbers.
 ###
 3898 * 9709 = 37845682
 ###
-15480 * 75948 =",13000.0,0.07161076923076923,0.014635140979139556,0.5203661227705298,0.07294153846153847,0.01366846376792754,0.4536546315918426,0.07161076923076923,0.014635140979139578,0.5203661227705298,0.07294153846153846,0.013668463767927557,0.45365463159184327,Multiplication is the compositional task. We are priming multiplicationi with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
+15480 * 75948 =",13000.0,0.07161076923076923,0.014635140979139556,0.5203661227705298,0.07294153846153847,0.01366846376792754,0.4536546315918426,0.07161076923076923,0.014635140979139578,0.5203661227705298,0.07294153846153846,0.013668463767927557,0.45365463159184327,Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
 google/flan-t5-xxl,11000000000,"Multiply, primed with subtract","Subtract two numbers.
 ###
 38 - 98 = -60
@@ -413,7 +453,17 @@ Multiply two numbers.
 ###
 3898 * 9709 = 37845682
 ###
-15480 * 75948 =",13000.0,0.06876,0.015083498879952837,0.6825073041938707,0.06977384615384616,0.014372939399519103,0.6309181107625803,0.06875999999999999,0.015083498879952839,0.6825073041938715,0.06977384615384614,0.01437293939951911,0.630918110762581,Multiplication is the compositional task. We are priming multiplicationi with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+15480 * 75948 =",13000.0,0.06876,0.015083498879952837,0.6825073041938707,0.06977384615384616,0.014372939399519103,0.6309181107625803,0.06875999999999999,0.015083498879952839,0.6825073041938715,0.06977384615384614,0.01437293939951911,0.630918110762581,Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-xxl,11000000000,"Multiply, primed with reverse","Reverse the string.
+###
+The reverse of gtpdvl is lvdptg
+###
+
+Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,0.06888000000000001,0.013187068796057473,0.6600674976984306,0.06919076923076924,0.01297185975726419,0.6536156437780449,0.06888,0.013187068796057494,0.6600674976984315,0.06919076923076925,0.012971859757264207,0.6536156437780443,Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.,
 google/flan-t5-xxl,11000000000,Multiply 1-digit,"Multiply two numbers.
 ###
 6 * 6 = 36
