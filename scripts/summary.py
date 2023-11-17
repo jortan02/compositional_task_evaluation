@@ -93,7 +93,6 @@ def _analyze_results(
     experiment_df_list = np.split(results_df, example_count)
     accuracies = []
     for experiment_df in experiment_df_list:
-        print(experiment_df.head)
         experiment_df = experiment_df.reset_index()
         prediction_col_names = [
             col for col in experiment_df if col.startswith("prediction")

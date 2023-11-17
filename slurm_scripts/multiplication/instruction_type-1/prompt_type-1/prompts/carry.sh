@@ -15,11 +15,12 @@ export TRANSFORMERS_CACHE="/scratch/general/vast/u1283221/huggingface_cache"
 task="carry"
 instruction_type=1
 prompt_type=1
-module=$1
-experiment_number=$2
-batch_size=$3
+script=$1
+module=$2
+experiment_number=$3
+batch_size=$4
 
 input_file_path="./data/multiplication/instruction_type-$instruction_type/prompt_type-$prompt_type/$task.csv"
 output_file_path="./results/multiplication/instruction_type-$instruction_type/prompt_type-$prompt_type/$task/$module/experiment-$experiment_number.csv"
 
-python ./scripts/t5_cte.py $input_file_path $output_file_path $module $batch_size
+CUDA_LAUNCH_BLOCKING=1 python $script $input_file_path $output_file_path $module $batch_size
