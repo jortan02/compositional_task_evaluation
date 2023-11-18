@@ -1,42 +1,0 @@
-mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
-You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:17<00:17, 17.60s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:20<00:00,  9.16s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:20<00:00, 10.43s/it]
->> Input file: ./data/multiplication/prompt_type_1/aggregate_count_1/concatenate.csv, module: google/flan-t5-xl
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 15592.21it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 144.02it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1000 examples [00:00, 9731.36 examples/s]Generating train split: 1000 examples [00:00, 9507.08 examples/s]
-  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:06<01:02,  6.89s/it] 20%|██        | 2/10 [00:11<00:44,  5.54s/it] 30%|███       | 3/10 [00:16<00:37,  5.32s/it] 40%|████      | 4/10 [00:19<00:27,  4.51s/it] 50%|█████     | 5/10 [00:23<00:21,  4.23s/it] 60%|██████    | 6/10 [00:27<00:16,  4.06s/it] 70%|███████   | 7/10 [00:31<00:11,  3.97s/it] 80%|████████  | 8/10 [00:33<00:07,  3.60s/it] 90%|█████████ | 9/10 [00:36<00:03,  3.39s/it]100%|██████████| 10/10 [00:39<00:00,  3.26s/it]100%|██████████| 10/10 [00:39<00:00,  3.98s/it]
-Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map: 100%|██████████| 1000/1000 [00:00<00:00, 29393.28 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 33.29ba/s]
-  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:03<00:31,  3.51s/it] 20%|██        | 2/10 [00:06<00:27,  3.41s/it] 30%|███       | 3/10 [00:11<00:27,  3.90s/it] 40%|████      | 4/10 [00:14<00:21,  3.60s/it] 50%|█████     | 5/10 [00:17<00:17,  3.49s/it] 60%|██████    | 6/10 [00:20<00:13,  3.32s/it] 70%|███████   | 7/10 [00:25<00:11,  3.87s/it] 80%|████████  | 8/10 [00:28<00:07,  3.59s/it] 90%|█████████ | 9/10 [00:31<00:03,  3.35s/it]100%|██████████| 10/10 [00:34<00:00,  3.24s/it]100%|██████████| 10/10 [00:34<00:00,  3.46s/it]
-Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map: 100%|██████████| 1000/1000 [00:00<00:00, 30899.09 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 358.95ba/s]
-  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:03<00:27,  3.06s/it] 20%|██        | 2/10 [00:06<00:26,  3.35s/it] 30%|███       | 3/10 [00:11<00:27,  3.88s/it] 40%|████      | 4/10 [00:16<00:25,  4.33s/it] 50%|█████     | 5/10 [00:19<00:20,  4.14s/it] 60%|██████    | 6/10 [00:23<00:15,  3.87s/it] 70%|███████   | 7/10 [00:26<00:10,  3.52s/it] 80%|████████  | 8/10 [00:28<00:06,  3.30s/it] 90%|█████████ | 9/10 [00:31<00:03,  3.21s/it]100%|██████████| 10/10 [00:34<00:00,  3.14s/it]100%|██████████| 10/10 [00:34<00:00,  3.49s/it]
-Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map: 100%|██████████| 1000/1000 [00:00<00:00, 29136.22 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 316.89ba/s]
-  0%|          | 0/10 [00:00<?, ?it/s]  0%|          | 0/10 [00:05<?, ?it/s]
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 18, in <module>
-    run_experiments.run_experiments(model, tokenizer, batch_size, input_file, output_folder, experiment_count)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiments.py", line 38, in run_experiments
-    predictions = _evaluate_model(model, tokenizer, dataset, batch_size)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiments.py", line 25, in _evaluate_model
-    generated_texts = _generate_texts(model, tokenizer, encodings)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiments.py", line 15, in _generate_texts
-    generated_ids = model.generate(**encodings, max_new_tokens=20, num_beams=5, do_sample=True)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/generation/utils.py", line 1712, in generate
-    return self.beam_sample(
-           ^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/generation/utils.py", line 3415, in beam_sample
-    model_kwargs["past_key_values"] = self._reorder_cache(model_kwargs["past_key_values"], beam_idx)
-                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/modeling_t5.py", line 1847, in _reorder_cache
-    layer_past_state.index_select(0, beam_idx.to(layer_past_state.device)),
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 204.00 MiB (GPU 0; 44.55 GiB total capacity; 40.74 GiB already allocated; 30.25 MiB free; 44.21 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

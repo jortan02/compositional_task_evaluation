@@ -1,33 +1,0 @@
-mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
-You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:24<01:37, 24.39s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:47<01:11, 23.84s/it]Loading checkpoint shards:  60%|██████    | 3/5 [01:12<00:48, 24.15s/it]Loading checkpoint shards:  80%|████████  | 4/5 [01:36<00:24, 24.23s/it]Loading checkpoint shards: 100%|██████████| 5/5 [01:42<00:00, 17.65s/it]Loading checkpoint shards: 100%|██████████| 5/5 [01:42<00:00, 20.54s/it]
->> Input file: ./data/multiplication/instruction_type-1/prompt_type-1/multiply.csv, Output file: ./results/multiplication/instruction_type-1/prompt_type-1/multiply/google/flan-t5-xxl/experiment-6.csv, Module: google/flan-t5-xxl, Batch size: 50
-<class 'datasets.arrow_dataset.Dataset'>
-  0%|          | 0/1300 [00:00<?, ?it/s]
-Map:   0%|          | 0/50 [00:00<?, ? examples/s][AMap: 100%|██████████| 50/50 [00:00<00:00, 1254.35 examples/s]
-  0%|          | 0/1300 [00:13<?, ?it/s]
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 18, in <module>
-    run_experiment.run_experiment(model, tokenizer, batch_size, input_file_path, output_file_path)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiment.py", line 54, in run_experiment
-    predictions = _evaluate_model(model, tokenizer, dataset, batch_size)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiment.py", line 41, in _evaluate_model
-    generated_texts = _generate_texts(model, tokenizer, encodings)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiment.py", line 31, in _generate_texts
-    generated_ids = model.generate(**encodings, max_new_tokens=20, num_beams=5, do_sample=True)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/generation/utils.py", line 1712, in generate
-    return self.beam_sample(
-           ^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/generation/utils.py", line 3415, in beam_sample
-    model_kwargs["past_key_values"] = self._reorder_cache(model_kwargs["past_key_values"], beam_idx)
-                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/modeling_t5.py", line 1847, in _reorder_cache
-    layer_past_state.index_select(0, beam_idx.to(layer_past_state.device)),
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 86.00 MiB (GPU 0; 44.55 GiB total capacity; 44.15 GiB already allocated; 62.25 MiB free; 44.18 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

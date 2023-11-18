@@ -1,2 +1,0 @@
-mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
-slurmstepd: error: *** JOB 8600779 ON notch369 CANCELLED AT 2023-09-28T10:11:43 ***

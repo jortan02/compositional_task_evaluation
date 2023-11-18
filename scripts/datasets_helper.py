@@ -18,16 +18,15 @@ def write_csv(dataset_folder_path: str, save_file: str, instruction: str, exampl
       csv_writer.writerow(["priming", "instruction", "example", "question", "answer"])
       csv_writer.writerows(rows)
       
-def prompt_format(instruction, example, question="", priming="", answer=""):
+def prompt_format(instruction, example, question="", priming=""):
   prompt = f"{priming}\n" if len(priming) > 0 else ""
-  answer = f" {answer}" if len(answer) > 0 else ""
   prompt += \
   (
   f"{instruction}\n"
   "###\n"
   f"{example}\n"
   "###\n"
-  f"{question}{answer}"
+  f"{question}"
   )
   return prompt
 
@@ -43,6 +42,4 @@ def create_priming(datasets: list[dict[str, str]], seed: int|None):
       instruction=dataset["instruction"],
       example=example,
     )
-    # if dataset_index != len(datasets) - 1:
-    #   priming += "\n"
   return priming    

@@ -1,74 +1,0 @@
-mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
-You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
->> Input file: ./data/digit/prompt_type_1/example_count_1/multiply_2_digits.csv, module: google/flan-t5-base
-Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 11037.64it/s]
-Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 178.25it/s]
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 8100 examples [00:00, 102196.39 examples/s]
-  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:08<00:58,  8.35s/it] 25%|██▌       | 2/8 [00:13<00:38,  6.39s/it] 38%|███▊      | 3/8 [00:18<00:28,  5.77s/it] 50%|█████     | 4/8 [00:23<00:21,  5.48s/it] 62%|██████▎   | 5/8 [00:28<00:16,  5.41s/it] 75%|███████▌  | 6/8 [00:33<00:10,  5.30s/it] 88%|████████▊ | 7/8 [00:38<00:05,  5.22s/it]100%|██████████| 8/8 [00:43<00:00,  5.18s/it]100%|██████████| 8/8 [00:43<00:00,  5.49s/it]
-Map:   0%|          | 0/8100 [00:00<?, ? examples/s]Map:  76%|███████▋  | 6184/8100 [00:00<00:00, 59019.73 examples/s]Map: 100%|██████████| 8100/8100 [00:00<00:00, 50660.15 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/9 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 9/9 [00:00<00:00, 219.98ba/s]
-  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:05<00:35,  5.03s/it] 25%|██▌       | 2/8 [00:10<00:30,  5.07s/it] 38%|███▊      | 3/8 [00:15<00:25,  5.05s/it] 50%|█████     | 4/8 [00:20<00:20,  5.04s/it] 62%|██████▎   | 5/8 [00:25<00:15,  5.05s/it] 75%|███████▌  | 6/8 [00:30<00:10,  5.05s/it] 88%|████████▊ | 7/8 [00:35<00:05,  5.04s/it]100%|██████████| 8/8 [00:40<00:00,  5.05s/it]100%|██████████| 8/8 [00:40<00:00,  5.05s/it]
-Map:   0%|          | 0/8100 [00:00<?, ? examples/s]Map:  71%|███████   | 5716/8100 [00:00<00:00, 56950.82 examples/s]Map: 100%|██████████| 8100/8100 [00:00<00:00, 35901.90 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/9 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 9/9 [00:00<00:00, 588.14ba/s]
-  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:05<00:35,  5.03s/it] 25%|██▌       | 2/8 [00:10<00:30,  5.03s/it] 38%|███▊      | 3/8 [00:15<00:25,  5.03s/it] 50%|█████     | 4/8 [00:20<00:20,  5.03s/it] 62%|██████▎   | 5/8 [00:25<00:15,  5.05s/it] 75%|███████▌  | 6/8 [00:31<00:11,  5.60s/it] 88%|████████▊ | 7/8 [00:37<00:05,  5.45s/it]100%|██████████| 8/8 [00:42<00:00,  5.33s/it]100%|██████████| 8/8 [00:42<00:00,  5.26s/it]
-Map:   0%|          | 0/8100 [00:00<?, ? examples/s]Map:  70%|██████▉   | 5647/8100 [00:00<00:00, 56264.41 examples/s]Map: 100%|██████████| 8100/8100 [00:00<00:00, 49393.68 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/9 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 9/9 [00:00<00:00, 583.52ba/s]
-  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:05<00:35,  5.03s/it] 25%|██▌       | 2/8 [00:10<00:30,  5.03s/it] 38%|███▊      | 3/8 [00:15<00:25,  5.03s/it] 50%|█████     | 4/8 [00:20<00:20,  5.04s/it] 62%|██████▎   | 5/8 [00:25<00:15,  5.05s/it] 75%|███████▌  | 6/8 [00:30<00:10,  5.08s/it] 88%|████████▊ | 7/8 [00:35<00:05,  5.08s/it]100%|██████████| 8/8 [00:40<00:00,  5.08s/it]100%|██████████| 8/8 [00:40<00:00,  5.06s/it]
-Map:   0%|          | 0/8100 [00:00<?, ? examples/s]Map:  69%|██████▊   | 5554/8100 [00:00<00:00, 55335.69 examples/s]Map: 100%|██████████| 8100/8100 [00:00<00:00, 48751.52 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/9 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 9/9 [00:00<00:00, 571.74ba/s]
-  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:05<00:35,  5.04s/it] 12%|█▎        | 1/8 [00:11<01:23, 11.92s/it]
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/t5_cte.py", line 18, in <module>
-    run_experiments.run_experiments(model, tokenizer, batch_size, input_file, output_folder, experiment_count)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiments.py", line 38, in run_experiments
-    predictions = _evaluate_model(model, tokenizer, dataset, batch_size)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiments.py", line 25, in _evaluate_model
-    generated_texts = _generate_texts(model, tokenizer, encodings)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/run_experiments.py", line 15, in _generate_texts
-    generated_ids = model.generate(**encodings, max_new_tokens=20, num_beams=5, do_sample=True)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/generation/utils.py", line 1712, in generate
-    return self.beam_sample(
-           ^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/generation/utils.py", line 3338, in beam_sample
-    outputs = self(
-              ^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/modeling_t5.py", line 1746, in forward
-    decoder_outputs = self.decoder(
-                      ^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/modeling_t5.py", line 1123, in forward
-    layer_outputs = layer_module(
-                    ^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/modeling_t5.py", line 695, in forward
-    self_attention_outputs = self.layer[0](
-                             ^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/modeling_t5.py", line 602, in forward
-    attention_output = self.SelfAttention(
-                       ^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/modeling_t5.py", line 527, in forward
-    value_states = project(
-                   ^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/modeling_t5.py", line 508, in project
-    hidden_states = torch.cat([past_key_value, hidden_states], dim=2)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 254.00 MiB (GPU 0; 44.55 GiB total capacity; 36.68 GiB already allocated; 228.25 MiB free; 44.01 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

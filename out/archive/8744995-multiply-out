@@ -1,48 +1,0 @@
-mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
-You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:41<02:47, 41.94s/it]Loading checkpoint shards:  40%|████      | 2/5 [01:35<02:25, 48.51s/it]Loading checkpoint shards:  60%|██████    | 3/5 [02:32<01:45, 52.60s/it]Loading checkpoint shards:  80%|████████  | 4/5 [03:34<00:56, 56.25s/it]Loading checkpoint shards: 100%|██████████| 5/5 [03:48<00:00, 41.19s/it]Loading checkpoint shards: 100%|██████████| 5/5 [03:48<00:00, 45.77s/it]
->> Input file: ./data/multiplication/instruction_type-1/prompt_type-1/multiply-primed-1.csv, Output file: ./results/multiplication/instruction_type-1/prompt_type-1/multiply-primed-1/google/flan-t5-xxl/experiment-7.csv, Module: google/flan-t5-xxl, Batch size: 25
-<class 'datasets.arrow_dataset.Dataset'>
-  0%|          | 0/13000 [00:00<?, ?it/s]  0%|          | 1/13000 [00:16<58:31:19, 16.21s/it]  0%|          | 2/13000 [00:19<31:56:35,  8.85s/it]  0%|          | 3/13000 [00:23<23:33:35,  6.53s/it]  0%|          | 4/13000 [00:27<19:22:09,  5.37s/it]  0%|          | 5/13000 [00:30<17:10:32,  4.76s/it]  0%|          | 6/13000 [00:34<15:45:52,  4.37s/it]  0%|          | 7/13000 [00:38<14:57:54,  4.15s/it]  0%|          | 8/13000 [00:41<14:24:40,  3.99s/it]  0%|          | 9/13000 [00:45<14:09:53,  3.93s/it]  0%|          | 10/13000 [00:49<13:51:03,  3.84s/it]  0%|          | 11/13000 [00:52<13:37:57,  3.78s/it]  0%|          | 12/13000 [00:56<13:33:30,  3.76s/it]  0%|          | 12/13000 [01:01<18:35:01,  5.15s/it]
-Traceback (most recent call last):
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/./scripts/t5_cte.py", line 18, in <module>
-    experiment.run_experiment(model, tokenizer, batch_size, input_file_path, output_file_path)
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/scripts/experiment.py", line 54, in run_experiment
-    predictions = _evaluate_model(model, tokenizer, dataset, batch_size)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/scripts/experiment.py", line 41, in _evaluate_model
-    generated_texts = _generate_texts(model, tokenizer, encodings)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/compositional_task_evaluation/scripts/experiment.py", line 31, in _generate_texts
-    generated_ids = model.generate(**encodings, max_new_tokens=20, num_beams=5, do_sample=True)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/generation/utils.py", line 1712, in generate
-    return self.beam_sample(
-           ^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/generation/utils.py", line 3338, in beam_sample
-    outputs = self(
-              ^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/transformers/models/t5/modeling_t5.py", line 1774, in forward
-    lm_logits = self.lm_head(sequence_output)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/accelerate/hooks.py", line 160, in new_forward
-    args, kwargs = module._hf_hook.pre_forward(module, *args, **kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/accelerate/hooks.py", line 286, in pre_forward
-    set_module_tensor_to_device(
-  File "/uufs/chpc.utah.edu/common/home/u1283221/miniconda3/envs/compositional/lib/python3.11/site-packages/accelerate/utils/modeling.py", line 313, in set_module_tensor_to_device
-    new_value = value.to(device)
-                ^^^^^^^^^^^^^^^^
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 502.00 MiB (GPU 0; 44.55 GiB total capacity; 43.57 GiB already allocated; 220.25 MiB free; 44.02 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

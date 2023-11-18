@@ -1,9 +1,0 @@
-mkdir: cannot create directory ‘/scratch/general/vast/u1283221/huggingface_cache’: File exists
-You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. If you see this, DO NOT PANIC! This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=True`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:17<00:17, 17.90s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:21<00:00,  9.41s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:21<00:00, 10.68s/it]
->> Input file: ./data/multiplication/instruction_type-1/prompt_type-1/multiply-1-digit.csv, Output file: ./results/multiplication/instruction_type-1/prompt_type-1/multiply-1-digit/google/flan-t5-xl/experiment-6.csv, Module: google/flan-t5-xl, Batch size: 100
-<class 'datasets.arrow_dataset.Dataset'>
-  0%|          | 0/5 [00:00<?, ?it/s] 20%|██        | 1/5 [00:03<00:14,  3.71s/it] 40%|████      | 2/5 [00:05<00:07,  2.64s/it] 60%|██████    | 3/5 [00:07<00:04,  2.32s/it] 80%|████████  | 4/5 [00:09<00:02,  2.09s/it]100%|██████████| 5/5 [00:11<00:00,  2.02s/it]100%|██████████| 5/5 [00:11<00:00,  2.23s/it]
-Map:   0%|          | 0/500 [00:00<?, ? examples/s]Map: 100%|██████████| 500/500 [00:00<00:00, 13625.83 examples/s]
-Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 25.41ba/s]
->> Time: 36.89480376243591
