@@ -45,9 +45,9 @@ sbatch --gres=gpu:2 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/in
 sbatch --gres=gpu:2 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply.sh ./scripts/llama2_cte.py meta-llama/Llama-2-13b-hf 9  20
 sbatch --gres=gpu:2 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply.sh ./scripts/llama2_cte.py meta-llama/Llama-2-13b-hf 10 20
 
-sbatch --gres=gpu:a100:4 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-1.sh ./scripts/llama2_cte.py meta-llama/Llama-2-13b-hf 1  200
-sbatch --gres=gpu:a100:4 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-1.sh ./scripts/llama2_cte.py meta-llama/Llama-2-13b-hf 2  150
-sbatch --gres=gpu:a100:3 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-1.sh ./scripts/llama2_cte.py meta-llama/Llama-2-13b-hf 3  100
+sbatch --gres=gpu:a100:3 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-1.sh ./scripts/llama2_cte.py meta-llama/Llama-2-13b-hf 1  40
+sbatch --gres=gpu:a100:3 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-1.sh ./scripts/llama2_cte.py meta-llama/Llama-2-13b-hf 2  40
+sbatch --gres=gpu:a100:3 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-1.sh ./scripts/llama2_cte.py meta-llama/Llama-2-13b-hf 3  40
 sbatch --gres=gpu:a100:3 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-1.sh ./scripts/llama2_cte.py meta-llama/Llama-2-13b-hf 4  40
 sbatch --gres=gpu:a100:3 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-1.sh ./scripts/llama2_cte.py meta-llama/Llama-2-13b-hf 5  40
 sbatch --gres=gpu:a100:3 --mem=20GB --time=12:00:00 ./slurm_scripts/multiplication/instruction_type-1/prompt_type-1/prompts/multiply-primed-1.sh ./scripts/llama2_cte.py meta-llama/Llama-2-13b-hf 6  40

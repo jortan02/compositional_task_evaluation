@@ -1,9 +1,5 @@
-import os
-import sys
-import csv
 import string
 import random
-
 from datasets_helper import *
 
 
@@ -176,7 +172,7 @@ def create_dataset(
         answers=multiply_dataset["answers"],
     )
 
-    # 1: carry, 2: concatenate, 3: multiply-1-digit, 4: sum, 5: exp, 6: sub, 7: rev()
+    # 1: carry, 2: concatenate, 3: multiply-1-digit, 4: sum, 5: exp, 6: sub, 7: rev
     power_dataset = {
         "instruction": "Exponentiate the number.",
         "questions": [f"{x}**{y} =" for x in range(10) for y in range(10)],
@@ -195,6 +191,12 @@ def create_dataset(
         "questions": [f"The reverse of {sample} is" for sample in samples],
         "answers": [f"{sample[::-1]}" for sample in samples],
     }
+    
+    # reverse_dataset = {
+    #     "instruction": "Reverse the string.",
+    #     "questions": [f"Reverse of {sample} is" for sample in samples],
+    #     "answers": [f"{sample[::-1]}." for sample in samples],
+    # } # TODO: Change format?
     
     write_csv(
         dataset_folder_path=dataset_folder_path,

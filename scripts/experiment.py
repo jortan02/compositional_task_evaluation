@@ -36,44 +36,46 @@ def run_experiment(
     input_file_path: str,
     output_file_path: str,
 ):
-    if not os.path.isfile(output_file_path):
-        device = torch.device("cuda")
-        raw_dataset = load_dataset(
-            "csv",
-            data_files=input_file_path,
-            features=Features(
-                {
-                    "priming": Value("string"),
-                    "instruction": Value("string"),
-                    "example": Value("string"),
-                    "question": Value("string"),
-                    "answer": Value("string"),
-                }
-            ),
-        )
-        prompt_dataset = raw_dataset.map(_create_prompt)
-        tokenized_prompt_dataset = prompt_dataset.map(
-            _tokenize_prompt, fn_kwargs={"tokenizer": tokenizer}
-        )
-        tokenized_prompt_dataset = tokenized_prompt_dataset.remove_columns(
-            ["priming", "instruction", "example", "question", "answer", "prompt"]
-        )
-        tokenized_prompt_dataset.set_format("torch")
-        data_collator = DataCollatorWithPadding(tokenizer)
-        data_loader = DataLoader(tokenized_prompt_dataset["train"], batch_size=batch_size, collate_fn=data_collator)
-        predictions = []
-        for batch in tqdm(data_loader):
-            batch = {k: v.to(device) for k, v in batch.items()}
-            with torch.no_grad():
-                generated_ids = model.generate(
-                    **batch, max_new_tokens=20, num_beams=5, do_sample=True
-                )
-            generated_texts = tokenizer.batch_decode(
-                generated_ids, skip_special_tokens=True
+    if os.path.isfile(output_file_path):
+        return
+    device = torch.device("cuda")
+    raw_dataset = load_dataset(
+        "csv",
+        data_files=input_file_path,
+        features=Features(
+            {
+                "priming": Value("string"),
+                "instruction": Value("string"),
+                "example": Value("string"),
+                "question": Value("string"),
+                "answer": Value("string"),
+            }
+        ),
+    )["train"]
+    prompt_dataset = raw_dataset.map(_create_prompt)
+    tokenized_prompt_dataset = prompt_dataset.map(
+        _tokenize_prompt, fn_kwargs={"tokenizer": tokenizer}
+    )
+    tokenized_prompt_dataset = tokenized_prompt_dataset.remove_columns(
+        ["priming", "instruction", "example", "question", "answer", "prompt"]
+    )
+    tokenized_prompt_dataset.set_format("torch")
+    data_collator = DataCollatorWithPadding(tokenizer)
+    data_loader = DataLoader(tokenized_prompt_dataset, batch_size=batch_size, collate_fn=data_collator)
+    predictions = []
+    model.eval()
+    for batch in tqdm(data_loader):
+        batch = {k: v.to(device) for k, v in batch.items()}
+        with torch.no_grad():
+            generated_ids = model.generate(
+                **batch, max_new_tokens=20, num_beams=5, do_sample=True
             )
-            predictions.extend(generated_texts)
-        raw_dataset = raw_dataset.map(
-            _add_prediction, with_indices=True, fn_kwargs={"predictions": predictions}
+        generated_texts = tokenizer.batch_decode(
+            generated_ids, skip_special_tokens=True
         )
-        os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
-        raw_dataset["train"].to_csv(output_file_path)
+        predictions.extend(generated_texts)
+    raw_dataset = raw_dataset.map(
+        _add_prediction, with_indices=True, fn_kwargs={"predictions": predictions}
+    )
+    os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
+    raw_dataset.to_csv(output_file_path)
