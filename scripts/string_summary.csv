@@ -1,0 +1,21 @@
+model,param_count,prompt,prompt_example,test_count,exact_micro_avg,exact_micro_std,exact_micro_tt,reason,comments
+google/flan-t5-xxl,11000000000,Uppercase,"Uppercase all of the words in the list.
+###
+Uppercase of ostrea, rabbit, gifted is OSTREA, RABBIT, GIFTED
+###
+Uppercase of feeler, briery, punks is ",1000.0,0.02654,0.007903062697461029,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+google/flan-t5-xxl,11000000000,Concatenate,"Concatenate the two word lists.
+###
+Concatenate of ostrea, rabbit, gifted and geisha, unai, tapir is ostrea, rabbit, gifted, geisha, unai, tapir
+###
+Concatenate of feeler, briery, punks and jell-o, dekko, unmown is ",1000.0,0.04322,0.04439965765633784,,Concatenate extends the first word list to include the words in the second word list.,
+google/flan-t5-xxl,11000000000,Remove First,"Remove the first word in the list.
+###
+Remove first of ostrea, rabbit, gifted is rabbit, gifted
+###
+Remove first of feeler, briery, punks is ",1000.0,0.046540000000000005,0.045023487203902805,,Remove First removes the first word in the word list.,
+google/flan-t5-xxl,11000000000,WLO,"WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+###
+WLO of ostrea, rabbit, gifted and geisha, unai, tapir is OSTREA, RABBIT, GIFTED, unai, tapir
+###
+WLO of feeler, briery, punks and jell-o, dekko, unmown is ",1000.0,0.0,0.0,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",

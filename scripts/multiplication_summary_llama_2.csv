@@ -1,0 +1,86 @@
+model,param_count,prompt,prompt_example,test_count,first_micro_avg,first_micro_std,first_micro_tt,any_micro_avg,any_micro_std,any_micro_tt,reason,comments
+meta-llama/Llama-2-7b-hf,7000000000,Carry,"Carry the digit from the tens place.
+###
+27 // 10 = 2
+###
+44 // 10 =",90.0,0.0,0.0,,0.8746666666666666,0.039461811513173524,,Carry occurs in multiplication at some digits place is greater than 9.,
+meta-llama/Llama-2-7b-hf,7000000000,Concatenate,"Concatenate the numbers.
+###
+2 & 1 & 9 = 219
+###
+2 & 3 & 3 =",1100.0,0.0,0.0,,0.721690909090909,0.23902107241381718,,The digits needs to be concatenated to the final answer.,
+meta-llama/Llama-2-7b-hf,7000000000,Multiply,"Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,9.230769230769232e-05,0.00012307692307692307,,0.3101784615384615,0.014516802262516153,,Multiplication is the compositional task.,
+meta-llama/Llama-2-7b-hf,7000000000,"Multiply, primed with carry","Carry the digit from the tens place.
+###
+40 // 10 = 4
+###
+
+Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,0.00036923076923076927,0.0002086870764038544,0.007930684411514182,0.29814307692307696,0.012616320415572925,0.019945510099692455,Multiplication is the compositional task. We are priming multiplication with carry because multiplication depends on this subtask.,
+meta-llama/Llama-2-7b-hf,7000000000,"Multiply, primed with multiply with 1 digit","Multiply two numbers.
+###
+3 * 0 = 0
+###
+
+Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,0.0032153846153846156,0.006123270194089306,2.618338380247865e-43,0.30958615384615384,0.007481373161305224,0.9093531567367217,Multiplication is the compositional task. We are priming multiplication with multiplication of 1 digit numbers because multiplication depends on this subtask.,
+meta-llama/Llama-2-7b-hf,7000000000,"Multiply, primed with sum","Subtract two numbers.
+###
+38 - 98 = -60
+###
+
+Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,0.00032307692307692305,7.536891516255933e-05,0.011196228772146998,0.30128307692307693,0.015367868885529963,0.08617273899482977,Multiplication is the compositional task. We are priming multiplication with summation of numbers up to 2 digits because multiplication depends on this subtask.,
+meta-llama/Llama-2-7b-hf,7000000000,"Multiply, primed with exponentiate","Exponentiate the number.
+###
+3**0 = 1
+###
+
+Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,0.0032153846153846156,0.006123270194089306,2.618338380247865e-43,0.2922584615384615,0.008896140510149968,0.0005041405068654049,Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
+meta-llama/Llama-2-7b-hf,7000000000,"Multiply, primed with subtract","Subtract two numbers.
+###
+38 - 98 = -60
+###
+
+Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,0.00032307692307692305,7.536891516255933e-05,0.011196228772146998,0.3013353846153846,0.01546324720752998,0.08803692047708164,Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+meta-llama/Llama-2-7b-hf,7000000000,"Multiply, primed with reverse","Reverse the string.
+###
+The reverse of gtpdvl is lvdptg
+###
+
+Multiply two numbers.
+###
+3898 * 9709 = 37845682
+###
+15480 * 75948 =",13000.0,9.230769230769232e-05,0.00012307692307692307,1.0,0.3016923076923077,0.014302552426653072,0.10255249706683388,Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.,
+meta-llama/Llama-2-7b-hf,7000000000,Multiply 1-digit,"Multiply two numbers.
+###
+6 * 6 = 36
+###
+9 * 0 =",100.0,0.05800000000000001,0.06645299090334461,,1.0,0.0,,Multiplication requires multiplying two values at some digits place.,
+meta-llama/Llama-2-7b-hf,7000000000,Sum,"Add two numbers.
+###
+17 + 72 = 89
+###
+18 + 41 =",10000.0,0.0027600000000000003,0.0014150618361046983,,0.9886099999999999,0.0036078359164463283,,Summation is done after carrying occurs.,
