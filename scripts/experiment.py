@@ -4,15 +4,18 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 from transformers import PreTrainedTokenizer, PreTrainedModel, DataCollatorWithPadding
 from datasets import load_dataset, Features, Value
+from datasets_helper import get_full_prompt
 
-from datasets_helper import prompt_format
-
-def _create_prompt(example: dict[str, str]):
-    prompt = prompt_format(
-        priming=example["priming"] if example["priming"] is not None else "",
+def _create_prompt(example: dict[str, str], prompt_format):
+    prompt = get_full_prompt(
+        prompt_format,
         instruction=example["instruction"],
-        example=example["example"],
         question=example["question"],
+        example_question=example["example_question"],
+        example_answer=example["example_answer"],
+        priming_instruction=example["priming_instruction"],
+        priming_question=example["priming_question"],
+        priming_answer=example["priming_answer"],
     )
     example["prompt"] = prompt
     return example
@@ -30,6 +33,7 @@ def _add_prediction(
 
 
 def run_experiment(
+    prompt_format,
     model: PreTrainedModel,
     tokenizer: PreTrainedTokenizer,
     batch_size: int,
@@ -44,20 +48,23 @@ def run_experiment(
         data_files=input_file_path,
         features=Features(
             {
-                "priming": Value("string"),
+                "priming_instruction": Value("string"),
+                "priming_question": Value("string"),
+                "priming_answer": Value("string"),
                 "instruction": Value("string"),
-                "example": Value("string"),
+                "example_question": Value("string"),
+                "example_answer": Value("string"),
                 "question": Value("string"),
                 "answer": Value("string"),
             }
         ),
     )["train"]
-    prompt_dataset = raw_dataset.map(_create_prompt)
+    prompt_dataset = raw_dataset.map(_create_prompt, fn_kwargs={"prompt_format": prompt_format})
     tokenized_prompt_dataset = prompt_dataset.map(
         _tokenize_prompt, fn_kwargs={"tokenizer": tokenizer}
     )
     tokenized_prompt_dataset = tokenized_prompt_dataset.remove_columns(
-        ["priming", "instruction", "example", "question", "answer", "prompt"]
+        ["priming_instruction", "priming_question", "priming_answer", "instruction", "example_question", "example_answer", "question", "answer", "prompt"]
     )
     tokenized_prompt_dataset.set_format("torch")
     data_collator = DataCollatorWithPadding(tokenizer)

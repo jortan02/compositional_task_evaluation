@@ -1,4 +1,6 @@
 from summary_helper import *
+from datasets_helper import get_flan_t5_prompt_format
+
 
 def multiplication_experiment(
     model_name: str, param_count: int
@@ -53,9 +55,7 @@ def multiplication_experiment(
             outcomes.append(extracted_predictions)
         return outcomes
 
-    INSTRUCTION_TYPE = 1
-    PROMPT_TYPE = 1
-    MULTIPLICATION_PATH = f"../results/multiplication/instruction_type-{INSTRUCTION_TYPE}/prompt_type-{PROMPT_TYPE}/"
+    MULTIPLICATION_PATH = f"../results/multiplication/"
     CARRY_PATH = os.path.join(MULTIPLICATION_PATH, "carry")
     CONCATENATE_PATH = os.path.join(MULTIPLICATION_PATH, "concatenate")
     MULTIPLY_PATH = os.path.join(MULTIPLICATION_PATH, "multiply")
@@ -70,71 +70,82 @@ def multiplication_experiment(
     SUM_PATH = os.path.join(MULTIPLICATION_PATH, "sum")
 
     results_list = []
-    extraction_score_functions = [("first_micro", _get_first_number, is_correct), ("any_micro", _get_all_numbers, is_correct)]
+    extraction_score_functions = [
+        ("first_micro", _get_first_number, is_correct),
+        ("any_micro", _get_all_numbers, is_correct),
+    ]
     results_list.append(
         get_summary_dict(
+            prompt_format=get_flan_t5_prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Carry",
-            file_paths=glob.glob(os.path.join(CARRY_PATH, model_name, "*.csv")),
+            experiment_paths=glob.glob(os.path.join(CARRY_PATH, model_name, "*.csv")),
             reason="Carry occurs in multiplication at some digits place is greater than 9.",
         )[0]
     )
     results_list.append(
         get_summary_dict(
+            prompt_format=get_flan_t5_prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Concatenate",
-            file_paths=glob.glob(os.path.join(CONCATENATE_PATH, model_name, "*.csv")),
+            experiment_paths=glob.glob(
+                os.path.join(CONCATENATE_PATH, model_name, "*.csv")
+            ),
             reason="The digits needs to be concatenated to the final answer.",
         )[0]
     )
 
     multiply_dict, multiply_accs = get_summary_dict(
+        prompt_format=get_flan_t5_prompt_format,
         model=model_name,
         param_count=param_count,
         extraction_score_functions=extraction_score_functions,
         prompt="Multiply",
-        file_paths=glob.glob(os.path.join(MULTIPLY_PATH, model_name, "*.csv")),
+        experiment_paths=glob.glob(os.path.join(MULTIPLY_PATH, model_name, "*.csv")),
         reason="Multiplication is the compositional task.",
     )
     results_list.append(multiply_dict)
 
     results_list.append(
         get_summary_dict(
+            prompt_format=get_flan_t5_prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with carry",
-            file_paths=glob.glob(
+            experiment_paths=glob.glob(
                 os.path.join(MULTIPLY_PRIMED_1_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with carry because multiplication depends on this subtask.",
             baseline_perfs=multiply_accs,
         )[0]
     )
-    # results_list.append(
-    #     get_summary_dict(
-    #         model=model_name,
-    #         param_count=param_count,
-    #         extraction_score_functions=extraction_score_functions,
-    #         prompt="Multiply, primed with concatenate",
-    #         file_paths=glob.glob(
-    #             os.path.join(MULTIPLY_PRIMED_2_PATH, model_name, "*.csv")
-    #         ),
-    #         reason="Multiplication is the compositional task. We are priming multiplication with concatenate because multiplication depends on this subtask.",
-    #         baseline_perfs=multiply_accs,
-    #     )[0]
-    # )
     results_list.append(
         get_summary_dict(
+            prompt_format=get_flan_t5_prompt_format,
+            model=model_name,
+            param_count=param_count,
+            extraction_score_functions=extraction_score_functions,
+            prompt="Multiply, primed with concatenate",
+            experiment_paths=glob.glob(
+                os.path.join(MULTIPLY_PRIMED_2_PATH, model_name, "*.csv")
+            ),
+            reason="Multiplication is the compositional task. We are priming multiplication with concatenate because multiplication depends on this subtask.",
+            baseline_perfs=multiply_accs,
+        )[0]
+    )
+    results_list.append(
+        get_summary_dict(
+            prompt_format=get_flan_t5_prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with multiply with 1 digit",
-            file_paths=glob.glob(
+            experiment_paths=glob.glob(
                 os.path.join(MULTIPLY_PRIMED_3_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with multiplication of 1 digit numbers because multiplication depends on this subtask.",
@@ -143,11 +154,12 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
+            prompt_format=get_flan_t5_prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with sum",
-            file_paths=glob.glob(
+            experiment_paths=glob.glob(
                 os.path.join(MULTIPLY_PRIMED_4_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with summation of numbers up to 2 digits because multiplication depends on this subtask.",
@@ -156,11 +168,12 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
+            prompt_format=get_flan_t5_prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with exponentiate",
-            file_paths=glob.glob(
+            experiment_paths=glob.glob(
                 os.path.join(MULTIPLY_PRIMED_5_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.",
@@ -169,11 +182,12 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
+            prompt_format=get_flan_t5_prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with subtract",
-            file_paths=glob.glob(
+            experiment_paths=glob.glob(
                 os.path.join(MULTIPLY_PRIMED_6_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.",
@@ -182,11 +196,12 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
+            prompt_format=get_flan_t5_prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with reverse",
-            file_paths=glob.glob(
+            experiment_paths=glob.glob(
                 os.path.join(MULTIPLY_PRIMED_7_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.",
@@ -195,11 +210,12 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
+            prompt_format=get_flan_t5_prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply 1-digit",
-            file_paths=glob.glob(
+            experiment_paths=glob.glob(
                 os.path.join(MULTIPLY_1_DIGIT_PATH, model_name, "*.csv")
             ),
             reason="Multiplication requires multiplying two values at some digits place.",
@@ -207,11 +223,12 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
+            prompt_format=get_flan_t5_prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Sum",
-            file_paths=glob.glob(os.path.join(SUM_PATH, model_name, "*.csv")),
+            experiment_paths=glob.glob(os.path.join(SUM_PATH, model_name, "*.csv")),
             reason="Summation is done after carrying occurs.",
         )[0]
     )
@@ -223,14 +240,18 @@ if __name__ == "__main__":
 
     # https://heidloff.net/article/running-llm-flan-t5-locally/
     results_list = []
-    # results_list.extend(multiplication_experiment("google/flan-t5-small", 80000000))
-    # results_list.extend(multiplication_experiment("google/flan-t5-base", 248000000))
-    # results_list.extend(multiplication_experiment("google/flan-t5-large", 780000000))
-    # results_list.extend(multiplication_experiment("google/flan-t5-xl", 3000000000))
-    # results_list.extend(multiplication_experiment("google/flan-t5-xxl", 11000000000))
-    
-    results_list.extend(multiplication_experiment("meta-llama/Llama-2-7b-hf", 7000000000))
-    # results_list.extend(multiplication_experiment("meta-llama/Llama-2-13b-hf", 13000000000))
+    results_list.extend(multiplication_experiment("google/flan-t5-small", 80000000))
+    results_list.extend(multiplication_experiment("google/flan-t5-base", 248000000))
+    results_list.extend(multiplication_experiment("google/flan-t5-large", 780000000))
+    results_list.extend(multiplication_experiment("google/flan-t5-xl", 3000000000))
+    results_list.extend(multiplication_experiment("google/flan-t5-xxl", 11000000000))
+
+    # results_list.extend(
+    #     multiplication_experiment("meta-llama/Llama-2-7b-hf", 7000000000)
+    # )
+    # results_list.extend(
+    #     multiplication_experiment("meta-llama/Llama-2-13b-hf", 13000000000)
+    # )
 
     summary_df = pd.DataFrame(results_list)
     summary_df.to_csv(save_path, index=False)

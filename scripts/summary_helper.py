@@ -7,7 +7,7 @@ import os
 import glob
 import scipy.stats as stats
 
-from datasets_helper import prompt_format
+from datasets_helper import get_full_prompt
 
 
 def _analyze_results(
@@ -46,7 +46,11 @@ def _analyze_results(
 
 def _get_aggregate_df(file_paths: list[str], experiment_count: int = 10):
     results_df_list = [
-        pd.read_csv(file, dtype={"answer": "string", "prediction": "string"}, keep_default_na=False)
+        pd.read_csv(
+            file,
+            dtype={"answer": "string", "prediction": "string"},
+            keep_default_na=False,
+        )
         for file in file_paths
     ]
     if len(results_df_list) != experiment_count:
@@ -60,10 +64,11 @@ def _get_aggregate_df(file_paths: list[str], experiment_count: int = 10):
 
 
 def get_summary_dict(
+    prompt_format,
     model: str,
     param_count: str,
     prompt: str,
-    file_paths: list[str],
+    experiment_paths: list[str],
     extraction_score_functions: list[
         tuple[
             str,
@@ -76,16 +81,19 @@ def get_summary_dict(
     example_count: int = 5,
     baseline_perfs: list[float] = None,
 ) -> tuple[dict[str, any], dict[str, any]]:
-    aggregate_df = _get_aggregate_df(file_paths)
+    aggregate_df = _get_aggregate_df(experiment_paths)
     sample = aggregate_df.sample(1, random_state=0)
-    prompt_example = prompt_format(
-        priming="" if "priming" not in sample or pd.isna(sample["priming"]).item() else sample["priming"].item(),
+    prompt_example = get_full_prompt(
+        prompt_format,
         instruction=sample["instruction"].item(),
-        example=sample["example"].item(),
         question=sample["question"].item(),
+        example_question=sample["example_question"].item(),
+        example_answer=sample["example_answer"].item(),
+        priming_instruction=sample["priming_instruction"].item(),
+        priming_question=sample["priming_question"].item(),
+        priming_answer=sample["priming_answer"].item(),
     )
     test_count = len(aggregate_df) / example_count
-
 
     summary = {}
     summary["model"] = model
@@ -107,9 +115,7 @@ def get_summary_dict(
         summary[f"{name}_tt"] = (
             ""
             if baseline_perfs is None
-            else stats.ttest_ind(
-                perfs, baseline_perfs[name]
-            ).pvalue
+            else stats.ttest_ind(perfs, baseline_perfs[name]).pvalue
         )
         accuracies[name] = perfs
 

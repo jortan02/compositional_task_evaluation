@@ -1,0 +1,561 @@
+model,param_count,prompt,prompt_example,test_count,first_micro_avg,first_micro_std,first_micro_tt,any_micro_avg,any_micro_std,any_micro_tt,reason,comments
+google/flan-t5-small,80000000,Carry,"Q: Carry the digit from the tens place.
+27 // 10 =
+A: 2
+
+Q: Carry the digit from the tens place.
+44 // 10 =
+A: ",90.0,0.31933333333333336,0.04792792943319258,,0.31933333333333336,0.04792792943319258,,Carry occurs in multiplication at some digits place is greater than 9.,
+google/flan-t5-small,80000000,Concatenate,"Q: Concatenate the numbers.
+1 & 7 & 5 =
+A: 175
+
+Q: Concatenate the numbers.
+2 & 3 & 3 =
+A: ",1100.0,0.0,0.0,,0.0,0.0,,The digits needs to be concatenated to the final answer.,
+google/flan-t5-small,80000000,Multiply,"Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.009229230769230769,0.0012129030166549387,,0.009229230769230769,0.0012129030166549387,,Multiplication is the compositional task.,
+google/flan-t5-small,80000000,"Multiply, primed with carry","Q: Carry the digit from the tens place.
+40 // 10 =
+A: 4
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.01501846153846154,0.00014688884015113838,9.619856391482992e-06,0.01501846153846154,0.00014688884015113838,9.619856391482992e-06,Multiplication is the compositional task. We are priming multiplication with carry because multiplication depends on this subtask.,
+google/flan-t5-small,80000000,"Multiply, primed with concatenate","Q: Concatenate the numbers.
+3 & 8 & 7 =
+A: 387
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.013223076923076924,0.0017453030797648548,0.0011569439319620521,0.013223076923076924,0.0017453030797648548,0.0011569439319620521,Multiplication is the compositional task. We are priming multiplication with concatenate because multiplication depends on this subtask.,
+google/flan-t5-small,80000000,"Multiply, primed with multiply with 1 digit","Q: Multiply two numbers.
+3 * 0 =
+A: 0
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.00944,0.0009734632860209828,0.8498339062754705,0.00944,0.0009734632860209828,0.8498339062754705,Multiplication is the compositional task. We are priming multiplication with multiplication of 1 digit numbers because multiplication depends on this subtask.,
+google/flan-t5-small,80000000,"Multiply, primed with sum","Q: Add two numbers.
+38 + 98 =
+A: 136
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.008675384615384616,0.0012994163459941104,0.6061463385562706,0.008675384615384616,0.0012994163459941104,0.6061463385562706,Multiplication is the compositional task. We are priming multiplication with summation of numbers up to 2 digits because multiplication depends on this subtask.,
+google/flan-t5-small,80000000,"Multiply, primed with exponentiate","Q: Exponentiate the number.
+3**0 =
+A: 1
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.01564923076923077,0.0010420575913396724,1.0796545399620155e-06,0.01564923076923077,0.0010420575913396724,1.0796545399620155e-06,Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-small,80000000,"Multiply, primed with subtract","Q: Subtract two numbers.
+38 - 98 =
+A: -60
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.010324615384615385,0.0018516546254825723,0.33214813367561524,0.010324615384615385,0.0018516546254825723,0.33214813367561524,Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-small,80000000,"Multiply, primed with reverse","Q: Reverse the string.
+The reverse of gtpdvl is
+A: lvdptg
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.01650923076923077,0.0019871683043523225,4.6581533403946876e-08,0.016980000000000002,0.002015493831450592,6.912368019143546e-09,Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-small,80000000,Multiply 1-digit,"Q: Multiply two numbers.
+4 * 9 =
+A: 36
+
+Q: Multiply two numbers.
+9 * 0 =
+A: ",100.0,0.19579999999999997,0.011106754701531855,,0.19579999999999997,0.011106754701531855,,Multiplication requires multiplying two values at some digits place.,
+google/flan-t5-small,80000000,Sum,"Q: Add two numbers.
+22 + 1 =
+A: 23
+
+Q: Add two numbers.
+18 + 41 =
+A: ",10000.0,0.0001,0.0,,0.0001,0.0,,Summation is done after carrying occurs.,
+google/flan-t5-base,248000000,Carry,"Q: Carry the digit from the tens place.
+27 // 10 =
+A: 2
+
+Q: Carry the digit from the tens place.
+44 // 10 =
+A: ",90.0,0.1631111111111111,0.03382890866889434,,0.1631111111111111,0.03382890866889434,,Carry occurs in multiplication at some digits place is greater than 9.,
+google/flan-t5-base,248000000,Concatenate,"Q: Concatenate the numbers.
+1 & 7 & 5 =
+A: 175
+
+Q: Concatenate the numbers.
+2 & 3 & 3 =
+A: ",1100.0,0.001109090909090909,0.00035628941713209864,,0.001109090909090909,0.00035628941713209864,,The digits needs to be concatenated to the final answer.,
+google/flan-t5-base,248000000,Multiply,"Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.008013846153846154,0.0005843400161189288,,0.008013846153846154,0.0005843400161189288,,Multiplication is the compositional task.,
+google/flan-t5-base,248000000,"Multiply, primed with carry","Q: Carry the digit from the tens place.
+40 // 10 =
+A: 4
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.008055384615384615,0.0009302846799764126,0.9669261812762051,0.008055384615384615,0.0009302846799764126,0.9669261812762051,Multiplication is the compositional task. We are priming multiplication with carry because multiplication depends on this subtask.,
+google/flan-t5-base,248000000,"Multiply, primed with concatenate","Q: Concatenate the numbers.
+3 & 8 & 7 =
+A: 387
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.013229230769230767,0.001009486365382659,1.0254932979812568e-05,0.013229230769230767,0.001009486365382659,1.0254932979812568e-05,Multiplication is the compositional task. We are priming multiplication with concatenate because multiplication depends on this subtask.,
+google/flan-t5-base,248000000,"Multiply, primed with multiply with 1 digit","Q: Multiply two numbers.
+3 * 0 =
+A: 0
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.00792,0.0006783655958676002,0.9260615335825304,0.00792,0.0006783655958676002,0.9260615335825304,Multiplication is the compositional task. We are priming multiplication with multiplication of 1 digit numbers because multiplication depends on this subtask.,
+google/flan-t5-base,248000000,"Multiply, primed with sum","Q: Add two numbers.
+38 + 98 =
+A: 136
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.007372307692307692,0.0006996465718087859,0.51370946625187,0.007373846153846153,0.0007017408614911848,0.5147228080188246,Multiplication is the compositional task. We are priming multiplication with summation of numbers up to 2 digits because multiplication depends on this subtask.,
+google/flan-t5-base,248000000,"Multiply, primed with exponentiate","Q: Exponentiate the number.
+3**0 =
+A: 1
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.0074707692307692305,0.00045340004150103066,0.5862721588781177,0.00750923076923077,0.00048275344387582,0.6131107652901906,Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-base,248000000,"Multiply, primed with subtract","Q: Subtract two numbers.
+38 - 98 =
+A: -60
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.007555384615384615,0.0006891449122348447,0.6455795391074062,0.007555384615384615,0.0006891449122348447,0.6455795391074062,Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-base,248000000,"Multiply, primed with reverse","Q: Reverse the string.
+The reverse of gtpdvl is
+A: lvdptg
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.00865076923076923,0.0005615405690160662,0.539899949069536,0.00865076923076923,0.0005615405690160662,0.539899949069536,Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-base,248000000,Multiply 1-digit,"Q: Multiply two numbers.
+4 * 9 =
+A: 36
+
+Q: Multiply two numbers.
+9 * 0 =
+A: ",100.0,0.10759999999999999,0.007059745037889112,,0.10759999999999999,0.007059745037889112,,Multiplication requires multiplying two values at some digits place.,
+google/flan-t5-base,248000000,Sum,"Q: Add two numbers.
+22 + 1 =
+A: 23
+
+Q: Add two numbers.
+18 + 41 =
+A: ",10000.0,0.000512,0.00013302631318652712,,0.000512,0.00013302631318652712,,Summation is done after carrying occurs.,
+google/flan-t5-large,780000000,Carry,"Q: Carry the digit from the tens place.
+27 // 10 =
+A: 2
+
+Q: Carry the digit from the tens place.
+44 // 10 =
+A: ",90.0,0.24022222222222225,0.05035380991384372,,0.24022222222222225,0.05035380991384372,,Carry occurs in multiplication at some digits place is greater than 9.,
+google/flan-t5-large,780000000,Concatenate,"Q: Concatenate the numbers.
+1 & 7 & 5 =
+A: 175
+
+Q: Concatenate the numbers.
+2 & 3 & 3 =
+A: ",1100.0,0.26483636363636365,0.0253920271211716,,0.26483636363636365,0.0253920271211716,,The digits needs to be concatenated to the final answer.,
+google/flan-t5-large,780000000,Multiply,"Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.012287692307692307,0.0015612966845792331,,0.012287692307692307,0.0015612966845792331,,Multiplication is the compositional task.,
+google/flan-t5-large,780000000,"Multiply, primed with carry","Q: Carry the digit from the tens place.
+40 // 10 =
+A: 4
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.013172307692307691,0.0010091369562401846,0.5059928231929984,0.013172307692307691,0.0010091369562401846,0.5059928231929984,Multiplication is the compositional task. We are priming multiplication with carry because multiplication depends on this subtask.,
+google/flan-t5-large,780000000,"Multiply, primed with concatenate","Q: Concatenate the numbers.
+3 & 8 & 7 =
+A: 387
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.01431076923076923,0.0011455455277783672,0.13685038406106295,0.01431076923076923,0.0011455455277783672,0.13685038406106295,Multiplication is the compositional task. We are priming multiplication with concatenate because multiplication depends on this subtask.,
+google/flan-t5-large,780000000,"Multiply, primed with multiply with 1 digit","Q: Multiply two numbers.
+3 * 0 =
+A: 0
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.012872307692307692,0.001178471580595896,0.6579727207901427,0.012872307692307692,0.001178471580595896,0.6579727207901427,Multiplication is the compositional task. We are priming multiplication with multiplication of 1 digit numbers because multiplication depends on this subtask.,
+google/flan-t5-large,780000000,"Multiply, primed with sum","Q: Add two numbers.
+38 + 98 =
+A: 136
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.011713846153846155,0.0007568292624789154,0.657716476116265,0.011713846153846155,0.0007568292624789154,0.657716476116265,Multiplication is the compositional task. We are priming multiplication with summation of numbers up to 2 digits because multiplication depends on this subtask.,
+google/flan-t5-large,780000000,"Multiply, primed with exponentiate","Q: Exponentiate the number.
+3**0 =
+A: 1
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.01180923076923077,0.0012354947742819903,0.7120875963657611,0.01180923076923077,0.0012354947742819903,0.7120875963657611,Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-large,780000000,"Multiply, primed with subtract","Q: Subtract two numbers.
+38 - 98 =
+A: -60
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.012304615384615383,0.000917748724811694,0.9896809685508234,0.012304615384615383,0.000917748724811694,0.9896809685508234,Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-large,780000000,"Multiply, primed with reverse","Q: Reverse the string.
+The reverse of gtpdvl is
+A: lvdptg
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.01567076923076923,0.0010670137502372056,0.01550349879097429,0.01567076923076923,0.0010670137502372056,0.01550349879097429,Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-large,780000000,Multiply 1-digit,"Q: Multiply two numbers.
+4 * 9 =
+A: 36
+
+Q: Multiply two numbers.
+9 * 0 =
+A: ",100.0,0.198,0.014573949361789344,,0.198,0.014573949361789344,,Multiplication requires multiplying two values at some digits place.,
+google/flan-t5-large,780000000,Sum,"Q: Add two numbers.
+22 + 1 =
+A: 23
+
+Q: Add two numbers.
+18 + 41 =
+A: ",10000.0,0.004332,0.0003527265229607777,,0.004332,0.0003527265229607777,,Summation is done after carrying occurs.,
+google/flan-t5-xl,3000000000,Carry,"Q: Carry the digit from the tens place.
+27 // 10 =
+A: 2
+
+Q: Carry the digit from the tens place.
+44 // 10 =
+A: ",90.0,0.6502222222222221,0.08543685849867994,,0.6502222222222221,0.08543685849867994,,Carry occurs in multiplication at some digits place is greater than 9.,
+google/flan-t5-xl,3000000000,Concatenate,"Q: Concatenate the numbers.
+1 & 7 & 5 =
+A: 175
+
+Q: Concatenate the numbers.
+2 & 3 & 3 =
+A: ",1100.0,0.8296727272727272,0.006222752174729409,,0.8296727272727272,0.006222752174729409,,The digits needs to be concatenated to the final answer.,
+google/flan-t5-xl,3000000000,Multiply,"Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.035866153846153846,0.0021225339327930644,,0.036052307692307696,0.0021985169826673886,,Multiplication is the compositional task.,
+google/flan-t5-xl,3000000000,"Multiply, primed with carry","Q: Carry the digit from the tens place.
+40 // 10 =
+A: 4
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.039013846153846156,0.001548233580224544,0.1563463356245889,0.03921692307692308,0.0016095969578947093,0.15479971686075328,Multiplication is the compositional task. We are priming multiplication with carry because multiplication depends on this subtask.,
+google/flan-t5-xl,3000000000,"Multiply, primed with concatenate","Q: Concatenate the numbers.
+3 & 8 & 7 =
+A: 387
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.041990769230769234,0.001876402197584673,0.006858345684472949,0.04225538461538462,0.0019063109142464548,0.006280825927457461,Multiplication is the compositional task. We are priming multiplication with concatenate because multiplication depends on this subtask.,
+google/flan-t5-xl,3000000000,"Multiply, primed with multiply with 1 digit","Q: Multiply two numbers.
+3 * 0 =
+A: 0
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.038058461538461534,0.0009471052127528758,0.3186878309474222,0.03829076923076923,0.0009337637778900018,0.3094466375026431,Multiplication is the compositional task. We are priming multiplication with multiplication of 1 digit numbers because multiplication depends on this subtask.,
+google/flan-t5-xl,3000000000,"Multiply, primed with sum","Q: Add two numbers.
+38 + 98 =
+A: 136
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.03962615384615385,0.001464035114526987,0.09140742578699182,0.04004769230769231,0.001345810065992898,0.07365255788199652,Multiplication is the compositional task. We are priming multiplication with summation of numbers up to 2 digits because multiplication depends on this subtask.,
+google/flan-t5-xl,3000000000,"Multiply, primed with exponentiate","Q: Exponentiate the number.
+3**0 =
+A: 1
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.03711076923076923,0.0018917234870559942,0.5699752051327378,0.03731076923076923,0.001856513242645562,0.5663307149818555,Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-xl,3000000000,"Multiply, primed with subtract","Q: Subtract two numbers.
+38 - 98 =
+A: -60
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.038873846153846155,0.000825318299723198,0.17519592505132292,0.03911846153846154,0.0007900056175367643,0.1678182422970471,Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-xl,3000000000,"Multiply, primed with reverse","Q: Reverse the string.
+The reverse of gtpdvl is
+A: lvdptg
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.02545692307692308,0.0023671049403895393,1.7862252392546046e-07,0.025630769230769228,0.0024016759434357725,1.833802395348127e-07,Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-xl,3000000000,Multiply 1-digit,"Q: Multiply two numbers.
+4 * 9 =
+A: 36
+
+Q: Multiply two numbers.
+9 * 0 =
+A: ",100.0,0.45,0.024584547992590793,,0.45,0.024584547992590793,,Multiplication requires multiplying two values at some digits place.,
+google/flan-t5-xl,3000000000,Sum,"Q: Add two numbers.
+22 + 1 =
+A: 23
+
+Q: Add two numbers.
+18 + 41 =
+A: ",10000.0,0.068066,0.0021149903073063954,,0.068066,0.0021149903073063954,,Summation is done after carrying occurs.,
+google/flan-t5-xxl,11000000000,Carry,"Q: Carry the digit from the tens place.
+27 // 10 =
+A: 2
+
+Q: Carry the digit from the tens place.
+44 // 10 =
+A: ",90.0,0.9466666666666667,0.017777777777777767,,0.9466666666666667,0.017777777777777767,,Carry occurs in multiplication at some digits place is greater than 9.,
+google/flan-t5-xxl,11000000000,Concatenate,"Q: Concatenate the numbers.
+1 & 7 & 5 =
+A: 175
+
+Q: Concatenate the numbers.
+2 & 3 & 3 =
+A: ",1100.0,0.7389454545454546,0.022235151977692314,,0.7389454545454546,0.022235151977692314,,The digits needs to be concatenated to the final answer.,
+google/flan-t5-xxl,11000000000,Multiply,"Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.08899384615384616,0.005071788545794713,,0.08911230769230769,0.005003209857255603,,Multiplication is the compositional task.,
+google/flan-t5-xxl,11000000000,"Multiply, primed with carry","Q: Carry the digit from the tens place.
+40 // 10 =
+A: 4
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.09086307692307691,0.0035589852951875083,0.5854558307024917,0.0909276923076923,0.003531526984214715,0.5964723470212514,Multiplication is the compositional task. We are priming multiplication with carry because multiplication depends on this subtask.,
+google/flan-t5-xxl,11000000000,"Multiply, primed with concatenate","Q: Concatenate the numbers.
+3 & 8 & 7 =
+A: 387
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.09441692307692308,0.003412914560726149,0.11723470556853104,0.09448923076923077,0.0033668857311508504,0.12055469563349276,Multiplication is the compositional task. We are priming multiplication with concatenate because multiplication depends on this subtask.,
+google/flan-t5-xxl,11000000000,"Multiply, primed with multiply with 1 digit","Q: Multiply two numbers.
+3 * 0 =
+A: 0
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.09078,0.0030122495476434426,0.6025514774144402,0.09083846153846153,0.002986379335995604,0.614949667187729,Multiplication is the compositional task. We are priming multiplication with multiplication of 1 digit numbers because multiplication depends on this subtask.,
+google/flan-t5-xxl,11000000000,"Multiply, primed with sum","Q: Add two numbers.
+38 + 98 =
+A: 136
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.09136307692307692,0.003464639294903146,0.4896602389484864,0.09147384615384616,0.0034362412380614144,0.4913177112939756,Multiplication is the compositional task. We are priming multiplication with summation of numbers up to 2 digits because multiplication depends on this subtask.,
+google/flan-t5-xxl,11000000000,"Multiply, primed with exponentiate","Q: Exponentiate the number.
+3**0 =
+A: 1
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.09175076923076922,0.003818852642215799,0.42207338808889105,0.09182923076923076,0.0037894103458494415,0.4290807537243776,Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-xxl,11000000000,"Multiply, primed with subtract","Q: Subtract two numbers.
+38 - 98 =
+A: -60
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.09218307692307692,0.003607787107168453,0.3537221759351957,0.0922753846153846,0.0035611991863655165,0.35791707105668114,Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-xxl,11000000000,"Multiply, primed with reverse","Q: Reverse the string.
+The reverse of gtpdvl is
+A: lvdptg
+
+Q: Multiply two numbers.
+38 * 98 =
+A: 3724
+
+Q: Multiply two numbers.
+15480 * 75948 =
+A: ",13000.0,0.09437692307692308,0.003100914161832486,0.11915355057664427,0.09444,0.0030806070254043145,0.12317056483640218,Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.,
+google/flan-t5-xxl,11000000000,Multiply 1-digit,"Q: Multiply two numbers.
+4 * 9 =
+A: 36
+
+Q: Multiply two numbers.
+9 * 0 =
+A: ",100.0,0.9378,0.007704544113703248,,0.9378,0.007704544113703248,,Multiplication requires multiplying two values at some digits place.,
+google/flan-t5-xxl,11000000000,Sum,"Q: Add two numbers.
+22 + 1 =
+A: 23
+
+Q: Add two numbers.
+18 + 41 =
+A: ",10000.0,0.650076,0.0014173016616091062,,0.650076,0.0014173016616091062,,Summation is done after carrying occurs.,

@@ -39,7 +39,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Uppercase",
-            file_paths=glob.glob(os.path.join(UPPERCASE_PATH, model_name, "*.csv")),
+            experiment_paths=glob.glob(os.path.join(UPPERCASE_PATH, model_name, "*.csv")),
             reason="Uppercase capitalizes all the letters in a word for each word in the word list.",
         )[0]
     )
@@ -49,7 +49,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Concatenate",
-            file_paths=glob.glob(os.path.join(CONCATENATE_PATH, model_name, "*.csv")),
+            experiment_paths=glob.glob(os.path.join(CONCATENATE_PATH, model_name, "*.csv")),
             reason="Concatenate extends the first word list to include the words in the second word list.",
         )[0]
     )
@@ -59,7 +59,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Remove First",
-            file_paths=glob.glob(os.path.join(REMOVE_FIRST_PATH, model_name, "*.csv")),
+            experiment_paths=glob.glob(os.path.join(REMOVE_FIRST_PATH, model_name, "*.csv")),
             reason="Remove First removes the first word in the word list.",
         )[0]
     )
@@ -69,7 +69,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="WLO",
-            file_paths=glob.glob(os.path.join(WLO_PATH, model_name, "*.csv")),
+            experiment_paths=glob.glob(os.path.join(WLO_PATH, model_name, "*.csv")),
             reason="WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
         )[0]
     )

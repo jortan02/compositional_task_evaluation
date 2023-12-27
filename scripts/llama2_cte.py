@@ -1,6 +1,6 @@
 import sys
 from transformers import LlamaTokenizerFast, LlamaForCausalLM
-import experiment
+from experiment import *
 import time
 
 start = time.time()
@@ -21,6 +21,6 @@ batch_size = int(sys.argv[4])
 
 print(f">> Input file: {input_file_path}, Output file: {output_file_path}, Module: {module}, Batch size: {batch_size}")
 
-experiment.run_experiment(model, tokenizer, batch_size, input_file_path, output_file_path)
+run_experiment(model, tokenizer, batch_size, input_file_path, output_file_path)
 end = time.time()
 print(f">> Time: {end - start}")
