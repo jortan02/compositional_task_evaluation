@@ -1,6 +1,6 @@
 from summary_helper import *
 from datasets_helper import get_flan_t5_prompt_format
-
+from datetime import date
 
 def multiplication_experiment(
     model_name: str, param_count: int
@@ -236,7 +236,7 @@ def multiplication_experiment(
 
 
 if __name__ == "__main__":
-    save_path = f"multiplication_summary.csv"
+    save_path = f"{date.today().strftime('%Y-%m-%d')}-multiplication_summary.csv"
 
     # https://heidloff.net/article/running-llm-flan-t5-locally/
     results_list = []
@@ -246,11 +246,11 @@ if __name__ == "__main__":
     results_list.extend(multiplication_experiment("google/flan-t5-xl", 3000000000))
     results_list.extend(multiplication_experiment("google/flan-t5-xxl", 11000000000))
 
+    results_list.extend(
+        multiplication_experiment("meta-llama/Llama-2-7b-chat-hf", 7000000000)
+    )
     # results_list.extend(
-    #     multiplication_experiment("meta-llama/Llama-2-7b-hf", 7000000000)
-    # )
-    # results_list.extend(
-    #     multiplication_experiment("meta-llama/Llama-2-13b-hf", 13000000000)
+    #     multiplication_experiment("meta-llama/Llama-2-13b-chat-hf", 13000000000)
     # )
 
     summary_df = pd.DataFrame(results_list)

@@ -13,8 +13,7 @@ mkdir /scratch/general/vast/u1283221/huggingface_cache
 export TRANSFORMERS_CACHE="/scratch/general/vast/u1283221/huggingface_cache"
 
 task="remove-first"
-instruction_type=1
-prompt_type=1
+
 script=$1
 module=$2
 experiment_number=$3

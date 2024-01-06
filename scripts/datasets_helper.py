@@ -69,6 +69,15 @@ def get_flan_t5_prompt_format(instruction, question, answer=None):
     return prompt
 
 
+def get_llama_2_chat_prompt_format(instruction, question, answer=None):
+    prompt = f"[INST]Q: {instruction}\n{question}[\INST]\n"
+    if answer is None:
+        prompt += f"A: "
+    else:
+        prompt += f"A: {answer}\n\n"
+    return prompt
+
+
 def get_full_prompt(
     prompt_format,
     instruction,
@@ -85,9 +94,9 @@ def get_full_prompt(
         and (priming_question is not None and priming_question != "")
         and (priming_answer is not None and priming_answer != "")
     ):
-        prompt += prompt_format(priming_instruction, priming_question, priming_answer)
-    prompt += prompt_format(instruction, example_question, example_answer)
-    prompt += prompt_format(instruction, question)
+        prompt += prompt_format(instruction=priming_instruction, question=priming_question, answer=priming_answer)
+    prompt += prompt_format(instruction=instruction, question=example_question, answer=example_answer)
+    prompt += prompt_format(instruction=instruction, question=question)
     return prompt
 
 
