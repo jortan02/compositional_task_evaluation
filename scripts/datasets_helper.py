@@ -1,6 +1,9 @@
+import string
 import csv
 import os
 import random
+
+import pandas as pd
 
 
 def write_csv(
@@ -14,6 +17,8 @@ def write_csv(
     priming_instruction: list[str] | None = None,
     priming_questions: list[str] | None = None,
     priming_answers: list[str] | None = None,
+    and_create_sections: bool = True,
+    section_count: int = 10
 ):
     assert len(questions) == len(answers)
     assert len(example_questions) == len(example_answers)
@@ -43,7 +48,8 @@ def write_csv(
                     answers[prompt_index],
                 ]
             )
-    with open(os.path.join(dataset_folder_path, save_file), "w") as csv_file:
+    output_path = os.path.join(dataset_folder_path, save_file)
+    with open(output_path, "w") as csv_file:
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow(
             [
@@ -58,7 +64,33 @@ def write_csv(
             ]
         )
         csv_writer.writerows(rows)
+    if and_create_sections:
+        create_sections(input_path=output_path, output_path=os.path.join(dataset_folder_path, os.path.splitext(save_file)[0]), section_count=section_count)
+        
+def create_sections(input_path, output_path, section_count):
+    df = pd.read_csv(input_path)
 
+    num_sections = section_count
+    section_size = len(df) // num_sections
+
+    os.makedirs(output_path, exist_ok=True)
+    for i in range(num_sections):
+        start = i * section_size
+        end = (i + 1) * section_size if i < num_sections - 1 else len(df)
+        section = df.iloc[start:end]
+        section_file = f"section_{i + 1}.csv"
+        section_path = os.path.join(output_path, section_file)
+        section.to_csv(section_path, index=False)
+
+def get_str_samples(
+    question_seed: int | None, length: int = 6, sample_count: int = 1000
+):
+    samples = []
+    for i in range(sample_count):
+        random.seed(question_seed + i)
+        random_str = "".join(random.choices(string.ascii_lowercase, k=length))
+        samples.append(random_str)
+    return samples
 
 def get_flan_t5_prompt_format(instruction, question, answer=None):
     prompt = f"Q: {instruction}\n" f"{question}\n"

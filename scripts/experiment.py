@@ -104,7 +104,7 @@ def run_experiment_model_tokenizer(
         _add_prediction, with_indices=True, fn_kwargs={"predictions": predictions}, num_proc=8
     )
     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
-    raw_dataset.to_csv(output_file_path)
+    raw_dataset.to_csv(output_file_path, index=False)
 
 
 def run_experiment_pipe(
@@ -114,8 +114,6 @@ def run_experiment_pipe(
     input_file_path: str,
     output_file_path: str,
 ):
-    if os.path.isfile(output_file_path):
-        return
     raw_dataset = load_dataset(
         "csv",
         data_files=input_file_path,
@@ -152,4 +150,4 @@ def run_experiment_pipe(
         _add_prediction, with_indices=True, fn_kwargs={"predictions": predictions}, num_proc=8
     )
     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
-    raw_dataset.to_csv(output_file_path)
+    raw_dataset.to_csv(output_file_path, index=False)

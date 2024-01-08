@@ -1,3 +1,4 @@
+import os
 import sys
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from transformers import pipeline
@@ -10,6 +11,12 @@ start = time.time()
 input_file_path = sys.argv[1]
 output_file_path = sys.argv[2]
 module = sys.argv[3]
+
+if os.path.isfile(output_file_path):
+    print("File already exists:", output_file_path)
+    end = time.time()
+    print(f">> Time: {end - start}")
+    exit()
 
 tokenizer = AutoTokenizer.from_pretrained(module, max_position_embeddings=4096)
 model = AutoModelForCausalLM.from_pretrained(module, device_map="auto")

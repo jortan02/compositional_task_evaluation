@@ -3,32 +3,6 @@ from nltk.corpus import wordnet as wn
 
 from datasets_helper import *
 
-def get_uppercase_example(seed: int | None, all_words: list[str], list_length: int):
-    random.seed(seed)
-    sample = random.sample(all_words, k=list_length)
-    example = f"Uppercase of {word_list_format(sample)} is {word_list_format(uppercase(sample))}"
-    return example
-
-def get_remove_first_example(seed: int | None, all_words: list[str], list_length: int):
-    random.seed(seed)
-    sample = random.sample(all_words, k=list_length)
-    example = f"Remove first of {word_list_format(sample)} is {word_list_format(remove_first(sample))}"
-    return example
-
-def get_concatenate_example(seed: int | None, all_words: list[str], list_length: int):
-    random.seed(seed)
-    sample_1 = random.sample(all_words, k=list_length)
-    sample_2 = random.sample(all_words, k=list_length)
-    example = f"Concatenate of {word_list_format(sample_1)} and {word_list_format(sample_2)} is {word_list_format(concatenate(sample_1, sample_2))}"
-    return example
-
-def get_wlo_example(seed: int | None, all_words: list[str], list_length: int):
-    random.seed(seed)
-    sample_1 = random.sample(all_words, k=list_length)
-    sample_2 = random.sample(all_words, k=list_length)
-    example = f"WLO of {word_list_format(sample_1)} and {word_list_format(sample_2)} is {word_list_format(concatenate(uppercase(sample_1), remove_first(sample_2)))}"
-    return example
-
 def get_word_list_samples(question_seed: int | None, all_words: list[str], list_length: int, sample_count: int = 1000): # TODO: 10000
     samples_x = []
     samples_y = []
@@ -62,69 +36,150 @@ def create_dataset(
     all_words = [word for word in wn.words() if len(word) <= 6 and "_" not in word]
 
     word_list_1, word_list_2 = get_word_list_samples(question_seed, all_words, list_length)
-
     uppercase_dataset = {
         "instruction": "Uppercase all of the words in the list.",
-        "examples": [get_uppercase_example(example_seed, all_words, list_length) for example_seed in example_seeds],
-        "questions": [f"Uppercase of {word_list_format(sample)} is " for sample in word_list_1],
+        "questions": [f"Uppercase of {word_list_format(sample)} is" for sample in word_list_1],
         "answers": [word_list_format(uppercase(sample)) for sample in word_list_1],
     }
+    uppercase_samples = sample_dataset(example_seeds, **uppercase_dataset)
     write_csv(
         dataset_folder_path=dataset_folder_path,
         save_file="uppercase.csv",
-        instruction=uppercase_dataset["instruction"],
-        examples=uppercase_dataset["examples"],
-        questions=uppercase_dataset["questions"],
-        answers=uppercase_dataset["answers"],
+        **uppercase_dataset,
+        example_questions=uppercase_samples["questions"],
+        example_answers=uppercase_samples["answers"]
     )
     
     remove_first_dataset = {
         "instruction": "Remove the first word in the list.",
-        "examples": [get_remove_first_example(example_seed, all_words, list_length) for example_seed in example_seeds],
         "questions": [f"Remove first of {word_list_format(sample)} is " for sample in word_list_1],
         "answers": [word_list_format(remove_first(sample)) for sample in word_list_1],
     }
+    remove_first_samples = sample_dataset(example_seeds, **remove_first_dataset)
     write_csv(
         dataset_folder_path=dataset_folder_path,
         save_file="remove-first.csv",
-        instruction=remove_first_dataset["instruction"],
-        examples=remove_first_dataset["examples"],
-        questions=remove_first_dataset["questions"],
-        answers=remove_first_dataset["answers"],
+        **remove_first_dataset,
+        example_questions=remove_first_samples["questions"],
+        example_answers=remove_first_samples["answers"]
     )
     
     concatenate_dataset = {
         "instruction": "Concatenate the two word lists.",
-        "examples": [get_concatenate_example(example_seed, all_words, list_length) for example_seed in example_seeds],
         "questions": [f"Concatenate of {word_list_format(word_list_1[index])} and {word_list_format(word_list_2[index])} is " for index in range(len(word_list_1))],
         "answers": [word_list_format(concatenate(word_list_1[index], word_list_2[index])) for index in range(len(word_list_1))],
     }
+    concatenate_samples = sample_dataset(example_seeds, **concatenate_dataset)
     write_csv(
         dataset_folder_path=dataset_folder_path,
         save_file="concatenate.csv",
-        instruction=concatenate_dataset["instruction"],
-        examples=concatenate_dataset["examples"],
-        questions=concatenate_dataset["questions"],
-        answers=concatenate_dataset["answers"],
+        **concatenate_dataset,
+        example_questions=concatenate_samples["questions"],
+        example_answers=concatenate_samples["answers"]
     )
     
     wlo_dataset = {
         "instruction": "WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.",
-        "examples": [get_wlo_example(example_seed, all_words, list_length) for example_seed in example_seeds],
         "questions": [f"WLO of {word_list_format(word_list_1[index])} and {word_list_format(word_list_2[index])} is " for index in range(len(word_list_1))],
         "answers": [word_list_format(concatenate(uppercase(word_list_1[index]), remove_first(word_list_2[index]))) for index in range(len(word_list_1))],
     }
+    wlo_samples = sample_dataset(example_seeds, **wlo_dataset)
     write_csv(
         dataset_folder_path=dataset_folder_path,
         save_file="wlo.csv",
-        instruction=wlo_dataset["instruction"],
-        examples=wlo_dataset["examples"],
-        questions=wlo_dataset["questions"],
-        answers=wlo_dataset["answers"],
+        **wlo_dataset,
+        example_questions=wlo_samples["questions"],
+        example_answers=wlo_samples["answers"]
     )
     
-    # 
+    # 1: uppercase, 2: remove_first, 3: concatenate, 4: exp, 5: sub, 6: rev
+    power_dataset = {
+        "instruction": "Exponentiate the number.",
+        "questions": [f"{x}**{y} =" for x in range(10) for y in range(10)],
+        "answers": [f"{x**y}" for x in range(10) for y in range(10)],
+    }
+    power_samples = sample_dataset(example_seeds, **power_dataset)
 
+    subtract_dataset = {
+        "instruction": "Subtract two numbers.",
+        "questions": [f"{x} - {y} =" for x in range(100) for y in range(100)],
+        "answers": [f"{x - y}" for x in range(100) for y in range(100)],
+    }
+    subtract_samples = sample_dataset(example_seeds, **subtract_dataset)
+
+    samples = get_str_samples(question_seed)
+    reverse_dataset = {
+        "instruction": "Reverse the string.",
+        "questions": [f"The reverse of {sample} is" for sample in samples],
+        "answers": [f"{sample[::-1]}" for sample in samples],
+    }
+    reverse_samples = sample_dataset(example_seeds, **reverse_dataset)
+    
+    write_csv(
+        dataset_folder_path=dataset_folder_path,
+        save_file="wlo-primed-1.csv",
+        **wlo_dataset,
+        example_questions=wlo_samples["questions"],
+        example_answers=wlo_samples["answers"],
+        priming_instruction=uppercase_samples["instruction"],
+        priming_questions=uppercase_samples["questions"],
+        priming_answers=uppercase_samples["answers"],
+    )
+    
+    write_csv(
+        dataset_folder_path=dataset_folder_path,
+        save_file="wlo-primed-2.csv",
+        **wlo_dataset,
+        example_questions=wlo_samples["questions"],
+        example_answers=wlo_samples["answers"],
+        priming_instruction=remove_first_samples["instruction"],
+        priming_questions=remove_first_samples["questions"],
+        priming_answers=remove_first_samples["answers"],
+    )
+    
+    write_csv(
+        dataset_folder_path=dataset_folder_path,
+        save_file="wlo-primed-3.csv",
+        **wlo_dataset,
+        example_questions=wlo_samples["questions"],
+        example_answers=wlo_samples["answers"],
+        priming_instruction=concatenate_samples["instruction"],
+        priming_questions=concatenate_samples["questions"],
+        priming_answers=concatenate_samples["answers"],
+    )
+    
+    write_csv(
+        dataset_folder_path=dataset_folder_path,
+        save_file="wlo-primed-4.csv",
+        **wlo_dataset,
+        example_questions=wlo_samples["questions"],
+        example_answers=wlo_samples["answers"],
+        priming_instruction=power_samples["instruction"],
+        priming_questions=power_samples["questions"],
+        priming_answers=power_samples["answers"],
+    )
+    
+    write_csv(
+        dataset_folder_path=dataset_folder_path,
+        save_file="wlo-primed-5.csv",
+        **wlo_dataset,
+        example_questions=wlo_samples["questions"],
+        example_answers=wlo_samples["answers"],
+        priming_instruction=subtract_samples["instruction"],
+        priming_questions=subtract_samples["questions"],
+        priming_answers=subtract_samples["answers"],
+    )
+    
+    write_csv(
+        dataset_folder_path=dataset_folder_path,
+        save_file="wlo-primed-6.csv",
+        **wlo_dataset,
+        example_questions=wlo_samples["questions"],
+        example_answers=wlo_samples["answers"],
+        priming_instruction=reverse_samples["instruction"],
+        priming_questions=reverse_samples["questions"],
+        priming_answers=reverse_samples["answers"],
+    )
 
 if __name__ == "__main__":
     for instruction_type in [1]:

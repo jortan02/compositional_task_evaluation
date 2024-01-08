@@ -1,4 +1,3 @@
-import string
 import random
 from datasets_helper import *
 
@@ -14,18 +13,6 @@ def get_int_samples(
         samples_x.append(x)
         samples_y.append(y)
     return samples_x, samples_y
-
-
-def get_str_samples(
-    question_seed: int | None, length: int = 6, sample_count: int = 1000
-):
-    samples = []
-    for i in range(sample_count):
-        random.seed(question_seed + i)
-        random_str = "".join(random.choices(string.ascii_lowercase, k=length))
-        samples.append(random_str)
-    return samples
-
 
 def create_csvs(
     dataset_folder_path: str,
