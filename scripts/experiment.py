@@ -1,7 +1,7 @@
 import os
 import torch
 from torch.utils.data import DataLoader
-from tqdm.auto import tqdm
+from tqdm import tqdm
 from transformers import PreTrainedTokenizer, PreTrainedModel, DataCollatorWithPadding
 from datasets import load_dataset, Features, Value
 from transformers.pipelines.pt_utils import KeyDataset
@@ -142,7 +142,7 @@ def run_experiment_pipe(
             num_beams=5,
             do_sample=True,
             return_full_text=False,
-        )
+        ), total=len(prompt_dataset) // batch_size
     ):
         generated_texts = [output["generated_text"] for output in outputs]
         predictions.extend(generated_texts)

@@ -48,7 +48,7 @@ def _get_aggregate_df(file_paths: list[str], experiment_count: int = 10):
     results_df_list = [
         pd.read_csv(
             file,
-            dtype={"answer": "string", "prediction": "string"},
+            dtype="str",
             keep_default_na=False,
         )
         for file in file_paths

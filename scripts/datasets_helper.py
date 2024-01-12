@@ -18,7 +18,7 @@ def write_csv(
     priming_questions: list[str] | None = None,
     priming_answers: list[str] | None = None,
     and_create_sections: bool = True,
-    section_count: int = 10
+    section_count: int = 10,
 ):
     assert len(questions) == len(answers)
     assert len(example_questions) == len(example_answers)
@@ -65,22 +65,30 @@ def write_csv(
         )
         csv_writer.writerows(rows)
     if and_create_sections:
-        create_sections(input_path=output_path, output_path=os.path.join(dataset_folder_path, os.path.splitext(save_file)[0]), section_count=section_count)
-        
+        create_sections(
+            input_path=output_path,
+            output_path=os.path.join(
+                dataset_folder_path, os.path.splitext(save_file)[0]
+            ),
+            section_count=section_count,
+        )
+
+
 def create_sections(input_path, output_path, section_count):
-    df = pd.read_csv(input_path)
+    df = pd.read_csv(input_path, dtype="str", keep_default_na=False)
 
     num_sections = section_count
     section_size = len(df) // num_sections
 
     os.makedirs(output_path, exist_ok=True)
-    for i in range(num_sections):
-        start = i * section_size
-        end = (i + 1) * section_size if i < num_sections - 1 else len(df)
+    for section_index in range(num_sections):
+        start = section_index * section_size
+        end = (section_index + 1) * section_size if section_index < num_sections - 1 else len(df)
         section = df.iloc[start:end]
-        section_file = f"section_{i + 1}.csv"
+        section_file = f"section-{section_index + 1}.csv"
         section_path = os.path.join(output_path, section_file)
         section.to_csv(section_path, index=False)
+
 
 def get_str_samples(
     question_seed: int | None, length: int = 6, sample_count: int = 1000
@@ -92,6 +100,7 @@ def get_str_samples(
         samples.append(random_str)
     return samples
 
+
 def get_flan_t5_prompt_format(instruction, question, answer=None):
     prompt = f"Q: {instruction}\n" f"{question}\n"
     if answer is None:
@@ -102,7 +111,7 @@ def get_flan_t5_prompt_format(instruction, question, answer=None):
 
 
 def get_llama_2_chat_prompt_format(instruction, question, answer=None):
-    prompt = f"[INST]Q: {instruction}\n{question}[\INST]\n"
+    prompt = f"[INST] Q: {instruction}\n{question} [\INST]\n"
     if answer is None:
         prompt += f"A: "
     else:
@@ -126,8 +135,14 @@ def get_full_prompt(
         and (priming_question is not None and priming_question != "")
         and (priming_answer is not None and priming_answer != "")
     ):
-        prompt += prompt_format(instruction=priming_instruction, question=priming_question, answer=priming_answer)
-    prompt += prompt_format(instruction=instruction, question=example_question, answer=example_answer)
+        prompt += prompt_format(
+            instruction=priming_instruction,
+            question=priming_question,
+            answer=priming_answer,
+        )
+    prompt += prompt_format(
+        instruction=instruction, question=example_question, answer=example_answer
+    )
     prompt += prompt_format(instruction=instruction, question=question)
     return prompt
 
