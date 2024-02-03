@@ -1,3 +1,4 @@
+import glob
 import string
 import csv
 import os
@@ -75,19 +76,37 @@ def write_csv(
 
 
 def create_sections(input_path, output_path, section_count):
-    df = pd.read_csv(input_path, dtype="str", keep_default_na=False)
+    data_df = pd.read_csv(input_path, dtype="str", keep_default_na=False)
 
     num_sections = section_count
-    section_size = len(df) // num_sections
+    section_size = len(data_df) // num_sections
 
     os.makedirs(output_path, exist_ok=True)
     for section_index in range(num_sections):
         start = section_index * section_size
-        end = (section_index + 1) * section_size if section_index < num_sections - 1 else len(df)
-        section = df.iloc[start:end]
+        end = (
+            (section_index + 1) * section_size
+            if section_index < num_sections - 1
+            else len(data_df)
+        )
+        section_df = data_df.iloc[start:end]
         section_file = f"section-{section_index + 1}.csv"
         section_path = os.path.join(output_path, section_file)
-        section.to_csv(section_path, index=False)
+        section_df.to_csv(section_path, index=False)
+
+
+def create_experiment_from_sections(input_folder_path, output_file_path, section_count):
+    section_paths = [
+        os.path.join(input_folder_path, f"section-{index + 1}.csv")
+        for index in range(section_count)
+    ]
+    section_dfs = [
+        pd.read_csv(section_path, dtype="str", keep_default_na=False)
+        for section_path in section_paths
+    ]
+    experiment_df = pd.concat(section_dfs)
+    os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
+    experiment_df.to_csv(output_file_path, index=False)
 
 
 def get_str_samples(

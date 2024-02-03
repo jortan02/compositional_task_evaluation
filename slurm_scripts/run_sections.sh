@@ -1,11 +1,10 @@
 #!/bin/bash
-#SBATCH --array=0-99
+#SBATCH --array=0-49
 #SBATCH --requeue
 #SBATCH --account soc-gpu-np
 #SBATCH --partition soc-gpu-np
 #SBATCH --mail-user=jordan.tan@utah.edu
 #SBATCH --mail-type=FAIL,BEGIN,END
-
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate compositional
 

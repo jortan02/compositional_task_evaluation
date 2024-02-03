@@ -1,9 +1,9 @@
 from summary_helper import *
-from datasets_helper import get_flan_t5_prompt_format
+from datasets_helper import get_flan_t5_prompt_format, get_llama_2_chat_prompt_format
 from datetime import date
 
 def multiplication_experiment(
-    model_name: str, param_count: int
+    model_name: str, param_count: int, prompt_format
 ) -> list[dict[str, any]]:
     def is_correct(
         answers: list[str], predictions_list: list[list[set[str]]]
@@ -76,7 +76,7 @@ def multiplication_experiment(
     ]
     results_list.append(
         get_summary_dict(
-            prompt_format=get_flan_t5_prompt_format,
+            prompt_format=prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
@@ -87,7 +87,7 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
-            prompt_format=get_flan_t5_prompt_format,
+            prompt_format=prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
@@ -100,7 +100,7 @@ def multiplication_experiment(
     )
 
     multiply_dict, multiply_accs = get_summary_dict(
-        prompt_format=get_flan_t5_prompt_format,
+        prompt_format=prompt_format,
         model=model_name,
         param_count=param_count,
         extraction_score_functions=extraction_score_functions,
@@ -112,7 +112,7 @@ def multiplication_experiment(
 
     results_list.append(
         get_summary_dict(
-            prompt_format=get_flan_t5_prompt_format,
+            prompt_format=prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
@@ -126,7 +126,7 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
-            prompt_format=get_flan_t5_prompt_format,
+            prompt_format=prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
@@ -140,7 +140,7 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
-            prompt_format=get_flan_t5_prompt_format,
+            prompt_format=prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
@@ -154,7 +154,7 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
-            prompt_format=get_flan_t5_prompt_format,
+            prompt_format=prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
@@ -168,7 +168,7 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
-            prompt_format=get_flan_t5_prompt_format,
+            prompt_format=prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
@@ -182,7 +182,7 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
-            prompt_format=get_flan_t5_prompt_format,
+            prompt_format=prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
@@ -196,7 +196,7 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
-            prompt_format=get_flan_t5_prompt_format,
+            prompt_format=prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
@@ -210,7 +210,7 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
-            prompt_format=get_flan_t5_prompt_format,
+            prompt_format=prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
@@ -223,7 +223,7 @@ def multiplication_experiment(
     )
     results_list.append(
         get_summary_dict(
-            prompt_format=get_flan_t5_prompt_format,
+            prompt_format=prompt_format,
             model=model_name,
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
@@ -236,18 +236,18 @@ def multiplication_experiment(
 
 
 if __name__ == "__main__":
-    save_path = f"{date.today().strftime('%Y-%m-%d')}-multiplication_summary.csv"
+    save_path = f"../summaries/{date.today().strftime('%Y-%m-%d')}-multiplication_summary.csv"
 
     # https://heidloff.net/article/running-llm-flan-t5-locally/
     results_list = []
-    results_list.extend(multiplication_experiment("google/flan-t5-small", 80000000))
-    results_list.extend(multiplication_experiment("google/flan-t5-base", 248000000))
-    results_list.extend(multiplication_experiment("google/flan-t5-large", 780000000))
-    results_list.extend(multiplication_experiment("google/flan-t5-xl", 3000000000))
-    results_list.extend(multiplication_experiment("google/flan-t5-xxl", 11000000000))
+    results_list.extend(multiplication_experiment("google/flan-t5-small", 80000000, get_flan_t5_prompt_format))
+    results_list.extend(multiplication_experiment("google/flan-t5-base", 248000000, get_flan_t5_prompt_format))
+    results_list.extend(multiplication_experiment("google/flan-t5-large", 780000000, get_flan_t5_prompt_format))
+    results_list.extend(multiplication_experiment("google/flan-t5-xl", 3000000000, get_flan_t5_prompt_format))
+    results_list.extend(multiplication_experiment("google/flan-t5-xxl", 11000000000, get_flan_t5_prompt_format))
 
     results_list.extend(
-        multiplication_experiment("meta-llama/Llama-2-7b-chat-hf", 7000000000)
+        multiplication_experiment("meta-llama/Llama-2-7b-chat-hf", 7000000000, get_llama_2_chat_prompt_format)
     )
     # results_list.extend(
     #     multiplication_experiment("meta-llama/Llama-2-13b-chat-hf", 13000000000)
