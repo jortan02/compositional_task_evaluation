@@ -4,7 +4,7 @@
 #SBATCH --account soc-gpu-np
 #SBATCH --partition soc-gpu-np
 #SBATCH --mail-user=jordan.tan@utah.edu
-#SBATCH --mail-type=FAIL,BEGIN,END
+#SBATCH --mail-type=FAIL
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate compositional
 

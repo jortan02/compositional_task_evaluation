@@ -49,7 +49,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Uppercase",
-            experiment_paths=glob.glob(os.path.join(UPPERCASE_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(UPPERCASE_PATH, model_name, "*.csv")),
             reason="Uppercase capitalizes all the letters in a word for each word in the word list.",
         )[0]
     )
@@ -60,7 +60,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Concatenate",
-            experiment_paths=glob.glob(os.path.join(CONCATENATE_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(CONCATENATE_PATH, model_name, "*.csv")),
             reason="Concatenate extends the first word list to include the words in the second word list.",
         )[0]
     )
@@ -71,7 +71,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Remove First",
-            experiment_paths=glob.glob(os.path.join(REMOVE_FIRST_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(REMOVE_FIRST_PATH, model_name, "*.csv")),
             reason="Remove First removes the first word in the word list.",
         )[0]
     )
@@ -82,7 +82,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="WLO",
-            experiment_paths=glob.glob(os.path.join(WLO_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(WLO_PATH, model_name, "*.csv")),
             reason="WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
         )[0]
     )
@@ -93,7 +93,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="WLO primed with uppercase",
-            experiment_paths=glob.glob(os.path.join(WLO_PRIMED_1_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(WLO_PRIMED_1_PATH, model_name, "*.csv")),
             reason="WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.",
         )[0]
     )
@@ -104,7 +104,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="WLO primed with remove first",
-            experiment_paths=glob.glob(os.path.join(WLO_PRIMED_2_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(WLO_PRIMED_2_PATH, model_name, "*.csv")),
             reason="WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.",
         )[0]
     )
@@ -115,7 +115,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="WLO primed with concatenate",
-            experiment_paths=glob.glob(os.path.join(WLO_PRIMED_3_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(WLO_PRIMED_3_PATH, model_name, "*.csv")),
             reason="WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.",
         )[0]
     )
@@ -126,7 +126,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="WLO primed with exponentiate",
-            experiment_paths=glob.glob(os.path.join(WLO_PRIMED_4_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(WLO_PRIMED_4_PATH, model_name, "*.csv")),
             reason="WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.",
         )[0]
     )
@@ -137,7 +137,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="WLO primed with subtract",
-            experiment_paths=glob.glob(os.path.join(WLO_PRIMED_5_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(WLO_PRIMED_5_PATH, model_name, "*.csv")),
             reason="WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.",
         )[0]
     )
@@ -148,7 +148,7 @@ def string_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="WLO primed with reverse",
-            experiment_paths=glob.glob(os.path.join(WLO_PRIMED_6_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(WLO_PRIMED_6_PATH, model_name, "*.csv")),
             reason="WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.",
         )[0]
     )
@@ -170,9 +170,9 @@ if __name__ == "__main__":
     results_list.extend(
         string_experiment("meta-llama/Llama-2-7b-chat-hf", 7000000000, get_llama_2_chat_prompt_format)
     )
-    # results_list.extend(
-    #     multiplication_experiment("meta-llama/Llama-2-13b-chat-hf", 13000000000)
-    # )
+    results_list.extend(
+        string_experiment("meta-llama/Llama-2-13b-chat-hf", 13000000000, get_llama_2_chat_prompt_format)
+    )
 
     summary_df = pd.DataFrame(results_list)
     summary_df.to_csv(save_path, index=False)

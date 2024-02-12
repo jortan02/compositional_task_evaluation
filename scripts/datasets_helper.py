@@ -137,6 +137,14 @@ def get_llama_2_chat_prompt_format(instruction, question, answer=None):
         prompt += f"A: {answer}\n\n"
     return prompt
 
+def get_llama_2_chat_prompt_format_v2(instruction, question, answer=None):
+    prompt = f"[INST] Q: {instruction}\n{question} [\INST] "
+    if answer is None:
+        prompt += f""
+    else:
+        prompt += f"A: {answer}\n\n"
+    return prompt
+
 
 def get_full_prompt(
     prompt_format,

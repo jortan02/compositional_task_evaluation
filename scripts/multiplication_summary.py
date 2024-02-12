@@ -81,7 +81,7 @@ def multiplication_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Carry",
-            experiment_paths=glob.glob(os.path.join(CARRY_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(CARRY_PATH, model_name, "*.csv")),
             reason="Carry occurs in multiplication at some digits place is greater than 9.",
         )[0]
     )
@@ -92,7 +92,7 @@ def multiplication_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Concatenate",
-            experiment_paths=glob.glob(
+            experiment_paths=get_file_paths(
                 os.path.join(CONCATENATE_PATH, model_name, "*.csv")
             ),
             reason="The digits needs to be concatenated to the final answer.",
@@ -105,7 +105,7 @@ def multiplication_experiment(
         param_count=param_count,
         extraction_score_functions=extraction_score_functions,
         prompt="Multiply",
-        experiment_paths=glob.glob(os.path.join(MULTIPLY_PATH, model_name, "*.csv")),
+        experiment_paths=get_file_paths(os.path.join(MULTIPLY_PATH, model_name, "*.csv")),
         reason="Multiplication is the compositional task.",
     )
     results_list.append(multiply_dict)
@@ -117,7 +117,7 @@ def multiplication_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with carry",
-            experiment_paths=glob.glob(
+            experiment_paths=get_file_paths(
                 os.path.join(MULTIPLY_PRIMED_1_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with carry because multiplication depends on this subtask.",
@@ -131,7 +131,7 @@ def multiplication_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with concatenate",
-            experiment_paths=glob.glob(
+            experiment_paths=get_file_paths(
                 os.path.join(MULTIPLY_PRIMED_2_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with concatenate because multiplication depends on this subtask.",
@@ -145,7 +145,7 @@ def multiplication_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with multiply with 1 digit",
-            experiment_paths=glob.glob(
+            experiment_paths=get_file_paths(
                 os.path.join(MULTIPLY_PRIMED_3_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with multiplication of 1 digit numbers because multiplication depends on this subtask.",
@@ -159,7 +159,7 @@ def multiplication_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with sum",
-            experiment_paths=glob.glob(
+            experiment_paths=get_file_paths(
                 os.path.join(MULTIPLY_PRIMED_4_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with summation of numbers up to 2 digits because multiplication depends on this subtask.",
@@ -173,7 +173,7 @@ def multiplication_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with exponentiate",
-            experiment_paths=glob.glob(
+            experiment_paths=get_file_paths(
                 os.path.join(MULTIPLY_PRIMED_5_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with exponentiate to see if the performance stays the same or get worse because this task is not required for multiplication.",
@@ -187,7 +187,7 @@ def multiplication_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with subtract",
-            experiment_paths=glob.glob(
+            experiment_paths=get_file_paths(
                 os.path.join(MULTIPLY_PRIMED_6_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with subtraction to see if the performance stays the same or get worse because this task is not required for multiplication.",
@@ -201,7 +201,7 @@ def multiplication_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply, primed with reverse",
-            experiment_paths=glob.glob(
+            experiment_paths=get_file_paths(
                 os.path.join(MULTIPLY_PRIMED_7_PATH, model_name, "*.csv")
             ),
             reason="Multiplication is the compositional task. We are priming multiplication with string reverse to see if the performance stays the same or get worse because this task is not required for multiplication.",
@@ -215,7 +215,7 @@ def multiplication_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Multiply 1-digit",
-            experiment_paths=glob.glob(
+            experiment_paths=get_file_paths(
                 os.path.join(MULTIPLY_1_DIGIT_PATH, model_name, "*.csv")
             ),
             reason="Multiplication requires multiplying two values at some digits place.",
@@ -228,7 +228,7 @@ def multiplication_experiment(
             param_count=param_count,
             extraction_score_functions=extraction_score_functions,
             prompt="Sum",
-            experiment_paths=glob.glob(os.path.join(SUM_PATH, model_name, "*.csv")),
+            experiment_paths=get_file_paths(os.path.join(SUM_PATH, model_name, "*.csv")),
             reason="Summation is done after carrying occurs.",
         )[0]
     )
@@ -249,9 +249,9 @@ if __name__ == "__main__":
     results_list.extend(
         multiplication_experiment("meta-llama/Llama-2-7b-chat-hf", 7000000000, get_llama_2_chat_prompt_format)
     )
-    # results_list.extend(
-    #     multiplication_experiment("meta-llama/Llama-2-13b-chat-hf", 13000000000)
-    # )
+    results_list.extend(
+        multiplication_experiment("meta-llama/Llama-2-13b-chat-hf", 13000000000, get_llama_2_chat_prompt_format)
+    )
 
     summary_df = pd.DataFrame(results_list)
     summary_df.to_csv(save_path, index=False)

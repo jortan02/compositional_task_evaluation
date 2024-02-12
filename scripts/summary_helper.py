@@ -10,12 +10,28 @@ import scipy.stats as stats
 from datasets_helper import get_full_prompt
 
 
+def get_file_paths(glob_path: str, limit: int = 5):
+    return glob.glob(glob_path)[:limit]
+
+
 def _analyze_results(
     results_df: pd.DataFrame,
     extract_function: Callable[[list[list[str]]], list[list[Any]]],
     score_function: Callable[[list[str], list[list[Any]]], list[list[int | float]]],
     example_count: int,
 ) -> tuple[float, float, list[float]]:
+    """_summary_
+
+    Args:
+        results_df (pd.DataFrame): The results DataFrame: expects prediction-x columns for predictions (where x is a number) and an answer column.
+        extract_function (Callable[[list[list[str]]], list[list[Any]]]): The extract function extracts the values to be evaluated in the prediction string.
+        score_function (Callable[[list[str], list[list[Any]]], list[list[int  |  float]]]): The score function takes in the answers from the answer column 
+            and the extracted values from the extraction function and returns a score.
+        example_count (int): How many in-context examples are in the DataFrame.
+
+    Returns:
+        tuple[float, float, list[float]]: Results of the experiment analysis.
+    """
     experiment_df_list: list[pd.DataFrame] = np.split(results_df, example_count)
     performances = []
     questions = experiment_df_list[0]["question"]
@@ -44,7 +60,7 @@ def _analyze_results(
     return acc_per_experiment, std_per_experiment, acc_per_example
 
 
-def _get_aggregate_df(file_paths: list[str], experiment_count: int = 10):
+def _get_aggregate_df(file_paths: list[str]):
     results_df_list = [
         pd.read_csv(
             file,
@@ -53,10 +69,6 @@ def _get_aggregate_df(file_paths: list[str], experiment_count: int = 10):
         )
         for file in file_paths
     ]
-    if len(results_df_list) != experiment_count:
-        raise Exception(
-            f"Found {len(results_df_list)} files when {experiment_count} was expected!"
-        )
     aggregate_df = results_df_list[0].rename(columns={"prediction": f"prediction-{1}"})
     for index in range(1, len(results_df_list)):
         aggregate_df[f"prediction-{index + 1}"] = results_df_list[index]["prediction"]
@@ -78,7 +90,7 @@ def get_summary_dict(
     ],
     reason="",
     comments="",
-    example_count: int = 5,
+    example_count: int = 5,  # Examples could be duplicates, so checking for distinct examples may not work
     baseline_perfs: list[float] = None,
 ) -> tuple[dict[str, any], dict[str, any]]:
     aggregate_df = _get_aggregate_df(experiment_paths)
@@ -93,6 +105,7 @@ def get_summary_dict(
         priming_question=sample["priming_question"].item(),
         priming_answer=sample["priming_answer"].item(),
     )
+
     test_count = len(aggregate_df) / example_count
 
     summary = {}

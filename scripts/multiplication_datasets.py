@@ -21,7 +21,7 @@ def create_csvs(
 ):
     carry_dataset = {
         "instruction": "Carry the digit from the tens place.",
-        "questions": [f"{x} // 10 =" for x in range(10, 100)],
+        "questions": [f"The result of {x} // 10 is what?" for x in range(10, 100)],
         "answers": [f"{x // 10}" for x in range(10, 100)],
     }
     carry_samples = sample_dataset(example_seeds, **carry_dataset)
@@ -35,9 +35,9 @@ def create_csvs(
 
     concatenate_dataset = {
         "instruction": "Concatenate the numbers.",
-        "questions": [f"{x} & {y} =" for x in range(10) for y in range(10)]
+        "questions": [f"The result of {x} & {y} is what?" for x in range(10) for y in range(10)]
         + [
-            f"{x} & {y} & {z} ="
+            f"The result of {x} & {y} & {z} is what?"
             for x in range(10)
             for y in range(10)
             for z in range(10)
@@ -56,7 +56,7 @@ def create_csvs(
 
     multiply_1_digit_dataset = {
         "instruction": "Multiply two numbers.",
-        "questions": [f"{x} * {y} =" for x in range(10) for y in range(10)],
+        "questions": [f"The result of {x} * {y} is what?" for x in range(10) for y in range(10)],
         "answers": [f"{x * y}" for x in range(10) for y in range(10)],
     }
     multiply_1_digit_samples = sample_dataset(example_seeds, **multiply_1_digit_dataset)
@@ -70,7 +70,7 @@ def create_csvs(
 
     sum_dataset = {
         "instruction": "Add two numbers.",
-        "questions": [f"{x} + {y} =" for x in range(100) for y in range(100)],
+        "questions": [f"The result of {x} + {y} is what?" for x in range(100) for y in range(100)],
         "answers": [f"{x + y}" for x in range(100) for y in range(100)],
     }
     sum_samples = sample_dataset(example_seeds, **sum_dataset)
@@ -85,6 +85,9 @@ def create_csvs(
     # For multiply.csv, sample questions with 3+ digits because sample space is large
     samples_x = []
     samples_y = []
+    sample = get_int_samples(0, 99, question_seed)
+    samples_x.extend(sample[0])
+    samples_y.extend(sample[1])
     sample = get_int_samples(0, 999, question_seed)
     samples_x.extend(sample[0])
     samples_y.extend(sample[1])
@@ -104,11 +107,11 @@ def create_csvs(
 
     multiply_dataset = {
         "instruction": "Multiply two numbers.",
-        "questions": [f"{x} * {y} =" for x in range(100) for y in range(100)]
+        "questions": [f"The result of {x} * {y} is what?" for x in range(10) for y in range(10)]
         + [
-            f"{samples_x[index]} * {samples_y[index]} =" for index in range(len(samples_x))
+            f"The result of {samples_x[index]} * {samples_y[index]} is what?" for index in range(len(samples_x))
         ],
-        "answers": [f"{x * y}" for x in range(100) for y in range(100)]
+        "answers": [f"{x * y}" for x in range(10) for y in range(10)]
         + [f"{samples_x[index] * samples_y[index]}" for index in range(len(samples_x))],
     }
     multiply_samples = sample_dataset(example_seeds, **multiply_dataset)
@@ -123,14 +126,14 @@ def create_csvs(
     # 1: carry, 2: concatenate, 3: multiply-1-digit, 4: sum, 5: exp, 6: sub, 7: rev
     power_dataset = {
         "instruction": "Exponentiate the number.",
-        "questions": [f"{x}**{y} =" for x in range(10) for y in range(10)],
+        "questions": [f"The result of {x}**{y} is what?" for x in range(10) for y in range(10)],
         "answers": [f"{x**y}" for x in range(10) for y in range(10)],
     }
     power_samples = sample_dataset(example_seeds, **power_dataset)
 
     subtract_dataset = {
         "instruction": "Subtract two numbers.",
-        "questions": [f"{x} - {y} =" for x in range(100) for y in range(100)],
+        "questions": [f"The result of {x} - {y} is what?" for x in range(100) for y in range(100)],
         "answers": [f"{x - y}" for x in range(100) for y in range(100)],
     }
     subtract_samples = sample_dataset(example_seeds, **subtract_dataset)
@@ -138,7 +141,7 @@ def create_csvs(
     samples = get_str_samples(question_seed)
     reverse_dataset = {
         "instruction": "Reverse the string.",
-        "questions": [f"The reverse of {sample} is" for sample in samples],
+        "questions": [f"Reverse of {sample} is what?" for sample in samples],
         "answers": [f"{sample[::-1]}" for sample in samples],
     }
     reverse_samples = sample_dataset(example_seeds, **reverse_dataset)
@@ -222,5 +225,5 @@ def create_csvs(
 
 
 if __name__ == "__main__":
-    dataset_path = f"../data/multiplication/"
+    dataset_path = f"../data/multiplication-v2/"
     create_csvs(dataset_path)

@@ -38,7 +38,7 @@ def create_dataset(
     word_list_1, word_list_2 = get_word_list_samples(question_seed, all_words, list_length)
     uppercase_dataset = {
         "instruction": "Uppercase all of the words in the list.",
-        "questions": [f"Uppercase of {word_list_format(sample)} is" for sample in word_list_1],
+        "questions": [f"Uppercase of {word_list_format(sample)} is what?" for sample in word_list_1],
         "answers": [word_list_format(uppercase(sample)) for sample in word_list_1],
     }
     uppercase_samples = sample_dataset(example_seeds, **uppercase_dataset)
@@ -52,7 +52,7 @@ def create_dataset(
     
     remove_first_dataset = {
         "instruction": "Remove the first word in the list.",
-        "questions": [f"Remove first of {word_list_format(sample)} is " for sample in word_list_1],
+        "questions": [f"Remove first of {word_list_format(sample)} is what?" for sample in word_list_1],
         "answers": [word_list_format(remove_first(sample)) for sample in word_list_1],
     }
     remove_first_samples = sample_dataset(example_seeds, **remove_first_dataset)
@@ -66,7 +66,7 @@ def create_dataset(
     
     concatenate_dataset = {
         "instruction": "Concatenate the two word lists.",
-        "questions": [f"Concatenate of {word_list_format(word_list_1[index])} and {word_list_format(word_list_2[index])} is " for index in range(len(word_list_1))],
+        "questions": [f"Concatenate of {word_list_format(word_list_1[index])} and {word_list_format(word_list_2[index])} is what?" for index in range(len(word_list_1))],
         "answers": [word_list_format(concatenate(word_list_1[index], word_list_2[index])) for index in range(len(word_list_1))],
     }
     concatenate_samples = sample_dataset(example_seeds, **concatenate_dataset)
@@ -80,7 +80,7 @@ def create_dataset(
     
     wlo_dataset = {
         "instruction": "WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.",
-        "questions": [f"WLO of {word_list_format(word_list_1[index])} and {word_list_format(word_list_2[index])} is " for index in range(len(word_list_1))],
+        "questions": [f"WLO of {word_list_format(word_list_1[index])} and {word_list_format(word_list_2[index])} is what?" for index in range(len(word_list_1))],
         "answers": [word_list_format(concatenate(uppercase(word_list_1[index]), remove_first(word_list_2[index]))) for index in range(len(word_list_1))],
     }
     wlo_samples = sample_dataset(example_seeds, **wlo_dataset)
@@ -110,7 +110,7 @@ def create_dataset(
     samples = get_str_samples(question_seed)
     reverse_dataset = {
         "instruction": "Reverse the string.",
-        "questions": [f"The reverse of {sample} is" for sample in samples],
+        "questions": [f"Reverse of {sample} is what?" for sample in samples],
         "answers": [f"{sample[::-1]}" for sample in samples],
     }
     reverse_samples = sample_dataset(example_seeds, **reverse_dataset)
@@ -184,5 +184,5 @@ def create_dataset(
 if __name__ == "__main__":
     for instruction_type in [1]:
         for prompt_type in [1]:
-            dataset_path = f"../data/string/"
+            dataset_path = f"../data/string-v2/"
             create_dataset(dataset_path)
