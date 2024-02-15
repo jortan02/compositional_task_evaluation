@@ -6,4 +6,4 @@ accelerate
 evaluate[evaluator]
 sklearn
 protobuf
-matplotlib
+seaborn

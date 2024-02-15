@@ -76,6 +76,7 @@ def _get_aggregate_df(file_paths: list[str]):
 
 
 def get_summary_dict(
+    experiment: str,
     prompt_format,
     model: str,
     param_count: str,
@@ -109,6 +110,7 @@ def get_summary_dict(
     test_count = len(aggregate_df) / example_count
 
     summary = {}
+    summary["experiment"] = experiment
     summary["model"] = model
     summary["param_count"] = param_count
     summary["prompt"] = prompt
