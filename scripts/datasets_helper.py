@@ -173,6 +173,34 @@ def get_full_prompt(
     prompt += prompt_format(instruction=instruction, question=question)
     return prompt
 
+def get_full_llama_2_chat_prompt(
+    prompt_format,
+    instruction,
+    question,
+    example_question,
+    example_answer,
+    priming_instruction=None,
+    priming_question=None,
+    priming_answer=None,
+):
+    prompt = "[INST] <<SYS>>\n\n<</SYS>>\n\n" # No system message
+    if (
+        (priming_instruction is not None and priming_instruction != "")
+        and (priming_question is not None and priming_question != "")
+        and (priming_answer is not None and priming_answer != "")
+    ):
+        prompt += prompt_format(
+            instruction=priming_instruction,
+            question=priming_question,
+            answer=priming_answer,
+        )
+    prompt += prompt_format(
+        instruction=instruction, question=example_question, answer=example_answer
+    )
+    prompt += prompt_format(instruction=instruction, question=question)
+    prompt += " [/INST] "
+    return prompt
+
 
 def sample_dataset(seeds, instruction, questions, answers):
     example_indices = []

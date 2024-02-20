@@ -3,19 +3,13 @@
 #SBATCH --account soc-gpu-np
 #SBATCH --partition soc-gpu-np
 #SBATCH --mail-user=jordan.tan@utah.edu
-#SBATCH --mail-type=FAIL
+#SBATCH --mail-type=BEGIN,END,FAIL
 
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate compositional
 
 mkdir /scratch/general/vast/u1283221/huggingface_cache
 export TRANSFORMERS_CACHE="/scratch/general/vast/u1283221/huggingface_cache"
-
-data_path=$1
-script=$2
-module=$3
-
-batch_size=$4
 
 experiment_number=$6
 section_number=$7

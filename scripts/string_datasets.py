@@ -3,7 +3,7 @@ from nltk.corpus import wordnet as wn
 
 from datasets_helper import *
 
-def get_word_list_samples(question_seed: int | None, all_words: list[str], list_length: int, sample_count: int = 1000): # TODO: 10000
+def get_word_list_samples(question_seed: int | None, all_words: list[str], list_length: int, sample_count: int = 1000):
     samples_x = []
     samples_y = []
     for i in range(sample_count):
@@ -33,7 +33,7 @@ def create_dataset(
     list_length: int = 3,
 ):
 
-    all_words = [word for word in wn.words() if len(word) <= 6 and "_" not in word]
+    all_words = [word for word in wn.words() if len(word) <= 6 and "_" not in word and ]
 
     word_list_1, word_list_2 = get_word_list_samples(question_seed, all_words, list_length)
     uppercase_dataset = {
@@ -79,8 +79,8 @@ def create_dataset(
     )
     
     wlo_dataset = {
-        "instruction": "WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.",
-        "questions": [f"WLO of {word_list_format(word_list_1[index])} and {word_list_format(word_list_2[index])} is what?" for index in range(len(word_list_1))],
+        "instruction": "Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.",
+        "questions": [f"Using {word_list_format(word_list_1[index])} and {word_list_format(word_list_2[index])} gives what?" for index in range(len(word_list_1))],
         "answers": [word_list_format(concatenate(uppercase(word_list_1[index]), remove_first(word_list_2[index]))) for index in range(len(word_list_1))],
     }
     wlo_samples = sample_dataset(example_seeds, **wlo_dataset)

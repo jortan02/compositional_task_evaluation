@@ -11,6 +11,7 @@ start = time.time()
 input_file_path = sys.argv[1]
 output_file_path = sys.argv[2]
 module = sys.argv[3]
+batch_size = int(sys.argv[4])
 
 if os.path.isfile(output_file_path):
     print("File already exists:", output_file_path)
@@ -30,7 +31,6 @@ model = AutoModelForCausalLM.from_pretrained(module, device_map="auto")
 pipe = pipeline("text-generation", model=module, device_map="auto")
 # pipe = pipeline("conversational", model=module, device_map="auto")
 pipe.tokenizer.pad_token_id = model.config.eos_token_id
-batch_size = int(sys.argv[4])
 
 print(
     f">> Input file: {input_file_path}, Output file: {output_file_path}, Module: {module}, Batch size: {batch_size}"
