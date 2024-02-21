@@ -33,7 +33,7 @@ def create_dataset(
     list_length: int = 3,
 ):
 
-    all_words = [word for word in wn.words() if len(word) <= 6 and "_" not in word and ]
+    all_words = [word.lower() for word in wn.words() if len(word) <= 6 and "_" not in word]
 
     word_list_1, word_list_2 = get_word_list_samples(question_seed, all_words, list_length)
     uppercase_dataset = {
@@ -184,5 +184,5 @@ def create_dataset(
 if __name__ == "__main__":
     for instruction_type in [1]:
         for prompt_type in [1]:
-            dataset_path = f"../data/string-v2/"
+            dataset_path = f"../data/string-v3/"
             create_dataset(dataset_path)

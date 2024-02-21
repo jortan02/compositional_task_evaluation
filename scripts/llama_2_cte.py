@@ -37,6 +37,7 @@ print(
 )
 
 run_experiment_pipe(
+    get_full_prompt,
     get_llama_2_chat_prompt_format,
     pipe,
     batch_size,

@@ -26,6 +26,7 @@ print(
 )
 
 run_experiment_model_tokenizer(
+    get_full_prompt,
     get_flan_t5_prompt_format,
     model,
     tokenizer,

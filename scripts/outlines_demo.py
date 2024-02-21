@@ -1,24 +1,25 @@
-import time
-from outlines import models, generate, samplers
-from datasets_helper import *
-from torch.utils.data import DataLoader
-from datasets import load_dataset, Features, Value
+# import time
+# from outlines import models, generate, samplers
+# from datasets_helper import *
+# from torch.utils.data import DataLoader
+# from datasets import load_dataset, Features, Value
 
-module="meta-llama/Llama-2-7b-chat-hf"
+# module="meta-llama/Llama-2-7b-chat-hf"
 
-model = models.transformers(module)
-sampler = samplers.beam_search(beams=5)
-generator = generate.text(model, sampler)
+# model = models.transformers(module)
+# sampler = samplers.beam_search(beams=5)
+# generator = generate.text(model, sampler)
 
-prompt = get_full_prompt(get_llama_2_chat_prompt_format, "Concatenate the two word lists.", "Concatenate of testis, poplin, io and cakile, trip, bextra is what?", "testis, poplin, io, cakile, trip, bextra", "Concatenate of testis, poplin, io and cakile, trip, bextra is what?")
-print("PROMPT:")
-print(prompt)
-print("MODEL:")
-start = time.time()
-unstructured = generator(prompt, max_tokens=32)[0]
-end = time.time()
-print(f">> Time: {end - start}")
-print(unstructured)
+
+# prompt = get_full_prompt(get_llama_2_chat_prompt_format, "Concatenate the two word lists.", "Concatenate of testis, poplin, io and cakile, trip, bextra is what?", "testis, poplin, io, cakile, trip, bextra", "Concatenate of testis, poplin, io and cakile, trip, bextra is what?")
+# print("PROMPT:")
+# print(prompt)
+# print("MODEL:")
+# start = time.time()
+# unstructured = generator(prompt, max_tokens=32)[0]
+# end = time.time()
+# print(f">> Time: {end - start}")
+# print(unstructured)
 
 # def _create_prompt(example: dict[str, str], prompt_format):
 #     prompt = get_full_prompt(
@@ -77,3 +78,20 @@ print(unstructured)
 # for batch in loader:
 #     generator(batch["prompt"], max_tokens=32)
 #     break
+
+
+from outlines import models, generate, samplers
+import os
+os.environ['TRANSFORMERS_CACHE'] = "/scratch/general/vast/u1283221/huggingface_cache"
+
+model = models.transformers("mistralai/Mistral-7B-Instruct-v0.2", model_kwargs={"device_map": "auto"})
+sampler = samplers.beam_search(2)
+
+generator = generate.text(model, sampler)
+answer = generator(["What is 2+2?", "What is an apple?"], max_tokens=32)
+
+print(answer)
+
+for a in answer:
+    print(a)
+# 4

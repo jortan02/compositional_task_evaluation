@@ -35,6 +35,7 @@ def _add_prediction(
 
 
 def run_experiment_model_tokenizer(
+    full_prompt_format,
     prompt_format,
     model: PreTrainedModel,
     tokenizer: PreTrainedTokenizer,
@@ -62,7 +63,7 @@ def run_experiment_model_tokenizer(
         ),
     )["train"]
     prompt_dataset = raw_dataset.map(
-        _create_prompt, fn_kwargs={"prompt_format": prompt_format}, num_proc=8
+        _create_prompt, fn_kwargs={"full_prompt_format": full_prompt_format, "prompt_format": prompt_format}, num_proc=8
     )
     tokenized_prompt_dataset = prompt_dataset.map(
         _tokenize_prompt, fn_kwargs={"tokenizer": tokenizer}, num_proc=8
@@ -109,6 +110,7 @@ def run_experiment_model_tokenizer(
 
 
 def run_experiment_pipe(
+    full_prompt_format,
     prompt_format,
     pipe,
     batch_size: int,
@@ -148,7 +150,7 @@ def run_experiment_pipe(
         generated_texts = [output["generated_text"] for output in outputs]
         predictions.extend(generated_texts)
     raw_dataset = raw_dataset.map(
-        _add_prediction, with_indices=True, fn_kwargs={"predictions": predictions}, num_proc=8
+        _create_prompt, fn_kwargs={"full_prompt_format": full_prompt_format, "prompt_format": prompt_format}, num_proc=8
     )
     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
     raw_dataset.to_csv(output_file_path, index=False)
@@ -202,14 +204,15 @@ def run_experiment_pipe_v2(
     raw_dataset.to_csv(output_file_path, index=False)
 
 def run_experiment_outlines(
+    full_prompt_format,
     prompt_format,
     module: str,
     batch_size: int,
     input_file_path: str,
     output_file_path: str,
 ):
-    model = models.transformers(module)
-    sampler = samplers.beam_search(beams=3)
+    model = models.transformers(module, model_kwargs={"device_map": "auto"})
+    sampler = samplers.beam_search(beams=5)
     generator = generate.text(model, sampler)
     raw_dataset = load_dataset(
         "csv",
@@ -229,7 +232,7 @@ def run_experiment_outlines(
     )["train"]
 
     prompt_dataset = raw_dataset.map(
-        _create_prompt, fn_kwargs={"prompt_format": prompt_format}, num_proc=8
+        _create_prompt, fn_kwargs={"full_prompt_format": full_prompt_format, "prompt_format": prompt_format}, num_proc=8
     )
 
     prompt_dataset = prompt_dataset.remove_columns(
@@ -249,9 +252,10 @@ def run_experiment_outlines(
 
     predictions = []
     for batch in tqdm(loader):
-        generated_texts = generator(batch["prompt"], max_tokens=32, stop_at="INST")[0]
+        generated_texts = generator(batch["prompt"], max_tokens=32, stop_at="INST")
+        generated_texts = [texts[-1] for texts in generated_texts]
         predictions.extend(generated_texts)
-
+        
     raw_dataset = raw_dataset.map(
         _add_prediction, with_indices=True, fn_kwargs={"predictions": predictions}, num_proc=8
     )
