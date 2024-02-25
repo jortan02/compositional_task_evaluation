@@ -1,5 +1,6 @@
 import random
 from nltk.corpus import wordnet as wn
+import requests
 
 from datasets_helper import *
 
@@ -32,8 +33,8 @@ def create_dataset(
     question_seed: int = 1234567890,
     list_length: int = 3,
 ):
-
-    all_words = [word.lower() for word in wn.words() if len(word) <= 6 and "_" not in word]
+    filter = {line.decode() for line in requests.get("https://www.cs.cmu.edu/~biglou/resources/bad-words.txt").iter_lines()}
+    all_words = [word.lower() for word in wn.words() if len(word) <= 6 and "_" not in word and word not in filter and not any(char.isdigit() for char in word)]
 
     word_list_1, word_list_2 = get_word_list_samples(question_seed, all_words, list_length)
     uppercase_dataset = {

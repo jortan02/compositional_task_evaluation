@@ -3,8 +3,8 @@ import string
 import csv
 import os
 import random
-
 import pandas as pd
+from prompt_template import PromptTemplate as PT
 
 
 def write_csv(
@@ -137,13 +137,13 @@ def get_llama_2_chat_prompt_format(instruction, question, answer=None):
         prompt += f"A: {answer}\n\n"
     return prompt
 
-def get_llama_2_chat_prompt_format_v2(instruction, question, answer=None):
-    prompt = f"[INST] Q: {instruction}\n{question} [\INST] "
-    if answer is None:
-        prompt += f""
-    else:
-        prompt += f"A: {answer}\n\n"
-    return prompt
+# def get_llama_2_chat_prompt_format_v2(instruction, question, answer=None):
+#     prompt = f"[INST] Q: {instruction}\n{question} [\INST] "
+#     if answer is None:
+#         prompt += f""
+#     else:
+#         prompt += f"A: {answer}\n\n"
+#     return prompt
 
 
 def get_full_prompt(
@@ -201,6 +201,51 @@ def get_full_llama_2_chat_prompt(
     prompt += " [/INST] "
     return prompt
 
+def get_full_llama_2_chat_prompt_v2(
+    prompt_format,
+    instruction,
+    question,
+    example_question,
+    example_answer,
+    priming_instruction=None,
+    priming_question=None,
+    priming_answer=None,
+):
+    pt = PT(system_prompt="")
+    if (
+        (priming_instruction is not None and priming_instruction != "")
+        and (priming_question is not None and priming_question != "")
+        and (priming_answer is not None and priming_answer != "")
+    ):
+        pt.add_user_message(f"Q: {priming_instruction}\n{priming_question}")
+        pt.add_model_reply(f"A: {priming_answer}")
+    pt.add_user_message(f"Q: {instruction}\n{example_question}")
+    pt.add_model_reply(f"A: {example_answer}")
+    pt.add_user_message(f"Q: {instruction}\n{question}")
+    return pt.build_prompt()
+
+def get_full_llama_2_chat_prompt_v3(
+    prompt_format,
+    instruction,
+    question,
+    example_question,
+    example_answer,
+    priming_instruction=None,
+    priming_question=None,
+    priming_answer=None,
+):
+    pt = PT()
+    if (
+        (priming_instruction is not None and priming_instruction != "")
+        and (priming_question is not None and priming_question != "")
+        and (priming_answer is not None and priming_answer != "")
+    ):
+        pt.add_user_message(f"Q: {priming_instruction}\n{priming_question}")
+        pt.add_model_reply(f"A: {priming_answer}")
+    pt.add_user_message(f"Q: {instruction}\n{example_question}")
+    pt.add_model_reply(f"A: {example_answer}")
+    pt.add_user_message(f"Q: {instruction}\n{question}")
+    return pt.build_prompt()
 
 def sample_dataset(seeds, instruction, questions, answers):
     example_indices = []

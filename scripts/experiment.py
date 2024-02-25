@@ -8,9 +8,9 @@ from transformers.pipelines.pt_utils import KeyDataset
 from outlines import models, generate, samplers
 
 
-def _create_prompt(example: dict[str, str], full_prompt_format, prompt_format):
+def _create_prompt(example: dict[str, str], full_prompt_format, prompt_format=None):
     prompt = full_prompt_format(
-        prompt_format,
+        prompt_format=prompt_format,
         instruction=example["instruction"],
         question=example["question"],
         example_question=example["example_question"],
@@ -65,6 +65,7 @@ def run_experiment_model_tokenizer(
     prompt_dataset = raw_dataset.map(
         _create_prompt, fn_kwargs={"full_prompt_format": full_prompt_format, "prompt_format": prompt_format}, num_proc=8
     )
+    print(prompt_dataset["prompt"][0])
     tokenized_prompt_dataset = prompt_dataset.map(
         _tokenize_prompt, fn_kwargs={"tokenizer": tokenizer}, num_proc=8
     )
@@ -92,8 +93,6 @@ def run_experiment_model_tokenizer(
         with torch.no_grad():
             generated_ids = model.generate(
                 **batch,
-                # max_new_tokens=20,
-                max_new_tokens=32,
                 num_beams=5,
                 do_sample=True,
                 num_return_sequences=1
@@ -111,57 +110,12 @@ def run_experiment_model_tokenizer(
 
 def run_experiment_pipe(
     full_prompt_format,
-    prompt_format,
+    tokenizer,
     pipe,
     batch_size: int,
     input_file_path: str,
     output_file_path: str,
-):
-    raw_dataset = load_dataset(
-        "csv",
-        data_files=input_file_path,
-        features=Features(
-            {
-                "priming_instruction": Value("string"),
-                "priming_question": Value("string"),
-                "priming_answer": Value("string"),
-                "instruction": Value("string"),
-                "example_question": Value("string"),
-                "example_answer": Value("string"),
-                "question": Value("string"),
-                "answer": Value("string"),
-            }
-        ),
-    )["train"]
-    prompt_dataset = raw_dataset.map(
-        _create_prompt, fn_kwargs={"prompt_format": prompt_format}, num_proc=8
-    )
-    predictions = []
-    for outputs in tqdm(
-        pipe(
-            KeyDataset(prompt_dataset, "prompt"),
-            batch_size=batch_size,
-            max_new_tokens=20,
-            num_beams=5,
-            do_sample=True,
-            return_full_text=False,
-        ), total=len(prompt_dataset) // batch_size
-    ):
-        generated_texts = [output["generated_text"] for output in outputs]
-        predictions.extend(generated_texts)
-    raw_dataset = raw_dataset.map(
-        _create_prompt, fn_kwargs={"full_prompt_format": full_prompt_format, "prompt_format": prompt_format}, num_proc=8
-    )
-    os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
-    raw_dataset.to_csv(output_file_path, index=False)
-
-def run_experiment_pipe_v2(
-    full_prompt_format,
-    prompt_format,
-    pipe,
-    batch_size: int,
-    input_file_path: str,
-    output_file_path: str,
+    prompt_format=None
 ):
     raw_dataset = load_dataset(
         "csv",
@@ -188,12 +142,11 @@ def run_experiment_pipe_v2(
         pipe(
             KeyDataset(prompt_dataset, "prompt"),
             batch_size=batch_size,
-            # max_new_tokens=20, 
-            max_new_tokens=32, # TODO: string-v2 is done with 32 max new tokens?
             num_beams=5,
+            eos_token_id=tokenizer.eos_token_id,
             do_sample=True,
             return_full_text=False,
-        ), total=len(prompt_dataset) // batch_size
+        )
     ):
         generated_texts = [output["generated_text"] for output in outputs]
         predictions.extend(generated_texts)
@@ -202,6 +155,7 @@ def run_experiment_pipe_v2(
     )
     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
     raw_dataset.to_csv(output_file_path, index=False)
+
 
 def run_experiment_outlines(
     full_prompt_format,
@@ -212,8 +166,9 @@ def run_experiment_outlines(
     output_file_path: str,
 ):
     model = models.transformers(module, model_kwargs={"device_map": "auto"})
-    sampler = samplers.beam_search(beams=5)
-    generator = generate.text(model, sampler)
+    # sampler = samplers.beam_search(beams=5)
+    # generator = generate.text(model, sampler)
+    generator = generate.text(model)
     raw_dataset = load_dataset(
         "csv",
         data_files=input_file_path,
@@ -234,6 +189,7 @@ def run_experiment_outlines(
     prompt_dataset = raw_dataset.map(
         _create_prompt, fn_kwargs={"full_prompt_format": full_prompt_format, "prompt_format": prompt_format}, num_proc=8
     )
+    print(prompt_dataset["prompt"][0])
 
     prompt_dataset = prompt_dataset.remove_columns(
         [
@@ -253,7 +209,6 @@ def run_experiment_outlines(
     predictions = []
     for batch in tqdm(loader):
         generated_texts = generator(batch["prompt"], max_tokens=32, stop_at="INST")
-        generated_texts = [texts[-1] for texts in generated_texts]
         predictions.extend(generated_texts)
         
     raw_dataset = raw_dataset.map(

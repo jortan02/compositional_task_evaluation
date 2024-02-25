@@ -11,8 +11,8 @@ conda activate compositional
 mkdir /scratch/general/vast/u1283221/huggingface_cache
 export TRANSFORMERS_CACHE="/scratch/general/vast/u1283221/huggingface_cache"
 
-experiment_number=$6
-section_number=$7
+experiment_number=1
+section_number=2
 input_file_path="$1/section-$section_number.csv"
 output_file_path="$2/experiment-$experiment_number/section-$section_number.csv"
 script=$3
