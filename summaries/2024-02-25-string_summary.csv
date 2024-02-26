@@ -1,0 +1,659 @@
+experiment,model,param_count,prompt,prompt_example,test_count,exact_micro_avg,exact_micro_std,exact_micro_tt,reason,comments
+String,google/flan-t5-small,80000000,Uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is
+A: TESTIS, POPLIN, IO
+
+Q: Uppercase all of the words in the list.
+Uppercase of feeler, briery, punks is
+A: ",1000.0,0.00092,0.00016000000000000004,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,google/flan-t5-small,80000000,Concatenate,"Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is 
+A: testis, poplin, io, cakile, trip, bextra
+
+Q: Concatenate the two word lists.
+Concatenate of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0,0.0,,Concatenate extends the first word list to include the words in the second word list.,
+String,google/flan-t5-small,80000000,Remove First,"Q: Remove the first word in the list.
+Remove first of testis, poplin, io is 
+A: poplin, io
+
+Q: Remove the first word in the list.
+Remove first of feeler, briery, punks is 
+A: ",1000.0,0.8406,0.07471835115953779,,Remove First removes the first word in the word list.,
+String,google/flan-t5-small,80000000,WLO,"Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,google/flan-t5-small,80000000,WLO + uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is
+A: TESTIS, POPLIN, IO
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0006000000000000001,0.0004898979485566356,0.9349087313762126,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,google/flan-t5-small,80000000,WLO + remove first,"Q: Remove the first word in the list.
+Remove first of testis, poplin, io is 
+A: poplin, io
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,google/flan-t5-small,80000000,WLO + concatenate,"Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is 
+A: testis, poplin, io, cakile, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,google/flan-t5-small,80000000,WLO + exponentiate,"Q: Exponentiate the number.
+4**9 =
+A: 262144
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-small,80000000,WLO + subtract,"Q: Subtract two numbers.
+63 - 11 =
+A: 52
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-small,80000000,WLO + reverse,"Q: Reverse the string.
+The reverse of srpukw is
+A: wkuprs
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-base,248000000,Uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is
+A: TESTIS, POPLIN, IO
+
+Q: Uppercase all of the words in the list.
+Uppercase of feeler, briery, punks is
+A: ",1000.0,0.0008,0.0004,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,google/flan-t5-base,248000000,Concatenate,"Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is 
+A: testis, poplin, io, cakile, trip, bextra
+
+Q: Concatenate the two word lists.
+Concatenate of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0009599999999999999,0.0009068627239003707,,Concatenate extends the first word list to include the words in the second word list.,
+String,google/flan-t5-base,248000000,Remove First,"Q: Remove the first word in the list.
+Remove first of testis, poplin, io is 
+A: poplin, io
+
+Q: Remove the first word in the list.
+Remove first of feeler, briery, punks is 
+A: ",1000.0,0.9944,0.0012198360545581674,,Remove First removes the first word in the word list.,
+String,google/flan-t5-base,248000000,WLO,"Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0,0.0,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,google/flan-t5-base,248000000,WLO + uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is
+A: TESTIS, POPLIN, IO
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0008,0.0004,0.8874528478420332,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,google/flan-t5-base,248000000,WLO + remove first,"Q: Remove the first word in the list.
+Remove first of testis, poplin, io is 
+A: poplin, io
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0006000000000000001,0.0004898979485566356,0.9024986849110881,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,google/flan-t5-base,248000000,WLO + concatenate,"Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is 
+A: testis, poplin, io, cakile, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0004,0.0004898979485566357,0.9203639134126609,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,google/flan-t5-base,248000000,WLO + exponentiate,"Q: Exponentiate the number.
+4**9 =
+A: 262144
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0,0.0,,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-base,248000000,WLO + subtract,"Q: Subtract two numbers.
+63 - 11 =
+A: 52
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.00016,0.00032,0.943670004880835,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-base,248000000,WLO + reverse,"Q: Reverse the string.
+The reverse of srpukw is
+A: wkuprs
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0002,0.0004,0.943670004880835,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-large,780000000,Uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is
+A: TESTIS, POPLIN, IO
+
+Q: Uppercase all of the words in the list.
+Uppercase of feeler, briery, punks is
+A: ",1000.0,0.001,0.0,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,google/flan-t5-large,780000000,Concatenate,"Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is 
+A: testis, poplin, io, cakile, trip, bextra
+
+Q: Concatenate the two word lists.
+Concatenate of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0006000000000000001,0.0004898979485566356,,Concatenate extends the first word list to include the words in the second word list.,
+String,google/flan-t5-large,780000000,Remove First,"Q: Remove the first word in the list.
+Remove first of testis, poplin, io is 
+A: poplin, io
+
+Q: Remove the first word in the list.
+Remove first of feeler, briery, punks is 
+A: ",1000.0,0.95156,0.03228607130017525,,Remove First removes the first word in the word list.,
+String,google/flan-t5-large,780000000,WLO,"Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,google/flan-t5-large,780000000,WLO + uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is
+A: TESTIS, POPLIN, IO
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,google/flan-t5-large,780000000,WLO + remove first,"Q: Remove the first word in the list.
+Remove first of testis, poplin, io is 
+A: poplin, io
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,google/flan-t5-large,780000000,WLO + concatenate,"Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is 
+A: testis, poplin, io, cakile, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0004,0.0004898979485566357,0.8807941827868859,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,google/flan-t5-large,780000000,WLO + exponentiate,"Q: Exponentiate the number.
+4**9 =
+A: 262144
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-large,780000000,WLO + subtract,"Q: Subtract two numbers.
+63 - 11 =
+A: 52
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-large,780000000,WLO + reverse,"Q: Reverse the string.
+The reverse of srpukw is
+A: wkuprs
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xl,3000000000,Uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is
+A: TESTIS, POPLIN, IO
+
+Q: Uppercase all of the words in the list.
+Uppercase of feeler, briery, punks is
+A: ",1000.0,0.00876,0.0028688673723265773,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,google/flan-t5-xl,3000000000,Concatenate,"Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is 
+A: testis, poplin, io, cakile, trip, bextra
+
+Q: Concatenate the two word lists.
+Concatenate of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.0041600000000000005,0.0012224565431948901,,Concatenate extends the first word list to include the words in the second word list.,
+String,google/flan-t5-xl,3000000000,Remove First,"Q: Remove the first word in the list.
+Remove first of testis, poplin, io is 
+A: poplin, io
+
+Q: Remove the first word in the list.
+Remove first of feeler, briery, punks is 
+A: ",1000.0,0.99412,0.002296432015105175,,Remove First removes the first word in the word list.,
+String,google/flan-t5-xl,3000000000,WLO,"Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,google/flan-t5-xl,3000000000,WLO + uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is
+A: TESTIS, POPLIN, IO
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,google/flan-t5-xl,3000000000,WLO + remove first,"Q: Remove the first word in the list.
+Remove first of testis, poplin, io is 
+A: poplin, io
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,google/flan-t5-xl,3000000000,WLO + concatenate,"Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is 
+A: testis, poplin, io, cakile, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,google/flan-t5-xl,3000000000,WLO + exponentiate,"Q: Exponentiate the number.
+4**9 =
+A: 262144
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xl,3000000000,WLO + subtract,"Q: Subtract two numbers.
+63 - 11 =
+A: 52
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xl,3000000000,WLO + reverse,"Q: Reverse the string.
+The reverse of srpukw is
+A: wkuprs
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xxl,11000000000,Uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is
+A: TESTIS, POPLIN, IO
+
+Q: Uppercase all of the words in the list.
+Uppercase of feeler, briery, punks is
+A: ",1000.0,0.01912,0.003774864235969288,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,google/flan-t5-xxl,11000000000,Concatenate,"Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is 
+A: testis, poplin, io, cakile, trip, bextra
+
+Q: Concatenate the two word lists.
+Concatenate of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.017240000000000002,0.006118038901478153,,Concatenate extends the first word list to include the words in the second word list.,
+String,google/flan-t5-xxl,11000000000,Remove First,"Q: Remove the first word in the list.
+Remove first of testis, poplin, io is 
+A: poplin, io
+
+Q: Remove the first word in the list.
+Remove first of feeler, briery, punks is 
+A: ",1000.0,0.90808,0.02342975885492635,,Remove First removes the first word in the word list.,
+String,google/flan-t5-xxl,11000000000,WLO,"Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,google/flan-t5-xxl,11000000000,WLO + uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is
+A: TESTIS, POPLIN, IO
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,google/flan-t5-xxl,11000000000,WLO + remove first,"Q: Remove the first word in the list.
+Remove first of testis, poplin, io is 
+A: poplin, io
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,google/flan-t5-xxl,11000000000,WLO + concatenate,"Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is 
+A: testis, poplin, io, cakile, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,google/flan-t5-xxl,11000000000,WLO + exponentiate,"Q: Exponentiate the number.
+4**9 =
+A: 262144
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xxl,11000000000,WLO + subtract,"Q: Subtract two numbers.
+63 - 11 =
+A: 52
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xxl,11000000000,WLO + reverse,"Q: Reverse the string.
+The reverse of srpukw is
+A: wkuprs
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is 
+A: TESTIS, POPLIN, IO, trip, bextra
+
+Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is 
+A: ",1000.0,0.001,0.0,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,Uppercase,"[INST] Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is [\INST]
+A: TESTIS, POPLIN, IO
+
+[INST] Q: Uppercase all of the words in the list.
+Uppercase of feeler, briery, punks is [\INST]
+A: ",1000.0,0.61388,0.1925190317864704,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,Concatenate,"[INST] Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: testis, poplin, io, cakile, trip, bextra
+
+[INST] Q: Concatenate the two word lists.
+Concatenate of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.8580399999999999,0.018358823491716466,,Concatenate extends the first word list to include the words in the second word list.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,Remove First,"[INST] Q: Remove the first word in the list.
+Remove first of testis, poplin, io is  [\INST]
+A: poplin, io
+
+[INST] Q: Remove the first word in the list.
+Remove first of feeler, briery, punks is  [\INST]
+A: ",1000.0,0.14472000000000002,0.03964292622902603,,Remove First removes the first word in the word list.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO,"[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.01056,0.0018304097901836079,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + uppercase,"[INST] Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is [\INST]
+A: TESTIS, POPLIN, IO
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.0086,0.007125166664717395,0.9312895447065973,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + remove first,"[INST] Q: Remove the first word in the list.
+Remove first of testis, poplin, io is  [\INST]
+A: poplin, io
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.00472,0.004469630857240897,0.7194700039418938,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + concatenate,"[INST] Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: testis, poplin, io, cakile, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.0066,0.005924862867611368,0.8514457625647525,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + exponentiate,"[INST] Q: Exponentiate the number.
+4**9 = [\INST]
+A: 262144
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.01704,0.008089894931332544,0.8612165354047872,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + subtract,"[INST] Q: Subtract two numbers.
+63 - 11 = [\INST]
+A: 52
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.022760000000000002,0.005647512726855956,0.7826653191252286,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + reverse,"[INST] Q: Reverse the string.
+The reverse of srpukw is [\INST]
+A: wkuprs
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.00888,0.004593212383506776,0.9448821153499145,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,Uppercase,"[INST] Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is [\INST]
+A: TESTIS, POPLIN, IO
+
+[INST] Q: Uppercase all of the words in the list.
+Uppercase of feeler, briery, punks is [\INST]
+A: ",1000.0,0.6064,0.06669080896195517,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,Concatenate,"[INST] Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: testis, poplin, io, cakile, trip, bextra
+
+[INST] Q: Concatenate the two word lists.
+Concatenate of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.79064,0.007979373408983923,,Concatenate extends the first word list to include the words in the second word list.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,Remove First,"[INST] Q: Remove the first word in the list.
+Remove first of testis, poplin, io is  [\INST]
+A: poplin, io
+
+[INST] Q: Remove the first word in the list.
+Remove first of feeler, briery, punks is  [\INST]
+A: ",1000.0,0.25528000000000006,0.037445982428025576,,Remove First removes the first word in the word list.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO,"[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.05567999999999999,0.03062197903467377,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + uppercase,"[INST] Q: Uppercase all of the words in the list.
+Uppercase of testis, poplin, io is [\INST]
+A: TESTIS, POPLIN, IO
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.0248,0.022132690753724454,0.4403182866410972,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + remove first,"[INST] Q: Remove the first word in the list.
+Remove first of testis, poplin, io is  [\INST]
+A: poplin, io
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.01616,0.008152938120702254,0.25440848816266765,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + concatenate,"[INST] Q: Concatenate the two word lists.
+Concatenate of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: testis, poplin, io, cakile, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.12156,0.02243190584858986,0.5265011555224488,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + exponentiate,"[INST] Q: Exponentiate the number.
+4**9 = [\INST]
+A: 262144
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.08256,0.05172641878189519,0.747403206242848,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + subtract,"[INST] Q: Subtract two numbers.
+63 - 11 = [\INST]
+A: 52
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.10216,0.07194413388178358,0.6003582570711896,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + reverse,"[INST] Q: Reverse the string.
+The reverse of srpukw is [\INST]
+A: wkuprs
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of testis, poplin, io and cakile, trip, bextra is  [\INST]
+A: TESTIS, POPLIN, IO, trip, bextra
+
+[INST] Q: WLO the two word lists. WLO uses these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+WLO of feeler, briery, punks and jell-o, dekko, unmown is  [\INST]
+A: ",1000.0,0.08080000000000001,0.05031468970390257,0.7457398176088044,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,

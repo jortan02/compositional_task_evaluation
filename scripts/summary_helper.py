@@ -27,6 +27,7 @@ def _analyze_results(
         extract_function (Callable[[list[list[str]]], list[list[Any]]]): The extract function extracts the values to be evaluated in the prediction string.
         score_function (Callable[[list[str], list[list[Any]]], list[list[int  |  float]]]): The score function takes in the answers from the answer column 
             and the extracted values from the extraction function and returns a score.
+            Expects a return list format of shape (# of experiments w/ diff in-context examples) x (# of prompts) x (# of runs).
         example_count (int): How many in-context examples are in the DataFrame.
 
     Returns:
@@ -47,17 +48,13 @@ def _analyze_results(
         performances.append(score_function(answers, predictions_list))
     performances = np.array(
         performances
-    )  # dim (# of experiments w/ diff in-context examples) x (# of examples) x (# of runs)
-    acc_per_experiment = np.mean(
-        np.mean(performances.reshape((performances.shape[0], -1)), axis=1)
     )
-    std_per_experiment = np.std(
-        np.mean(performances.reshape((performances.shape[0], -1)), axis=1)
-    )
+    # dim (# of experiments w/ diff in-context examples) x (# of prompts) x (# of runs)
+    acc_per_experiment = np.mean(performances.reshape((performances.shape[0], -1)), axis=1)
     acc_per_example = np.mean(
         performances.transpose(1, 0, 2).reshape(performances.shape[1], -1), axis=1
     )
-    return acc_per_experiment, std_per_experiment, acc_per_example
+    return acc_per_experiment, acc_per_example
 
 
 def _get_aggregate_df(file_paths: list[str]):
@@ -119,20 +116,20 @@ def get_summary_dict(
 
     accuracies = {}
     for name, extraction_function, score_function in extraction_score_functions:
-        avg, std, perfs = _analyze_results(
+        acc_per_experiment, acc_per_example = _analyze_results(
             aggregate_df,
             extract_function=extraction_function,
             score_function=score_function,
             example_count=example_count,
         )
-        summary[f"{name}_avg"] = avg
-        summary[f"{name}_std"] = std
+        summary[f"{name}_avg"] = np.mean(acc_per_experiment)
+        summary[f"{name}_std"] = np.std(acc_per_experiment)
         summary[f"{name}_tt"] = (
             ""
             if baseline_perfs is None
-            else stats.ttest_ind(perfs, baseline_perfs[name]).pvalue
+            else stats.ttest_ind(acc_per_example, baseline_perfs[name]).pvalue
         )
-        accuracies[name] = perfs
+        accuracies[name] = acc_per_experiment
 
     summary["reason"] = reason
     summary["comments"] = comments
