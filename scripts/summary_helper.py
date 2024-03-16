@@ -74,8 +74,8 @@ def _get_aggregate_df(file_paths: list[str]):
 
 def get_summary_dict(
     experiment: str,
-    prompt_format,
     model: str,
+    prompt_format,
     param_count: str,
     prompt: str,
     experiment_paths: list[str],
@@ -93,8 +93,7 @@ def get_summary_dict(
 ) -> tuple[dict[str, any], dict[str, any]]:
     aggregate_df = _get_aggregate_df(experiment_paths)
     sample = aggregate_df.sample(1, random_state=0)
-    prompt_example = get_full_prompt(
-        prompt_format,
+    prompt_example = prompt_format(
         instruction=sample["instruction"].item(),
         question=sample["question"].item(),
         example_question=sample["example_question"].item(),

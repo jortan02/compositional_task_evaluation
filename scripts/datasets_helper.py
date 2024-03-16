@@ -129,13 +129,13 @@ def get_flan_t5_prompt_format(instruction, question, answer=None):
     return prompt
 
 
-def get_llama_2_chat_prompt_format(instruction, question, answer=None):
-    prompt = f"[INST] Q: {instruction}\n{question} [\INST]\n"
-    if answer is None:
-        prompt += f"A: "
-    else:
-        prompt += f"A: {answer}\n\n"
-    return prompt
+# def get_llama_2_chat_prompt_format(instruction, question, answer=None):
+#     prompt = f"[INST] Q: {instruction}\n{question} [\INST]\n"
+#     if answer is None:
+#         prompt += f"A: "
+#     else:
+#         prompt += f"A: {answer}\n\n"
+#     return prompt
 
 # def get_llama_2_chat_prompt_format_v2(instruction, question, answer=None):
 #     prompt = f"[INST] Q: {instruction}\n{question} [\INST] "
@@ -156,6 +156,39 @@ def get_full_prompt(
     priming_question=None,
     priming_answer=None,
 ):
+    prompt = ""
+    if (
+        (priming_instruction is not None and priming_instruction != "")
+        and (priming_question is not None and priming_question != "")
+        and (priming_answer is not None and priming_answer != "")
+    ):
+        prompt += prompt_format(
+            instruction=priming_instruction,
+            question=priming_question,
+            answer=priming_answer,
+        )
+    prompt += prompt_format(
+        instruction=instruction, question=example_question, answer=example_answer
+    )
+    prompt += prompt_format(instruction=instruction, question=question)
+    return prompt
+
+def get_full_flan_t5_prompt(
+    instruction,
+    question,
+    example_question,
+    example_answer,
+    priming_instruction=None,
+    priming_question=None,
+    priming_answer=None,
+):
+    def prompt_format(instruction, question, answer=None):
+        prompt = f"Q: {instruction}\n" f"{question}\n"
+        if answer is None:
+            prompt += f"A: "
+        else:
+            prompt += f"A: {answer}\n\n"
+        return prompt
     prompt = ""
     if (
         (priming_instruction is not None and priming_instruction != "")
@@ -225,7 +258,6 @@ def get_full_llama_2_chat_prompt_v2(
     return pt.build_prompt()
 
 def get_full_llama_2_chat_prompt_v3(
-    prompt_format,
     instruction,
     question,
     example_question,
@@ -233,6 +265,7 @@ def get_full_llama_2_chat_prompt_v3(
     priming_instruction=None,
     priming_question=None,
     priming_answer=None,
+    prompt_format=None,
 ):
     pt = PT()
     if (

@@ -1,0 +1,543 @@
+experiment,model,param_count,prompt,prompt_example,test_count,exact_micro_avg,exact_micro_std,exact_micro_tt,reason,comments
+String,google/flan-t5-small,80000000,Uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what?
+A: TYR, RECTUS, KI
+
+Q: Uppercase all of the words in the list.
+Uppercase of gaba, craved, ritz is what?
+A: ",1000.0,0.001,0.0,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,google/flan-t5-small,80000000,Concatenate,"Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what?
+A: tyr, rectus, ki, chilli, vogul, bps
+
+Q: Concatenate the two word lists.
+Concatenate of gaba, craved, ritz and krone, duenna, zoic is what?
+A: ",1000.0,0.0,0.0,,Concatenate extends the first word list to include the words in the second word list.,
+String,google/flan-t5-small,80000000,Remove First,"Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what?
+A: rectus, ki
+
+Q: Remove the first word in the list.
+Remove first of gaba, craved, ritz is what?
+A: ",1000.0,0.34568,0.2225923125357208,,Remove First removes the first word in the word list.,
+String,google/flan-t5-small,80000000,WLO,"Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,google/flan-t5-small,80000000,WLO + uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what?
+A: TYR, RECTUS, KI
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,google/flan-t5-small,80000000,WLO + remove first,"Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what?
+A: rectus, ki
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,google/flan-t5-small,80000000,WLO + concatenate,"Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what?
+A: tyr, rectus, ki, chilli, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,google/flan-t5-small,80000000,WLO + exponentiate,"Q: Exponentiate the number.
+4**9 =
+A: 262144
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-small,80000000,WLO + subtract,"Q: Subtract two numbers.
+63 - 11 =
+A: 52
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-small,80000000,WLO + reverse,"Q: Reverse the string.
+Reverse of srpukw is what?
+A: wkuprs
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-base,248000000,Uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what?
+A: TYR, RECTUS, KI
+
+Q: Uppercase all of the words in the list.
+Uppercase of gaba, craved, ritz is what?
+A: ",1000.0,0.001,0.0,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,google/flan-t5-base,248000000,Concatenate,"Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what?
+A: tyr, rectus, ki, chilli, vogul, bps
+
+Q: Concatenate the two word lists.
+Concatenate of gaba, craved, ritz and krone, duenna, zoic is what?
+A: ",1000.0,0.00136,0.0011482160075525858,,Concatenate extends the first word list to include the words in the second word list.,
+String,google/flan-t5-base,248000000,Remove First,"Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what?
+A: rectus, ki
+
+Q: Remove the first word in the list.
+Remove first of gaba, craved, ritz is what?
+A: ",1000.0,0.99376,0.001920000000000003,,Remove First removes the first word in the word list.,
+String,google/flan-t5-base,248000000,WLO,"Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,google/flan-t5-base,248000000,WLO + uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what?
+A: TYR, RECTUS, KI
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,google/flan-t5-base,248000000,WLO + remove first,"Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what?
+A: rectus, ki
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,google/flan-t5-base,248000000,WLO + concatenate,"Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what?
+A: tyr, rectus, ki, chilli, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,google/flan-t5-base,248000000,WLO + exponentiate,"Q: Exponentiate the number.
+4**9 =
+A: 262144
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-base,248000000,WLO + subtract,"Q: Subtract two numbers.
+63 - 11 =
+A: 52
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-base,248000000,WLO + reverse,"Q: Reverse the string.
+Reverse of srpukw is what?
+A: wkuprs
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-large,780000000,Uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what?
+A: TYR, RECTUS, KI
+
+Q: Uppercase all of the words in the list.
+Uppercase of gaba, craved, ritz is what?
+A: ",1000.0,0.0025200000000000005,0.0004833218389437829,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,google/flan-t5-large,780000000,Concatenate,"Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what?
+A: tyr, rectus, ki, chilli, vogul, bps
+
+Q: Concatenate the two word lists.
+Concatenate of gaba, craved, ritz and krone, duenna, zoic is what?
+A: ",1000.0,0.00504,0.0029076450952617993,,Concatenate extends the first word list to include the words in the second word list.,
+String,google/flan-t5-large,780000000,Remove First,"Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what?
+A: rectus, ki
+
+Q: Remove the first word in the list.
+Remove first of gaba, craved, ritz is what?
+A: ",1000.0,0.9139200000000001,0.06768853374095204,,Remove First removes the first word in the word list.,
+String,google/flan-t5-large,780000000,WLO,"Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,google/flan-t5-large,780000000,WLO + uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what?
+A: TYR, RECTUS, KI
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,google/flan-t5-large,780000000,WLO + remove first,"Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what?
+A: rectus, ki
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,google/flan-t5-large,780000000,WLO + concatenate,"Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what?
+A: tyr, rectus, ki, chilli, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0006000000000000001,0.0004898979485566356,0.967427302482369,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,google/flan-t5-large,780000000,WLO + exponentiate,"Q: Exponentiate the number.
+4**9 =
+A: 262144
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-large,780000000,WLO + subtract,"Q: Subtract two numbers.
+63 - 11 =
+A: 52
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-large,780000000,WLO + reverse,"Q: Reverse the string.
+Reverse of srpukw is what?
+A: wkuprs
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xl,3000000000,Uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what?
+A: TYR, RECTUS, KI
+
+Q: Uppercase all of the words in the list.
+Uppercase of gaba, craved, ritz is what?
+A: ",1000.0,0.012719999999999999,0.0035249964538989257,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,google/flan-t5-xl,3000000000,Concatenate,"Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what?
+A: tyr, rectus, ki, chilli, vogul, bps
+
+Q: Concatenate the two word lists.
+Concatenate of gaba, craved, ritz and krone, duenna, zoic is what?
+A: ",1000.0,0.0005200000000000001,0.000574108003776293,,Concatenate extends the first word list to include the words in the second word list.,
+String,google/flan-t5-xl,3000000000,Remove First,"Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what?
+A: rectus, ki
+
+Q: Remove the first word in the list.
+Remove first of gaba, craved, ritz is what?
+A: ",1000.0,0.95788,0.00967768567375485,,Remove First removes the first word in the word list.,
+String,google/flan-t5-xl,3000000000,WLO,"Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,google/flan-t5-xl,3000000000,WLO + uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what?
+A: TYR, RECTUS, KI
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,google/flan-t5-xl,3000000000,WLO + remove first,"Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what?
+A: rectus, ki
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,google/flan-t5-xl,3000000000,WLO + concatenate,"Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what?
+A: tyr, rectus, ki, chilli, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,google/flan-t5-xl,3000000000,WLO + exponentiate,"Q: Exponentiate the number.
+4**9 =
+A: 262144
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xl,3000000000,WLO + subtract,"Q: Subtract two numbers.
+63 - 11 =
+A: 52
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xl,3000000000,WLO + reverse,"Q: Reverse the string.
+Reverse of srpukw is what?
+A: wkuprs
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xxl,11000000000,Uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what?
+A: TYR, RECTUS, KI
+
+Q: Uppercase all of the words in the list.
+Uppercase of gaba, craved, ritz is what?
+A: ",1000.0,0.11012,0.030191283510311383,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,google/flan-t5-xxl,11000000000,Concatenate,"Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what?
+A: tyr, rectus, ki, chilli, vogul, bps
+
+Q: Concatenate the two word lists.
+Concatenate of gaba, craved, ritz and krone, duenna, zoic is what?
+A: ",1000.0,0.0101,0.007636425865547311,,Concatenate extends the first word list to include the words in the second word list.,
+String,google/flan-t5-xxl,11000000000,Remove First,"Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what?
+A: rectus, ki
+
+Q: Remove the first word in the list.
+Remove first of gaba, craved, ritz is what?
+A: ",1000.0,0.7327199999999999,0.06367248699399138,,Remove First removes the first word in the word list.,
+String,google/flan-t5-xxl,11000000000,WLO,"Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0006000000000000001,0.0004898979485566356,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,google/flan-t5-xxl,11000000000,WLO + uppercase,"Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what?
+A: TYR, RECTUS, KI
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,0.9717751132699256,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,google/flan-t5-xxl,11000000000,WLO + remove first,"Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what?
+A: rectus, ki
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,0.9717751132699256,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,google/flan-t5-xxl,11000000000,WLO + concatenate,"Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what?
+A: tyr, rectus, ki, chilli, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,0.9717751132699256,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,google/flan-t5-xxl,11000000000,WLO + exponentiate,"Q: Exponentiate the number.
+4**9 =
+A: 262144
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,0.9717751132699256,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xxl,11000000000,WLO + subtract,"Q: Subtract two numbers.
+63 - 11 =
+A: 52
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0006000000000000001,0.0004898979485566356,1.0,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,google/flan-t5-xxl,11000000000,WLO + reverse,"Q: Reverse the string.
+Reverse of srpukw is what?
+A: wkuprs
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what?
+A: TYR, RECTUS, KI, vogul, bps
+
+Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what?
+A: ",1000.0,0.0008,0.0004,0.9717751132699256,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,Uppercase,"<s>Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what? [/INST] A: TYR, RECTUS, KI </s>[INST] Q: Uppercase all of the words in the list.
+Uppercase of gaba, craved, ritz is what? [/INST]",1000.0,0.8680000000000001,0.01066433307806915,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,Concatenate,"<s>Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what? [/INST] A: tyr, rectus, ki, chilli, vogul, bps </s>[INST] Q: Concatenate the two word lists.
+Concatenate of gaba, craved, ritz and krone, duenna, zoic is what? [/INST]",1000.0,0.9377999999999999,0.01549348250071622,,Concatenate extends the first word list to include the words in the second word list.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,Remove First,"<s>Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what? [/INST] A: rectus, ki </s>[INST] Q: Remove the first word in the list.
+Remove first of gaba, craved, ritz is what? [/INST]",1000.0,0.8062400000000001,0.10811937106735316,,Remove First removes the first word in the word list.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO,"<s>Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.00828,0.0033240938614906767,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + uppercase,"<s>Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what? [/INST] A: TYR, RECTUS, KI </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.020560000000000002,0.016744384133195223,0.7493247427751298,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + remove first,"<s>Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what? [/INST] A: rectus, ki </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.010719999999999999,0.006519631891449087,0.9402227729475352,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + concatenate,"<s>Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what? [/INST] A: tyr, rectus, ki, chilli, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.00568,0.0034884953776664228,0.9071749499256695,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + exponentiate,"<s>Q: Exponentiate the number.
+4**9 = [/INST] A: 262144 </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.00368,0.0018269099594670779,0.7642877292884722,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + subtract,"<s>Q: Subtract two numbers.
+63 - 11 = [/INST] A: 52 </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.00548,0.0015727682601070002,0.8880962748855351,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-7b-chat-hf,7000000000,WLO + reverse,"<s>Q: Reverse the string.
+Reverse of srpukw is what? [/INST] A: wkuprs </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.00608,0.001135605565326271,0.9204021529540984,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,Uppercase,"<s>Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what? [/INST] A: TYR, RECTUS, KI </s>[INST] Q: Uppercase all of the words in the list.
+Uppercase of gaba, craved, ritz is what? [/INST]",1000.0,0.9228799999999999,0.0034608669434117345,,Uppercase capitalizes all the letters in a word for each word in the word list.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,Concatenate,"<s>Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what? [/INST] A: tyr, rectus, ki, chilli, vogul, bps </s>[INST] Q: Concatenate the two word lists.
+Concatenate of gaba, craved, ritz and krone, duenna, zoic is what? [/INST]",1000.0,0.9915999999999998,0.0018547236990991423,,Concatenate extends the first word list to include the words in the second word list.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,Remove First,"<s>Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what? [/INST] A: rectus, ki </s>[INST] Q: Remove the first word in the list.
+Remove first of gaba, craved, ritz is what? [/INST]",1000.0,0.73552,0.08238326043560061,,Remove First removes the first word in the word list.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO,"<s>Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.20364,0.10808991812375472,,"WLO is a word list operation that is the compositional task. It requires the first word list to be uppercased, the second word list to have the first word removed, and one to concatenate the two sub results.",
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + uppercase,"<s>Q: Uppercase all of the words in the list.
+Uppercase of tyr, rectus, ki is what? [/INST] A: TYR, RECTUS, KI </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.08348,0.08543831459011818,0.09970381498069522,WLO is a word list operation that is the compositional task. We are priming WLO with uppercase because WLO depends on this subtask.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + remove first,"<s>Q: Remove the first word in the list.
+Remove first of tyr, rectus, ki is what? [/INST] A: rectus, ki </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.08468,0.07681526931541671,0.11009304230993165,WLO is a word list operation that is the compositional task. We are priming WLO with remove first because WLO depends on this subtask.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + concatenate,"<s>Q: Concatenate the two word lists.
+Concatenate of tyr, rectus, ki and chilli, vogul, bps is what? [/INST] A: tyr, rectus, ki, chilli, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.12944,0.08266127509299624,0.44273791959280295,WLO is a word list operation that is the compositional task. We are priming WLO with concatenate because WLO depends on this subtask.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + exponentiate,"<s>Q: Exponentiate the number.
+4**9 = [/INST] A: 262144 </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.24528,0.12558889122848405,0.7397509501893127,WLO is a word list operation that is the compositional task. We are priming WLO with exponentiate to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + subtract,"<s>Q: Subtract two numbers.
+63 - 11 = [/INST] A: 52 </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.23612000000000002,0.11539307431557581,0.7934917105626654,WLO is a word list operation that is the compositional task. We are priming WLO with subtraction to see if the performance stays the same or get worse because this task is not required for WLO.,
+String,meta-llama/Llama-2-13b-chat-hf,13000000000,WLO + reverse,"<s>Q: Reverse the string.
+Reverse of srpukw is what? [/INST] A: wkuprs </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using tyr, rectus, ki and chilli, vogul, bps gives what? [/INST] A: TYR, RECTUS, KI, vogul, bps </s>[INST] Q: Perform these operations in order: uppercase all of the words in the first word list, remove the first word in the second word list, and concatenate the two word lists.
+Using gaba, craved, ritz and krone, duenna, zoic gives what? [/INST]",1000.0,0.24728,0.13154573957373153,0.7313323285821751,WLO is a word list operation that is the compositional task. We are priming WLO with string reverse to see if the performance stays the same or get worse because this task is not required for WLO.,

@@ -43,8 +43,7 @@ def run_experiment_model_tokenizer(
     input_file_path: str,
     output_file_path: str,
 ):
-    if os.path.isfile(output_file_path):
-        return
+    print("Creating prompts...")
     device = torch.device("cuda")
     raw_dataset = load_dataset(
         "csv",
@@ -66,6 +65,7 @@ def run_experiment_model_tokenizer(
         _create_prompt, fn_kwargs={"full_prompt_format": full_prompt_format, "prompt_format": prompt_format}, num_proc=8
     )
     print(prompt_dataset["prompt"][0])
+    print("Prompting model...")
     tokenized_prompt_dataset = prompt_dataset.map(
         _tokenize_prompt, fn_kwargs={"tokenizer": tokenizer}, num_proc=8
     )
@@ -101,6 +101,7 @@ def run_experiment_model_tokenizer(
             generated_ids, skip_special_tokens=True
         )
         predictions.extend(generated_texts)
+    print("Writing results...")
     raw_dataset = raw_dataset.map(
         _add_prediction, with_indices=True, fn_kwargs={"predictions": predictions}, num_proc=8
     )
@@ -117,6 +118,7 @@ def run_experiment_pipe(
     output_file_path: str,
     prompt_format=None
 ):
+    print("Creating prompts...")
     raw_dataset = load_dataset(
         "csv",
         data_files=input_file_path,
@@ -137,6 +139,7 @@ def run_experiment_pipe(
         _create_prompt, fn_kwargs={"full_prompt_format": full_prompt_format, "prompt_format": prompt_format}, num_proc=8
     )
     print(prompt_dataset["prompt"][0])
+    print("Prompting model...")
     predictions = []
     for outputs in tqdm(
         pipe(
@@ -150,6 +153,7 @@ def run_experiment_pipe(
     ):
         generated_texts = [output["generated_text"] for output in outputs]
         predictions.extend(generated_texts)
+    print("Writing results...")
     raw_dataset = raw_dataset.map(
         _add_prediction, with_indices=True, fn_kwargs={"predictions": predictions}, num_proc=8
     )
@@ -157,62 +161,62 @@ def run_experiment_pipe(
     raw_dataset.to_csv(output_file_path, index=False)
 
 
-def run_experiment_outlines(
-    full_prompt_format,
-    prompt_format,
-    module: str,
-    batch_size: int,
-    input_file_path: str,
-    output_file_path: str,
-):
-    model = models.transformers(module, model_kwargs={"device_map": "auto"})
-    # sampler = samplers.beam_search(beams=5)
-    # generator = generate.text(model, sampler)
-    generator = generate.text(model)
-    raw_dataset = load_dataset(
-        "csv",
-        data_files=input_file_path,
-        features=Features(
-            {
-                "priming_instruction": Value("string"),
-                "priming_question": Value("string"),
-                "priming_answer": Value("string"),
-                "instruction": Value("string"),
-                "example_question": Value("string"),
-                "example_answer": Value("string"),
-                "question": Value("string"),
-                "answer": Value("string"),
-            }
-        ),
-    )["train"]
+# def run_experiment_outlines(
+#     full_prompt_format,
+#     prompt_format,
+#     module: str,
+#     batch_size: int,
+#     input_file_path: str,
+#     output_file_path: str,
+# ):
+#     model = models.transformers(module, model_kwargs={"device_map": "auto"})
+#     # sampler = samplers.beam_search(beams=5)
+#     # generator = generate.text(model, sampler)
+#     generator = generate.text(model)
+#     raw_dataset = load_dataset(
+#         "csv",
+#         data_files=input_file_path,
+#         features=Features(
+#             {
+#                 "priming_instruction": Value("string"),
+#                 "priming_question": Value("string"),
+#                 "priming_answer": Value("string"),
+#                 "instruction": Value("string"),
+#                 "example_question": Value("string"),
+#                 "example_answer": Value("string"),
+#                 "question": Value("string"),
+#                 "answer": Value("string"),
+#             }
+#         ),
+#     )["train"]
 
-    prompt_dataset = raw_dataset.map(
-        _create_prompt, fn_kwargs={"full_prompt_format": full_prompt_format, "prompt_format": prompt_format}, num_proc=8
-    )
-    print(prompt_dataset["prompt"][0])
+#     prompt_dataset = raw_dataset.map(
+#         _create_prompt, fn_kwargs={"full_prompt_format": full_prompt_format, "prompt_format": prompt_format}, num_proc=8
+#     )
+#     print(prompt_dataset["prompt"][0])
 
-    prompt_dataset = prompt_dataset.remove_columns(
-        [
-            "priming_instruction",
-            "priming_question",
-            "priming_answer",
-            "instruction",
-            "example_question",
-            "example_answer",
-            "question",
-            "answer",
-        ]
-    )
+#     prompt_dataset = prompt_dataset.remove_columns(
+#         [
+#             "priming_instruction",
+#             "priming_question",
+#             "priming_answer",
+#             "instruction",
+#             "example_question",
+#             "example_answer",
+#             "question",
+#             "answer",
+#         ]
+#     )
 
-    loader = DataLoader(prompt_dataset, batch_size)
+#     loader = DataLoader(prompt_dataset, batch_size)
 
-    predictions = []
-    for batch in tqdm(loader):
-        generated_texts = generator(batch["prompt"], max_tokens=32, stop_at="INST")
-        predictions.extend(generated_texts)
+#     predictions = []
+#     for batch in tqdm(loader):
+#         generated_texts = generator(batch["prompt"], stop_at="INST")
+#         predictions.extend(generated_texts)
         
-    raw_dataset = raw_dataset.map(
-        _add_prediction, with_indices=True, fn_kwargs={"predictions": predictions}, num_proc=8
-    )
-    os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
-    raw_dataset.to_csv(output_file_path, index=False)
+#     raw_dataset = raw_dataset.map(
+#         _add_prediction, with_indices=True, fn_kwargs={"predictions": predictions}, num_proc=8
+#     )
+#     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
+#     raw_dataset.to_csv(output_file_path, index=False)
